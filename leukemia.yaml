@@ -1,0 +1,6 @@
+path: F:/Acdemics/Sem 8/Computer_Vision/Image_Processing_Project/data/Leukemia_YOLO
+train: train/images
+val: val/images
+test: test/images
+nc: 2
+names: ['Normal', 'Blast']
