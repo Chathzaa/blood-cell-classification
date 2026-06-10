@@ -10,7 +10,7 @@ This project presents an automated, production-ready system for microscopic bloo
 
 ### Key Features
 
-- **Real-time Detection & Classification**: YOLOv8 nano model for 6-class cell detection (RBC, Neutrophil, Lymphocyte, Monocyte, Eosinophil, Platelet)
+- **Real-time Detection & Classification**: 3-stage YOLOv8 pipeline for 7-class cell detection (RBC, WBC, Platelet, Neutrophil, Lymphocyte, Monocyte, Eosinophil) plus Blast cell detection
 - **Advanced Segmentation**: Watershed algorithm with morphological cleanup for accurate cell boundary separation
 - **Morphological Feature Extraction**: 22+ features including area, circularity, nuclear irregularity, and texture descriptors
 - **Disorder Screening**: Rule-based detection for Acute Lymphoblastic Leukemia (ALL), Anemia, Sickle Cell Disease
@@ -21,7 +21,7 @@ This project presents an automated, production-ready system for microscopic bloo
 ### Performance
 
 - **Processing Speed**: ~0.5 seconds per slide on NVIDIA RTX GPU (7700+ slides/hour)
-- **Accuracy**: >92% mAP@0.5 on 6-class cell detection
+- **Accuracy**: >92% mAP@0.5 on cell detection
 - **Segmentation Quality**: Dice coefficient >0.92
 - **Memory Usage**: <4GB VRAM during inference
 
@@ -54,11 +54,15 @@ This project presents an automated, production-ready system for microscopic bloo
 │
 ├── runs/                       # Training outputs and model checkpoints
 │   └── detect/runs/
-│       ├── stage1_bccd/        # Detection training results
-│       ├── stage2_transfer/    # Classification fine-tuning results
-│       └── stage3_final/       # Final pathology model
+│       ├── stage1_detection/   # Stage 1: RBC / WBC / Platelet detection
 │           └── weights/
-│               └── best.pt     # Best model weights (main inference model)
+│               └── best.pt
+│       ├── stage2_classification/  # Stage 2: WBC subtype classification
+│           └── weights/
+│               └── best.pt
+│       └── stage3_final/       # Stage 3: Blast cell / pathology detection
+│           └── weights/
+│               └── best.pt
 │
 ├── notebooks/                  # Jupyter notebooks for exploration
 │
@@ -109,11 +113,14 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-#### 4. Download Pre-trained Model
+#### 4. Download Pre-trained Models
 
 ```bash
-# The trained model is included in runs/detect/runs/stage3_final/weights/best.pt
-# If missing, retrain using train_stage3.py or download from releases
+# All three trained models must be present:
+#   runs/detect/runs/stage1_detection/weights/best.pt
+#   runs/detect/runs/stage2_classification/weights/best.pt
+#   runs/detect/runs/stage3_final/weights/best.pt
+# If missing, retrain using the train scripts (see Training section below)
 
 # For GPU support (CUDA 11.8):
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
@@ -155,7 +162,7 @@ result.save('outputs/analysis.jpg')
 ```
 
 **Output:**
-- Cell counts for each class
+- Cell counts for each class (including WBC subtypes and Blast cells)
 - Detected disorders (if any)
 - Annotated image with bounding boxes
 
@@ -201,7 +208,10 @@ The main entry point. Steps:
 1. **Preprocess Image**: CLAHE contrast enhancement, color space transformation, noise reduction
 2. **Segment Cells**: Watershed algorithm separates overlapping cells
 3. **Extract Features**: Compute 22 morphological and textural features
-4. **YOLO Detection**: Classify cells using trained YOLOv8 model
+4. **YOLOv8 Detection (3-Stage)**:
+   - Stage 1 — Detects RBC, WBC, and Platelet on the full slide
+   - Stage 2 — Classifies each WBC crop into subtypes: Neutrophil, Lymphocyte, Monocyte, Eosinophil
+   - Stage 3 — Scans for leukemia Blast cells across the full slide
 5. **Disorder Detection**: Apply clinical rules to flag abnormalities
 
 ```python
@@ -209,10 +219,17 @@ from src.pipeline import analyze
 
 result, cell_counts, disorders, feature_list = analyze('blood_smear.jpeg')
 
-# result: YOLO Results object with bounding boxes
-# cell_counts: dict with cell type counts
+# result: YOLO Results object with bounding boxes (from Stage 1)
+# cell_counts: dict with counts for RBC, WBC, Platelet, Neutrophil,
+#              Lymphocyte, Monocyte, Eosinophil, Blast
 # disorders: dict with detected disorders and evidence
 # feature_list: list of morphological features per cell
+```
+
+An optional `log` parameter accepts a callable for progress messages, used by the Streamlit UI:
+
+```python
+result, cell_counts, disorders, feature_list = analyze('blood_smear.jpeg', log=print)
 ```
 
 ### Preprocessing: `preprocessing.py`
@@ -268,14 +285,17 @@ Applies clinical rules:
 ```python
 from src.disorder_detection import detect_disorders
 
-disorders = detect_disorders(cell_counts, feature_list)
+disorders = detect_disorders(cell_counts, feature_list,
+                             rbc_features=rbc_features,
+                             wbc_features=wbc_features,
+                             blast_features=blast_features)
 # Returns dict with detected disorders and evidence
 ```
 
 **Detection Rules:**
-- **ALL (Acute Lymphoblastic Leukemia)**: Lymphoblasts >20% of WBC, Nuclear irregularity >1.4, NC ratio >0.7
-- **Anemia**: RBC size deviation >2σ, abnormal size distribution
-- **Sickle Cell Disease**: RBC circularity <0.85 in >5% of cells
+- **ALL (Acute Lymphoblastic Leukemia)**: Blast cells >20% of WBC, >10 cells with nuclear irregularity >1.4, NC ratio >0.7 as supporting indicator
+- **Anemia**: High RBC size variation (coefficient of variation >0.35) and/or >30% hypochromic RBCs (NC ratio <0.15)
+- **Sickle Cell Disease**: Requires ≥15 RBCs; >40% with circularity <0.60 AND >30% with eccentricity >0.80 (both conditions must be met to avoid false positives from normal oval RBCs)
 
 ---
 
@@ -326,16 +346,20 @@ names: ['RBC', 'Neutrophil', 'Lymphocyte', 'Monocyte', 'Eosinophil', 'Platelet']
 
 ### Model Configuration
 
-In `pipeline.py`, adjust thresholds:
+In `pipeline.py`, model paths and disorder thresholds can be adjusted:
 
 ```python
-# Confidence threshold for detections
-CONF_THRESHOLD = 0.5
+# Model weight paths
+MODEL_STAGE1 = 'runs/detect/runs/stage1_detection/weights/best.pt'
+MODEL_STAGE2 = 'runs/detect/runs/stage2_classification/weights/best.pt'
+MODEL_STAGE3 = 'runs/detect/runs/stage3_final/weights/best.pt'
 
-# Disorder detection thresholds
-BLAST_THRESHOLD = 0.20  # >20% lymphoblasts suggests ALL
-NC_RATIO_THRESHOLD = 0.7
+# Disorder detection thresholds (in disorder_detection.py)
+BLAST_THRESHOLD = 0.20           # >20% blast cells suggests ALL
+NC_RATIO_THRESHOLD = 0.7         # NC ratio threshold for ALL
 NUCLEAR_IRREGULARITY_THRESHOLD = 1.4
+SICKLE_CIRCULARITY_THRESHOLD = 0.60   # below this = possible sickle shape
+SICKLE_ECCENTRICITY_THRESHOLD = 0.80  # above this = highly elongated cell
 ```
 
 ---
@@ -363,11 +387,13 @@ YOLO results with bounding boxes, class labels, and confidence scores:
   },
   "cell_counts": {
     "RBC": 145,
-    "Neutrophil": 52,
-    "Lymphocyte": 28,
-    "Monocyte": 8,
+    "WBC": 52,
+    "Platelet": 98,
+    "Neutrophil": 28,
+    "Lymphocyte": 14,
+    "Monocyte": 6,
     "Eosinophil": 4,
-    "Platelet": 98
+    "Blast": 0
   },
   "disorder_screening": {
     "Normal": {"evidence": "All parameters within normal range", "detected": false}
@@ -451,8 +477,16 @@ This project is developed for academic purposes at the University of Ruhuna. All
 
 ### Issue: "Model not found" error
 
-**Solution**: Ensure `runs/detect/runs/stage3_final/weights/best.pt` exists or retrain:
+**Solution**: Ensure all three model weight files exist:
+```
+runs/detect/runs/stage1_detection/weights/best.pt
+runs/detect/runs/stage2_classification/weights/best.pt
+runs/detect/runs/stage3_final/weights/best.pt
+```
+If missing, retrain each stage:
 ```bash
+python src/train_stage1.py
+python src/train_stage2.py
 python src/train_stage3.py
 ```
 
@@ -486,5 +520,5 @@ For questions or issues, open an issue on GitHub or contact the development team
 
 ---
 
-**Last Updated:** June 5, 2025  
+**Last Updated:** June 10, 2026  
 **Status:** Production-Ready
