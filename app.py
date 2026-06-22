@@ -18,29 +18,27 @@ st.set_page_config(
 
 # ── header ─────────────────────────────────────────────────────────────
 st.markdown("# 🔬 Automated Blood Cell Classification System")
-st.markdown("**University of Ruhuna — EE7204 / EC7205 Image Processing & Computer Vision**")
 st.divider()
 
 # ── sidebar ────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.header("About")
-    st.info(
-        "This system automatically analyzes blood smear images to:\n\n"
-        "• Detect and classify blood cells\n"
-        "• Count RBCs, WBCs, Platelets\n"
-        "• Screen for hematological disorders\n"
-        "• Generate clinical reports"
-    )
-    st.header("Normal Ranges")
+    st.markdown("### WBC Normal Ranges")
+    st.dataframe(pd.DataFrame({
+        'Cell Type':    ['Neutrophil', 'Lymphocyte', 'Monocyte', 'Eosinophil'],
+        'Normal Range': ['50–70%',     '20–40%',     '2–8%',     '1–4%'],
+    }), hide_index=True, use_container_width=True)
+    st.divider()
+    st.markdown("### Disorder Rules")
     st.markdown("""
-    | Cell Type | Normal % |
-    |-----------|----------|
-    | Neutrophil | 50–70% |
-    | Lymphocyte | 20–40% |
-    | Monocyte | 2–8% |
-    | Eosinophil | 1–4% |
-    """)
+**ALL (Leukemia)**
+Blast > 20% of WBC + nuclear irregularity > 1.4
 
+**Sickle Cell Disease**
+RBC circularity < 0.75 in > 20% of RBCs
+
+**Anemia**
+High RBC size variation (CV > 0.35) or > 30% pale RBCs
+    """)
 
 def generate_pdf(report, annotated_img, timestamp, filename):
     """Generate PDF clinical report using reportlab."""
@@ -74,7 +72,6 @@ def generate_pdf(report, annotated_img, timestamp, filename):
 
         # Title
         story.append(Paragraph("Automated Blood Cell Analysis Report", title_style))
-        story.append(Paragraph("University of Ruhuna — EE7204 / EC7205", center_style))
         story.append(Spacer(1, 0.3*cm))
         story.append(HRFlowable(width="100%", thickness=2,
                                   color=colors.HexColor('#1a237e')))
@@ -85,8 +82,6 @@ def generate_pdf(report, annotated_img, timestamp, filename):
         meta_data = [
             ['Generated At', timestamp],
             ['Image File',   filename],
-            ['Institution',  'University of Ruhuna'],
-            ['Module',       'EE7204 / EC7205 Image Processing & Computer Vision'],
         ]
         meta_table = Table(meta_data, colWidths=[5*cm, 12*cm])
         meta_table.setStyle(TableStyle([
@@ -249,8 +244,18 @@ if uploaded:
         tmp.write(uploaded.read())
         tmp_path = tmp.name
 
-    with st.spinner("🔬 Analyzing blood smear..."):
-        result, counts, disorders, feature_list = analyze(tmp_path)
+    # ── LIVE PIPELINE LOG ──────────────────────────────────────────
+    log_lines = []
+
+    with st.status("🔬 Running analysis pipeline...", expanded=True) as status_box:
+        log_area = st.empty()
+
+        def log(msg):
+            log_lines.append(msg)
+            log_area.code('\n'.join(log_lines), language=None)
+
+        result, counts, disorders, feature_list = analyze(tmp_path, log=log)
+        status_box.update(label="✅ Analysis complete", state="complete", expanded=False)
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -414,7 +419,7 @@ if uploaded:
                             'Acute Lymphoblastic Leukemia':
                                 "Lymphoblasts > 20% of WBC\nNuclear irregularity > 1.4\nHigh NC ratio > 0.7",
                             'Sickle Cell Disease':
-                                "RBC circularity < 0.75\n> 20% of RBCs affected",
+                                "RBC circularity < 0.60\nEccentricity > 0.80\n> 40% of RBCs affected",
                             'Anemia':
                                 "High RBC size variation (CV > 0.35)\nOR hypochromic RBCs (pale cells > 30%)",
                         }
@@ -446,8 +451,6 @@ if uploaded:
             "report_metadata": {
                 "generated_at": timestamp,
                 "system":       "Automated Blood Cell Classification System",
-                "institution":  "University of Ruhuna",
-                "module":       "EE7204 / EC7205"
             },
             "cell_counts": {
                 "RBC":          total_rbc,
@@ -506,7 +509,6 @@ if uploaded:
         st.subheader("Download Report")
         dl1, dl2, dl3, dl4 = st.columns(4)
 
-        # JSON
         json_str = json.dumps(report, indent=2)
         dl1.download_button(
             label="📥 JSON",
@@ -515,7 +517,6 @@ if uploaded:
             mime="application/json"
         )
 
-        # CSV
         csv_rows = []
         for cell, cnt in counts.items():
             csv_rows.append({'Category': 'Cell Count', 'Item': cell,
@@ -535,7 +536,6 @@ if uploaded:
             mime="text/csv"
         )
 
-        # PDF
         pdf_buf = generate_pdf(report, annotated, timestamp, uploaded.name)
         if pdf_buf:
             dl3.download_button(
@@ -547,7 +547,6 @@ if uploaded:
         else:
             dl3.warning("Install reportlab for PDF: pip install reportlab pillow")
 
-        # Annotated image
         with open(ann_path, 'rb') as f:
             dl4.download_button(
                 label="📥 Annotated Image",
