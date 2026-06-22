@@ -60,20 +60,49 @@ def detect_disorders(cell_counts, feature_list,
 
     # ── Sickle Cell Disease ─────────────────────────────────────────
     # Proposal: Low circularity of RBCs
-    # Need real blood smear: at least 10 RBCs and 15 total cells
-    if len(rbc_features) >= 10 and total_rbc >= 10 and total_cells >= 15:
+    #
+    # WHY THE FALSE POSITIVE HAPPENED:
+    # Normal RBCs are biconcave discs — when photographed flat under a
+    # microscope they naturally appear as irregular ovals/rings, not
+    # perfect circles. Their circularity typically ranges 0.60–0.80.
+    # The old threshold of 0.75 was too high and caught normal RBCs.
+    #
+    # FIX:
+    # 1. Threshold lowered to 0.60 — true sickle cells are crescent/
+    #    elongated and score well below 0.60. Normal RBCs rarely do.
+    # 2. Minimum 15 RBCs required — rules out single-cell test images.
+    # 3. Percentage raised to 40% — a few deformed RBCs exist even in
+    #    healthy blood; real sickle cell disease affects the majority.
+    # 4. Added eccentricity check — sickle cells are highly elongated
+    #    (eccentricity > 0.8). Normal oval RBCs score ~0.5–0.7.
+    #    This is the strongest discriminator.
+
+    if len(rbc_features) >= 15 and total_rbc >= 15 and total_cells >= 20:
         rbc_circularities = [f['circularity'] for f in rbc_features]
-        sickle_count = sum(1 for c in rbc_circularities if c < 0.75)
+
+        # use 0.60 threshold — true sickle shape is very elongated
+        sickle_count = sum(1 for c in rbc_circularities if c < 0.60)
         sickle_pct   = sickle_count / len(rbc_circularities)
 
-        if sickle_pct > 0.20:
+        # also check eccentricity if available (highly elongated = sickle)
+        eccentric_count = sum(
+            1 for f in rbc_features
+            if f.get('eccentricity', 0) > 0.80
+        )
+        eccentric_pct = eccentric_count / len(rbc_features)
+
+        # require BOTH low circularity AND high eccentricity
+        # to avoid flagging normal slightly-oval RBCs
+        if sickle_pct > 0.40 and eccentric_pct > 0.30:
+            confidence = round(min((sickle_pct + eccentric_pct) / 2, 1.0), 2)
             results['Sickle Cell Disease'] = {
                 'detected':   True,
-                'confidence': round(min(sickle_pct * 2, 1.0), 2),
+                'confidence': confidence,
                 'evidence':   (
-                    f"{sickle_pct*100:.1f}% of RBCs have low circularity < 0.75 "
-                    f"({sickle_count}/{len(rbc_circularities)} cells), "
-                    f"indicating sickle-shaped deformation"
+                    f"{sickle_pct*100:.1f}% of RBCs have circularity < 0.60 "
+                    f"({sickle_count}/{len(rbc_circularities)} cells) "
+                    f"and {eccentric_pct*100:.1f}% are highly elongated "
+                    f"(eccentricity > 0.80), indicating sickle-shaped deformation"
                 )
             }
 
