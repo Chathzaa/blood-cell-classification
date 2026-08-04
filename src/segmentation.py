@@ -96,10 +96,40 @@ def filter_contours(binary):
     valid = [c for c in contours if 100 < cv2.contourArea(c) < 5000]
     return valid
 
+def contours_from_markers(markers, min_area=100, max_area=5000):
+    """
+    Extract one contour per watershed region.
+
+    THIS IS THE STEP THAT WAS MISSING. Previously `markers` was computed and
+    then thrown away, and contours came from the plain Otsu mask instead --
+    which means touching cells were never separated.
+
+    Watershed label convention (OpenCV):
+        -1 = boundary pixels between regions
+         0 = 'unknown' zone
+         1 = background
+        >1 = individual cell regions   <-- these are what we want
+    """
+    contours = []
+    for label in np.unique(markers):
+        if label <= 1:
+            continue
+        mask = np.zeros(markers.shape, dtype=np.uint8)
+        mask[markers == label] = 255
+        cs, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        for c in cs:
+            if min_area < cv2.contourArea(c) < max_area:
+                contours.append(c)
+    return contours
+
+
 def segment_image(processed_image):
-    binary = otsu_threshold(processed_image)
-    dist = distance_transform(binary)
-    markers = watershed_segment(processed_image, binary, dist)
-    clean = morphological_cleanup(binary)
-    contours = filter_contours(clean)
+    binary   = otsu_threshold(processed_image)
+    clean    = morphological_cleanup(binary)      # clean FIRST
+    dist     = distance_transform(clean)          # distance on the CLEAN mask
+    markers  = watershed_segment(processed_image, clean, dist)
+
+    # Contours now come FROM the watershed regions, not from the raw mask.
+    contours = contours_from_markers(clean if markers is None else markers)
+
     return contours, markers, clean

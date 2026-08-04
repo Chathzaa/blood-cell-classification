@@ -85,16 +85,32 @@ def geometric_features(contour):
         eccentricity = 0
     return [area, perimeter, circularity, eccentricity, convexity]
 
-def nuclear_features(cell_roi):
+def nuclear_features(cell_roi, cell_contour=None):
     if cell_roi.size == 0:
         return [0, 0]
-    blue = cell_roi[:, :, 0]
-    _, nucleus = cv2.threshold(
-        blue, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
-    )
+
+    # Haematoxylin stains the nucleus purple/blue -> HIGH blue, LOW green.
+    # Thresholding INV on the GREEN channel selects the dark (nuclear) pixels.
+    # (The old code used INV on BLUE, which selects LOW blue = NOT the nucleus.)
+    sat = cv2.cvtColor(cell_roi, cv2.COLOR_BGR2HSV)[:, :, 1]
+    _, nucleus = cv2.threshold(sat, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    
     nucleus_area = np.sum(nucleus > 0)
-    cell_area = cell_roi.shape[0] * cell_roi.shape[1] + 1e-10
+
+    # N:C ratio must divide by CELL area, not BOUNDING BOX area.
+    # A circle fills only ~78% of its bounding box, so the old version
+    # under-reported every N:C ratio by roughly 22%.
+    if cell_contour is not None:
+        cell_mask = np.zeros(cell_roi.shape[:2], dtype=np.uint8)
+        x, y, _, _ = cv2.boundingRect(cell_contour)
+        shifted = cell_contour - np.array([[x, y]])      # into ROI coords
+        cv2.drawContours(cell_mask, [shifted], -1, 255, -1)
+        cell_area = np.count_nonzero(cell_mask) + 1e-10
+    else:
+        cell_area = cell_roi.shape[0] * cell_roi.shape[1] + 1e-10
+
     nc_ratio = nucleus_area / cell_area
+
     ncs, _ = cv2.findContours(nucleus, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if ncs:
         nc = max(ncs, key=cv2.contourArea)
@@ -114,22 +130,43 @@ def color_features(cell_roi):
 
 def texture_features(cell_roi):
     if cell_roi.size == 0:
-        return [0]*8
+        return [0]*9
     gray = cv2.cvtColor(cell_roi, cv2.COLOR_BGR2GRAY)
     glcm = graycomatrix(gray, [1], [0], 256, symmetric=True, normed=True)
     energy = graycoprops(glcm, 'energy')[0,0]
     contrast = graycoprops(glcm, 'contrast')[0,0]
     homogeneity = graycoprops(glcm, 'homogeneity')[0,0]
     entropy = -np.sum(glcm * np.log2(glcm + 1e-10))
+    # GLCM correlation - listed on slide 8 but never actually computed.
+    # Adding it brings the vector from 21 to the 22 features the report claims.
+    correlation = graycoprops(glcm, 'correlation')[0, 0]
     lbp = local_binary_pattern(gray, 8, 1, method='uniform')
-    hist, _ = np.histogram(lbp.ravel(), bins=4, range=(0,10))
-    return [energy, contrast, homogeneity, entropy] + hist.tolist()
+    hist, _ = np.histogram(lbp.ravel(), bins=4, range=(0, 10))
+    return [energy, contrast, homogeneity, entropy, correlation] + hist.tolist()
+
 
 def extract_all_features(contour, image):
+    """
+    Returns a 22-element feature vector:
+        [0]     area
+        [1]     perimeter
+        [2]     circularity
+        [3]     eccentricity
+        [4]     convexity
+        [5]     nc_ratio
+        [6]     nuclear_irregularity
+        [7-12]  H/S/V mean+std
+        [13-16] GLCM energy, contrast, homogeneity, entropy
+        [17]    GLCM correlation          <-- NEW (this is the missing 22nd)
+        [18-21] LBP histogram (4 bins)
+
+    DO NOT reorder these. pipeline.py indexes them positionally:
+    fv[0]=area, fv[2]=circularity, fv[5]=nc_ratio, fv[6]=nuclear_irregularity
+    """
     x, y, w, h = cv2.boundingRect(contour)
     roi = image[y:y+h, x:x+w]
-    geo = geometric_features(contour)
-    nuc = nuclear_features(roi)
-    col = color_features(roi)
-    tex = texture_features(roi)
-    return geo + nuc + col + tex
+    geo = geometric_features(contour)          # 5
+    nuc = nuclear_features(roi, contour)       # 2   <-- now passes the contour
+    col = color_features(roi)                  # 6
+    tex = texture_features(roi)                # 9
+    return geo + nuc + col + tex               # = 22

@@ -1,4 +1,4 @@
-path: F:/Acdemics/Sem 8/Computer_Vision/Image_Processing_Project/data/Leukemia_YOLO
+path: F:\Acdemics\Sem 8\IPCVPaper\blood-cell-classification\data\Leukemia_YOLO
 train: train/images
 val: val/images
 test: test/images

@@ -8,8 +8,9 @@ from features import extract_all_features
 from disorder_detection import detect_disorders
 
 MODEL_STAGE1 = 'runs/detect/runs/stage1_detection/weights/best.pt'
-MODEL_STAGE2 = 'runs/detect/runs/stage2_classification/weights/best.pt'
-MODEL_STAGE3 = 'runs/detect/runs/stage3_final/weights/best.pt'
+MODEL_STAGE2 = 'runs/classify/runs/stage2_cls_groupsplit/weights/best.pt'
+MODEL_STAGE3 = 'runs/classify/runs/stage3_cls_dedup/weights/best.pt'
+
 
 _model1 = None
 _model2 = None
@@ -91,8 +92,10 @@ def analyze(image_path, log=None):
     emit("   Applying Gaussian blur (noise reduction)...")
     emit("   Converting BGR → LAB color space...")
     emit("   Applying CLAHE contrast enhancement...")
-    processed = preprocess_image(image_path)
-    h_img, w_img = processed.shape[:2]
+    raw = cv2.imread(image_path)                 # what YOLO was TRAINED on
+    processed = preprocess_image(image_path)     # for segmentation + features
+    h_img, w_img = raw.shape[:2]
+
     emit(f"   ✅ Preprocessing done — image size: {w_img}×{h_img}px  [{time.time()-t0:.2f}s]")
 
     # ── STEP 2: Segmentation ──────────────────────────────────────
@@ -135,14 +138,20 @@ def analyze(image_path, log=None):
     model1, model2, model3 = get_models(log=emit)
 
     cell_counts = {
-        'RBC': 0, 'WBC': 0, 'Platelet': 0,
+        'RBC': 0, 'WBC': 0, 'WBC_subtyped': 0, 'Platelet': 0,
         'Eosinophil': 0, 'Lymphocyte': 0,
         'Monocyte': 0, 'Neutrophil': 0, 'Blast': 0,
+        'Leukemia_Stage_Early': 0, 'Leukemia_Stage_Pre': 0, 'Leukemia_Stage_Pro': 0,
     }
+
 
     stage1_names = {0: 'RBC', 1: 'WBC', 2: 'Platelet'}
     stage2_names = {0: 'Eosinophil', 1: 'Lymphocyte', 2: 'Monocyte', 3: 'Neutrophil'}
-    stage3_names = {0: 'Normal', 1: 'Blast'}
+    _stage2_raw_names = model2.names 
+    # Stage 3 is a 4-class leukemia-severity classifier (Benign/Early/Pre/Pro),
+    # not binary Normal/Blast. Benign = no leukemia; Early/Pre/Pro = increasing
+    # severity of ALL (Acute Lymphoblastic Leukemia).
+    stage3_names = {0: 'Benign', 1: 'Early', 2: 'Pre', 3: 'Pro'}
 
     feature_list  = []
     rbc_features  = []
@@ -152,7 +161,10 @@ def analyze(image_path, log=None):
 
     # Stage 1
     emit("   [Stage 1] Detecting RBC / WBC / Platelet on full slide...")
-    results1 = model1(processed, verbose=False)
+     # Feed YOLO the RAW image - it was trained on raw BCCD images, not on
+    # CLAHE-enhanced ones. Feeding preprocessed images was a train/inference
+    # distribution mismatch and was suppressing RBC detections.
+    results1 = model1(raw, verbose=False)
     for box in results1[0].boxes:
         cls_idx  = int(box.cls[0])
         cls_name = stage1_names.get(cls_idx, 'Unknown')
@@ -162,7 +174,7 @@ def analyze(image_path, log=None):
 
         x1, y1, x2, y2 = map(int, box.xyxy[0].tolist())
         x1=max(0,x1); y1=max(0,y1); x2=min(w_img,x2); y2=min(h_img,y2)
-        feats = extract_features_from_box(processed, x1, y1, x2, y2)
+        feats = extract_features_from_box(processed, x1, y1, x2, y2)   # keep: features from enhanced image
         if feats:
             feats['cell_type'] = cls_name
             feature_list.append(feats)
@@ -171,8 +183,9 @@ def analyze(image_path, log=None):
             elif cls_name == 'WBC':
                 wbc_features.append(feats)
                 pad=10
-                crop=processed[max(0,y1-pad):min(h_img,y2+pad),
-                               max(0,x1-pad):min(w_img,x2+pad)]
+                crop=raw[max(0,y1-pad):min(h_img,y2+pad),
+                         max(0,x1-pad):min(w_img,x2+pad)]
+
                 if crop.size > 0:
                     wbc_crops.append(crop)
 
@@ -184,31 +197,49 @@ def analyze(image_path, log=None):
     wbc_subtype_total = 0
     for crop in wbc_crops:
         r2 = model2(crop, verbose=False)
-        if r2[0].boxes and len(r2[0].boxes) > 0:
-            best = max(r2[0].boxes, key=lambda b: float(b.conf[0]))
-            cls_name = stage2_names.get(int(best.cls[0]), 'Unknown')
-            if cls_name in cell_counts:
+        raw_name = model2.names.get(int(r2[0].probs.top1), 'Unknown')
+        cls_name = raw_name.title()
+        if cls_name in cell_counts:
                 cell_counts[cls_name] += 1
                 wbc_subtype_total += 1
-    if wbc_subtype_total > 0:
-        cell_counts['WBC'] = wbc_subtype_total
+    # DO NOT overwrite the detected WBC count with the subtyped count.
+    # If Stage 2 fails on 3 of 10 WBCs, overwriting silently loses 3 cells
+    # from the CBC. Keep both numbers.
+    cell_counts['WBC_subtyped'] = wbc_subtype_total
+    if wbc_subtype_total < cell_counts['WBC']:
+        emit(f"   [Stage 2] WARNING: {cell_counts['WBC'] - wbc_subtype_total} "
+             f"WBC(s) could not be subtyped")
+
     emit(f"   [Stage 2] WBC subtypes — Neutrophil: {cell_counts['Neutrophil']}, "
          f"Lymphocyte: {cell_counts['Lymphocyte']}, "
          f"Monocyte: {cell_counts['Monocyte']}, "
          f"Eosinophil: {cell_counts['Eosinophil']}")
 
     # Stage 3
-    emit("   [Stage 3] Scanning for leukemia blast cells...")
-    results3 = model3(processed, verbose=False)
-    for box in results3[0].boxes:
-        cls_idx  = int(box.cls[0])
-        if cls_idx == 1:  # Blast
+ # Stage 3 -- run on the WBC CROPS, not the full slide.
+    # Stage 3 was trained on single-cell bone-marrow images (one cell filling
+    # the frame). Running it on a whole peripheral-blood slide with ~100 cells
+    # is a severe domain shift and its "blast" calls there are not trustworthy.
+    emit(f"   [Stage 3] Screening {len(wbc_crops)} WBC crop(s) for blast cells...")
+    for crop in wbc_crops:
+        r3 = model3(crop, verbose=False)
+        raw_name = model3.names.get(int(r3[0].probs.top1), 'Unknown').title()
+        if raw_name != 'Benign':      # Early/Pre/Pro = some leukemia severity
             cell_counts['Blast'] += 1
-            x1,y1,x2,y2 = map(int, box.xyxy[0].tolist())
-            x1=max(0,x1); y1=max(0,y1); x2=min(w_img,x2); y2=min(h_img,y2)
-            feats = extract_features_from_box(processed, x1, y1, x2, y2)
-            if feats:
-                feats['cell_type'] = 'Blast'
+            cell_counts.setdefault('Leukemia_Stage_' + raw_name, 0)
+            cell_counts['Leukemia_Stage_' + raw_name] += 1
+            gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
+            _, binary = cv2.threshold(gray, 0, 255,
+                                      cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+            cs, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL,
+                                     cv2.CHAIN_APPROX_SIMPLE)
+            if cs:
+                fv = extract_all_features(max(cs, key=cv2.contourArea), crop)
+                feats = {
+                    'area': fv[0], 'circularity': fv[2],
+                    'nc_ratio': fv[5], 'nuclear_irregularity': fv[6],
+                    'eccentricity': fv[3], 'cell_type': 'Blast',
+                }
                 blast_features.append(feats)
                 feature_list.append(feats)
     emit(f"   [Stage 3] Blast cells detected: {cell_counts['Blast']}")

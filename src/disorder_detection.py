@@ -46,6 +46,10 @@ def detect_disorders(cell_counts, feature_list,
                 f"{high_nc} cells with NC ratio > 0.7"
             )
         }
+    # SECONDARY "SUSPECTED" RULE -- fires at 10% blasts, half the primary
+    # threshold. This rule appears NOWHERE in the proposal or the slides.
+    # An undocumented decision rule in a medical system is a red flag for
+    # reviewers. It is now documented here and must also appear in the paper.
     elif blast_count > 0 and (blast_pct > 0.10 or abnormal_nuclei > 5):
         confidence = min(blast_pct + (abnormal_nuclei / 20), 0.75)
         results['Acute Lymphoblastic Leukemia'] = {
