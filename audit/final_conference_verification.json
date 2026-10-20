@@ -24,7 +24,9 @@
   "full_table_borders": true,
   "long_text_dashes": false,
   "acknowledgment": false,
+  "regular_heading_letterforms": true,
+  "recorded_nll_verified": true,
   "scope": "Blood cell detection and image-level ALL screening",
   "claim": "ALL-specific supervised evidence formulation and controlled empirical evaluation; no superiority claim",
-  "pdf_sha256": "f4a3f24e631e370a1e0ecc1c6d67fe7b8779755cb86604682fce9c154acef200"
+  "pdf_sha256": "38c91da5d3c934421cc9a3ab22a7006437ce13fcbb3cb6e350ba5a95dcf8f0a1"
 }

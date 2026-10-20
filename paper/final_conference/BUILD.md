@@ -23,4 +23,6 @@ The layout uses the standard IEEE conference format because no specific conferen
 
 In the full project, `python paper/final_conference/make_assets.py` regenerates figures and tables from recorded results. The paper reports `outputs/all_novel/study.json`; `tools/run_evidence_study.py` and `src/evidence_regularization.py` contain the implemented method. The application exposes AMER through its experimental evidence-training option and retains the earlier screening head as its default.
 
-A portable Tectonic build is also supported: `tectonic --keep-logs main.tex`. Tables have complete outer borders and cell dividers. Earlier manuscript versions are not required by the build or asset generator.
+A portable Tectonic build is also supported: `tectonic --keep-logs main.tex`. Tables have complete outer borders and cell dividers. The template's small capitals are replaced by regular letterforms in table titles and section headings. Earlier manuscript versions are not required by the build or asset generator.
+
+The review revision reports NLL already saved in the original study and clarifies unperformed analyses as limitations. It does not introduce new experiments or retrain models.

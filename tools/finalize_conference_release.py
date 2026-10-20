@@ -1,6 +1,6 @@
 """Verify and package the final conference manuscript without altering experiments."""
 from pathlib import Path
-import argparse, hashlib, json, re, shutil, zipfile
+import argparse, hashlib, json, math, re, shutil, zipfile
 from release_manifest import release_files
 from pypdf import PdfReader
 
@@ -51,6 +51,8 @@ def verify_paper():
     assert 'acknowledg' not in text.lower() and 'Rangana' not in text
     assert source.count(r'\begin{tabular}{|') == 6
     assert all(rule not in source for rule in [r'\toprule', r'\midrule', r'\bottomrule'])
+    assert r'\patchcmd{\@makecaption}{\scshape}{\upshape}' in source
+    assert r'\patchcmd{\section}{\scshape}{\upshape}' in source
     for phrase in ['previously evaluated', 'Patient identifiers are unavailable', 'did not outperform', 'exploratory']:
         assert phrase in text, phrase
     log = (PAPER / 'main.log').read_text(errors='replace')
@@ -59,12 +61,21 @@ def verify_paper():
     study = read(ROOT / 'outputs/all_novel/study.json')
     table = (PAPER / 'tables.tex').read_text()
     assert all(r'\\ \hline' in row for row in table.splitlines() if ' & ' in row)
+    clean_predictions = study['predictions']['none']
+    labels = ['Benign', 'Early', 'Pre', 'Pro']
     for family, name in zip(FAMILIES, NAMES):
         e = study['evaluation']['none'][family]
-        metrics = f"{name} & {e['macro_f1']:.3f} & {e['mcc']:.3f} & {100*e['binary']['sensitivity']:.1f} & {100*e['binary']['specificity']:.1f}"
+        # Verify the newly reported NLL from existing saved probabilities only.
+        nll = -math.fsum(math.log(row[family][labels.index(row['true'])])
+                         for row in clean_predictions) / len(clean_predictions)
+        assert math.isclose(nll, e['nll'], abs_tol=1e-12), family
+        metrics = f"{name} & {e['macro_f1']:.3f} & {e['mcc']:.3f} & {e['nll']:.3f} & {100*e['binary']['sensitivity']:.1f} & {100*e['binary']['specificity']:.1f}"
         assert metrics in table
         accuracy = name + ' & ' + ' & '.join(f"{100*study['evaluation'][c][family]['accuracy']:.1f}" for c in ['none','blur','colour','context_colour'])
         assert accuracy in table
+    confusion = study['evaluation']['none']['amer']['confusion']
+    errors = [sum(row) - row[i] for i, row in enumerate(confusion)]
+    assert errors == [2, 8, 3, 0] and sum(errors) == 13
     for condition, label in [('none','Original'),('blur','Blur'),('colour','Global colour'),('context_colour','Context colour')]:
         parts=[]
         for baseline, key in [('original','amer_minus_original'),('context_augmentation','amer_minus_context_augmentation')]:
@@ -77,6 +88,7 @@ def verify_paper():
                 experiment_verification=previous, unresolved_references=False,
                 overfull_boxes=False, prior_test_use_disclosed=True,
                 full_table_borders=True, long_text_dashes=False, acknowledgment=False,
+                regular_heading_letterforms=True, recorded_nll_verified=True,
                 scope='Blood cell detection and image-level ALL screening',
                 claim='ALL-specific supervised evidence formulation and controlled empirical evaluation; no superiority claim',
                 pdf_sha256=sha(PAPER/'main.pdf'))

@@ -12,7 +12,7 @@ def release_files():
             "AUDIT_AND_REVISION_REPORT.md", "NOVEL_METHOD_FINDINGS.md",
             "requirements.txt", "requirements-dev.txt", "app.py",
             "check_leakage.py", "check_leukemia_leakage.py",
-            "yolov8n-cls.pt", "paper/README.md",
+            "yolov8n-cls.pt", "paper/README.md", "paper/REVIEW_RESPONSE.md",
         )
     }
     for folder in ("src", "tools", "tests"):

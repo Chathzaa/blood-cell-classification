@@ -19,6 +19,8 @@
 \input{numbers}
 \input{tables}
 \makeatletter
+\patchcmd{\@makecaption}{\scshape}{\upshape}{}{\PackageError{paper}{Table caption font patch failed}{}}
+\patchcmd{\section}{\scshape}{\upshape}{}{\PackageError{paper}{Section heading font patch failed}{}}
 \newcommand{\linebreakand}{\end{@IEEEauthorhalign}\hfill\mbox{}\par\mbox{}\hfill\begin{@IEEEauthorhalign}}
 \makeatother
 \newcommand{\affiliation}{\IEEEauthorblockA{Department of Electrical and Information Engineering\\University of Ruhuna\\Galle, Sri Lanka}}
@@ -32,7 +34,7 @@
 \maketitle
 
 \begin{abstract}
-Automated blood image analysis must distinguish cell localization from disease screening and examine which image regions support its predictions. We propose area matched evidence regularization for acute lymphoblastic leukemia (ALL) screening within a blood cell analysis system. During training, a ranking loss compares category support after erasing an automatic stain proposal with support after erasing equally many context pixels. The classifier uses image labels and requires one feature extraction pass at inference. On 643 previously evaluated images, it achieves \AmerClean\% accuracy across four categories, against \OriginalClean\% for training on original images. The separate cell detector achieves mean average precision 0.910 at an overlap threshold of 0.50. Controlled comparisons show that the ranking loss does not improve clean accuracy and reduces robustness to global colour changes. The contribution is a training formulation for ALL and an empirical assessment of its evidence assumption; independent patient evaluation remains necessary.
+Automated blood image analysis must distinguish cell localization from disease screening and examine which image regions support its predictions. We propose area matched evidence regularization for acute lymphoblastic leukemia (ALL) screening within a blood cell analysis system. During training, a ranking loss compares category support after erasing an automatic stain proposal with support after erasing equally many context pixels. The classifier uses image labels and requires one feature extraction pass at inference. On 643 previously evaluated images, it achieves \AmerClean\% accuracy across four categories, against \OriginalClean\% for training on original images. The separate cell detector achieves mean average precision 0.910 at an overlap threshold of 0.50. Controlled comparisons show that the ranking loss does not improve clean accuracy and reduces robustness to global colour changes. The contribution is a training formulation for ALL and a controlled test of its predictive effect; independent patient evaluation remains necessary.
 \end{abstract}
 \begin{IEEEkeywords}
 blood cell detection, acute lymphoblastic leukemia, evidence guided learning, image classification, source grouping
@@ -55,7 +57,7 @@ Evidence guided learning provides the methodological background. Ross \emph{et a
 Our adaptation uses a direct margin loss for four categories with stain proposals independent of the class label in multicell ALL fields. The question is whether this supervised formulation adds value beyond context augmentation alone. Table~\ref{tab:related} identifies the closest precedents and the extension evaluated here. The methodological contribution is specific to this formulation and controlled experiment; evidence guided learning and comparison of matched regions are established principles.
 
 \begin{table}[!t]
-\caption{Closest Work and the Specific Extension Tested}
+\caption{Closest work and the specific extension tested}
 \label{tab:related}
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
@@ -88,7 +90,7 @@ The local ALL collection contains 3,256 original images at $224\times224$ pixels
 To group observable image relatives, we compute perceptual hashes of 64 bits under eight rotations and reflections. Distances of four bits or less are grouped conservatively. Distances from five to ten additionally require affine SIFT registration, at least 12 inliers, an inlier fraction of 0.60 and image coverage of 10\%. The descriptor ratio is 0.75 and registration tolerance is three pixels. These fixed screening settings identify candidate source relationships; they do not establish patient identity. Seventy accepted links produce 3,147 groups, with no conflicting category labels. Five stratified group folds with seed 2026 assign one fold to testing, one to validation and three to training.
 
 \begin{table}[!t]
-\caption{ALL Images After Deduplication and Grouping}
+\caption{ALL images after deduplication and grouping}
 \label{tab:data}
 \centering\footnotesize
 \begin{tabular}{|l|r|r|r|}
@@ -119,7 +121,7 @@ Let $M$ denote this binary stain proposal. A context mask $C$ selects $|M|$ pixe
 \begin{equation}
 M\cap C=\varnothing,\qquad |M|=|C|.
 \end{equation}
-Both masks are class independent. Erasure uses a fixed midrange grey value of 127, defining $x_M$ and $x_C$. A common fill value and pixel count control two intervention differences, without matching shape, texture or diagnostic content. Fig.~\ref{fig:interventions} shows a training example. If $M$ is empty, its ranking term is disabled. Neither mask is assumed to be an expert biological segmentation.
+Both masks are class independent. Erasure fills masked pixels with grey value 127: $x_M$ hides the stain proposal, whereas $x_C$ hides matched context and retains the stain proposal. Neither view isolates all diagnostic information. A common fill value and pixel count control two intervention differences, without matching shape, texture or diagnostic content. Fig.~\ref{fig:interventions} shows a training example. If $M$ is empty, its ranking term is disabled. Neither mask is an expert biological segmentation.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=.98\textwidth]{interventions.pdf}
@@ -144,14 +146,14 @@ Minimizing it favours greater support for the true category when stained regions
 \mathcal{L}=\tfrac12\langle\ell_y(x)+\ell_y(x_C)\rangle_w
 +\lambda\langle r_y(x)\rangle_{w,V}+\tfrac{\alpha}{2}\|W\|_F^2,
 \end{equation}
-where $\ell_y$ is cross entropy and $\langle\cdot\rangle_w$ denotes a weighted mean with equal total weight per class. The ranking mean uses only the set $V$ of nonempty proposals and is zero if $V$ is empty. Original images and images with context erased share the source label. Images with stain regions erased receive no new benign label, since erasure does not establish absence of disease. The loss specifies an evidence preference rather than a causal disease model.
+where $\ell_y$ is cross entropy and $\langle\cdot\rangle_w$ gives equal total weight to each class. The ranking mean uses nonempty proposals $V$ and is zero if $V$ is empty. The two classification terms retain the source label on original and context erased images; averaging preserves the total supervised weight per source. The margin already compares the true logit with all rival logits, without a separate rival class penalty. Stain erased images receive no benign label because erasure cannot establish absence of disease. The loss specifies a preference, not a causal disease model.
 
 \subsection{Controls, fitting and inference}
 Five families use the same representation, source split and fitting routine: classification of original images; matched context augmentation without ranking; full context augmentation without ranking; AMER; and AMER with the entire complement erased instead of equal area context. The last family tests area matching while retaining the ranking objective. All controls are fitted afresh; the earlier experimental head is not substituted for the new control trained on original images.
 
-For each family, $\alpha$ ranges over $0.0001$, $0.001$ and $0.01$. Ranking families additionally use $\lambda\in\{0.1,1.0\}$. These small logarithmic grids compare regularization strengths within a fixed fitting budget. We fit the heads deterministically from zero using the limited memory Broyden, Fletcher, Goldfarb and Shanno optimizer with all training samples and a budget of 2,000 iterations. Selection uses validation macro F1, then negative log likelihood, then stronger regularization; nonconverged candidates are ineligible. Macro F1 averages the harmonic mean of precision and recall equally over the categories. One temperature fitted on validation data calibrates the selected logits \cite{guo}. Scikit-learn supplies metric implementations \cite{sklearn}.
+For each family, $\alpha$ ranges over $0.0001$, $0.001$ and $0.01$. Ranking families additionally use $\lambda\in\{0.1,1.0\}$. These small logarithmic grids compare regularization strengths within a fixed fitting budget. We fit the heads deterministically from zero using the limited memory Broyden, Fletcher, Goldfarb and Shanno optimizer with all training samples and a budget of 2,000 iterations. Selection uses validation macro F1, then negative log likelihood (NLL), then stronger regularization; nonconverged candidates are ineligible. Macro F1 averages the harmonic mean of precision and recall equally over the categories. One temperature fitted on validation data calibrates the selected logits \cite{guo}. Scikit-learn supplies metric implementations \cite{sklearn}.
 
-All family choices and artifact hashes are saved before new test prediction. Inference requires only $\phi(x)$ and the selected head, with no intervention images or second backbone pass. Binary ALL support sums the three malignant probabilities. The application can request review using a confidence threshold selected on validation data, but this reporting option is not the proposed methodological contribution.
+All family choices and artifact hashes are saved before new test prediction. The accompanying project records source groups, split assignments, image and model hashes, and selection results; fixed code regenerates masks from source images. Inference requires only $\phi(x)$ and the selected head, without intervention views. Binary ALL support sums the three malignant probabilities. The application's review threshold is selected on validation data and is not the proposed contribution.
 
 \subsection{Measurements and fixed perturbations}
 Detection average precision (AP) summarizes precision over recall; mean AP (mAP) averages over classes. We evaluate intersection over union (IoU) 0.50 and the range 0.50 to 0.95 \cite{voc,coco}. IoU is shared box area divided by combined box area. ALL evaluation reports accuracy across four categories, macro F1, Matthews correlation coefficient (MCC), binary sensitivity and specificity \cite{gorodkin,chicco}. Sensitivity measures correctly flagged ALL images; specificity measures correctly labelled benign images.
@@ -169,7 +171,7 @@ The fixed conditions are original images, Gaussian blur with a $5\times5$ kernel
 The detector achieves mAP 0.910 at IoU 0.50 and 0.621 across the stricter range on 72 BCCD test fields. Values for each category are shown in Table~\ref{tab:detector}. The primary normal WBC crop model correctly classifies 55 of 63 sources, or 87.3\%, with a 95\% Wilson interval of 76.9\% to 93.4\% \cite{wilson}. The complete detector and subtype cascade correctly labels 54 true WBCs, with three unmatched predictions. These results concern the cell source dataset and do not measure combined clinical accuracy on ALL fields.
 
 \begin{table}[!t]
-\caption{Cell Detection on 72 Test Fields}
+\caption{Cell detection on 72 test fields}
 \label{tab:detector}\centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{|l|r|r|r|}
@@ -181,10 +183,10 @@ All classes & 945 & 0.910 & 0.621\\\hline
 \end{tabular}\end{table}
 
 \subsection{ALL training comparisons}
-All 21 fitting candidates converged under the final optimization budget. Validation selected $\alpha=0.0001$ and $\lambda=0.1$ for AMER. Table~\ref{tab:accuracy} reports every family under every fixed condition. On original images, AMER achieves \AmerClean\% accuracy and macro F1 \AmerFone, compared with \OriginalClean\% for the head trained on original images and \AugClean\% for matched augmentation. Its binary counts are \AmerTP\ true positives, \AmerFN\ false negatives, \AmerTN\ true negatives and \AmerFP\ false positives. Sensitivity is \AmerSensitivity\% and specificity is \AmerSpecificity\% (Table~\ref{tab:clean}). All results include every test image, before any review rejection.
+All 21 fitting candidates converged under the final optimization budget. Validation selected $\alpha=0.0001$ and $\lambda=0.1$ for AMER. Table~\ref{tab:accuracy} reports every family under every fixed condition. On original images, AMER achieves \AmerClean\% accuracy and macro F1 \AmerFone, compared with \OriginalClean\% for the head trained on original images and \AugClean\% for matched augmentation. Its binary counts are \AmerTP\ true positives, \AmerFN\ false negatives, \AmerTN\ true negatives and \AmerFP\ false positives. Sensitivity is \AmerSensitivity\% and specificity is \AmerSpecificity\% (Table~\ref{tab:clean}). The recorded NLL after temperature scaling is \AmerNll, against \OriginalNll\ for original training; lower values indicate better probability scores. Fig.~\ref{fig:findings} locates eight of AMER's 13 category errors in Early images. All results retain every test image, before review rejection.
 
 \begin{table}[!t]
-\caption{Accuracy Across Four Categories Under Fixed Conditions (\%)}
+\caption{Accuracy across four categories under fixed conditions (\%)}
 \label{tab:accuracy}\centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{|l|r|r|r|r|}
@@ -195,20 +197,20 @@ All 21 fitting candidates converged under the final optimization budget. Validat
 \end{table}
 
 \begin{table}[!b]
-\caption{ALL Metrics on Original Test Images}
+\caption{ALL metrics on original test images}
 \label{tab:clean}\centering\footnotesize
 \setlength{\tabcolsep}{2pt}
-\begin{tabular}{|l|r|r|r|r|}
-\hline Training & F1 & MCC & Sens. (\%) & Spec. (\%)\\\hline
+\begin{tabular}{|l|r|r|r|r|r|}
+\hline Training & F1 & MCC & NLL & Sens. (\%) & Spec. (\%)\\\hline
 \CleanRows
 \end{tabular}
-\par\smallskip\scriptsize F1 is the macro average; sensitivity and specificity concern the binary ALL decision.
+\par\smallskip\scriptsize F1 is the macro average. NLL uses temperature scaled probabilities. Sensitivity and specificity concern the binary ALL decision.
 \end{table}
 
 \input{interpretation}
 
 \begin{table}[!t]
-\caption{AMER Accuracy Differences and 95\% Group Intervals}
+\caption{AMER accuracy differences and 95\% group intervals}
 \label{tab:difference}\centering\footnotesize
 \setlength{\tabcolsep}{3pt}
 \begin{tabular}{|l|r|r|}
@@ -221,15 +223,17 @@ All 21 fitting candidates converged under the final optimization budget. Validat
 
 
 \section{Discussion and Limitations}
-The central finding is that matching erased area does not, by itself, make automatic stain proposals an effective training target in this experiment. The supervised margin formulation makes this assumption measurable against ordinary augmentation. It extends evidence training to the available ALL image labels, while building on established explanation constraints, object and context interventions, and comparison of matched regions \cite{ross,chang,evidencerl}.
+Matching erased area did not make automatic stain proposals an effective training target in this experiment. The supervised margin formulation turns this assumption into a trainable objective, building on explanation constraints and object and context interventions \cite{ross,chang,evidencerl}. The comparisons measure predictive effects. We did not measure spatial attribution or whether support shifted toward the stain proposal.
 
-Equal area controls the number of altered pixels, but not mask geometry or visual impact. Saturation proposals can include RBCs or exclude weakly stained structures. They are neither annotations of malignant cells nor validated nuclei, and erased images may depart from the natural image distribution. The lower accuracy under global colour changes is consistent with an imperfect evidence target, although the experiment cannot identify its biological cause. Stronger region annotations would allow this explanation to be tested.
+Equal area controls pixel count, not geometry or visual impact. Saturation proposals can include RBCs or miss weak staining, and grey erasure can introduce artificial edges. The results do not isolate which factor caused the colour sensitivity. We tested one stain rule and fill value, without random context masks, alternative area caps, inpainting or stain normalization. Stronger region proposals remain untested.
+
+The frozen backbone isolates changes to the classifier but cannot adapt its spatial features. No backbone fine tuning, region aggregation baseline or contrastive objective was evaluated. The small parameter grid does not establish that AMER fails under other settings. NLL reports probability performance after scaling; expected calibration error, Brier scores and a comparison before and after calibration were not evaluated.
 
 The source audit reduces observable duplication but cannot recover missing patient identifiers or eliminate shared acquisition cues. The test partition was previously examined, so the extension needs independent confirmation. The cell detector is inherited, with a known historical validation overlap; the normal WBC test set includes only three monocytes and four lymphocytes. The available datasets do not jointly label cell boxes and ALL categories, so combined accuracy is not established. Larger annotated cell resources, including Raabin WBC, can support better region models, but are not substitutes for an external ALL evaluation \cite{raabin,acevedo,claim}.
 
 \section{Conclusion}
 We presented a blood cell analysis system and an evidence regularizer for ALL based on equal area stain and context erasures. Its supervised margin loss requires no expert region labels or additional inference pass. The controlled comparison establishes a clear limit: the proposed ranking term did not outperform training on original images overall, despite 98.0\% clean accuracy. This result supports testing evidence constraints against augmentation controls rather than assuming that region guidance improves screening. External data from separate patients and validated region annotations are the next requirements for assessing generalization.
 
-\IEEEtriggeratref{12}
+\IEEEtriggeratref{8}
 \input{references}
 \end{document}

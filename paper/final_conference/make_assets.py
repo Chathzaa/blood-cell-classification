@@ -42,10 +42,12 @@ def results(study):
     for key in ('tn','fp','fn','tp'):defs['Amer'+key.upper()]=str(binary[key])
     defs['AmerSensitivity']=f"{100*binary['sensitivity']:.1f}";defs['AmerSpecificity']=f"{100*binary['specificity']:.1f}"
     defs['AmerFone']=f"{ev['none']['amer']['macro_f1']:.3f}"
+    defs['AmerNll']=f"{ev['none']['amer']['nll']:.3f}"
+    defs['OriginalNll']=f"{ev['none']['original']['nll']:.3f}"
     defs['AmerChanged']=f"{100*study['context_prediction_change']['amer']:.1f}"
     defs['OriginalChanged']=f"{100*study['context_prediction_change']['original']:.1f}"
     tables['AccuracyRows']=[name+' & '+' & '.join(f"{100*ev[c][k]['accuracy']:.1f}" for c in ('none','blur','colour','context_colour'))+r' \\' for k,name in zip(FAMILIES,NAMES)]
-    tables['CleanRows']=[name+f" & {ev['none'][k]['macro_f1']:.3f} & {ev['none'][k]['mcc']:.3f} & {100*ev['none'][k]['binary']['sensitivity']:.1f} & {100*ev['none'][k]['binary']['specificity']:.1f}"+r' \\' for k,name in zip(FAMILIES,NAMES)]
+    tables['CleanRows']=[name+f" & {ev['none'][k]['macro_f1']:.3f} & {ev['none'][k]['mcc']:.3f} & {ev['none'][k]['nll']:.3f} & {100*ev['none'][k]['binary']['sensitivity']:.1f} & {100*ev['none'][k]['binary']['specificity']:.1f}"+r' \\' for k,name in zip(FAMILIES,NAMES)]
     tables['DifferenceRows']=[]
     for c,name in [('none','Original'),('blur','Blur'),('colour','Global colour'),('context_colour','Context colour')]:
         pieces=[]
