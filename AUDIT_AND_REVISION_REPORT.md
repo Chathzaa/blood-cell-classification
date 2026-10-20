@@ -58,7 +58,7 @@ Counting no longer duplicates WBC subtypes as extra objects. Missing contours no
 
 Nineteen regression tests pass. Live ALL predictions match stored probabilities, all four app modes start without exceptions, and a real combined analysis completes while withholding normal subtype labels. Registry hashes protect the evaluated checkpoints and transformations.
 
-The current manuscript is paper/final_conference/main.tex and main.pdf. It has six IEEE conference pages, 31 references and four authors arranged two per row. It reports the AMER formulation and all five controlled comparisons. Figures and tables come from recorded evidence. Rangana W. G. is acknowledged for project supervision. Earlier manuscript versions have been removed; this report retains the preceding experiment history.
+The current manuscript is paper/final_conference/main.tex and main.pdf. It has six IEEE conference pages, 31 references and four authors arranged two per row. It reports the AMER formulation and all five controlled comparisons. Figures and tables come from recorded evidence. All six tables have complete borders and cell dividers; text uses short hyphens and the acknowledgment is omitted. Earlier manuscript versions have been removed; this report retains the preceding experiment history.
 
 The earlier WBC-focused deliverables are preserved under deliverables/previous_wbc_focus. Original code remains in audit/original_source, with the immediately preceding app and documentation also preserved under audit/before_leukemia_revision.
 

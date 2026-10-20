@@ -41,12 +41,16 @@ def verify_paper():
     assert len(re.findall(r'\\begin\{table\}\[![tb]\]', source)) == 6
     assert 'declarations' not in source.lower()
     assert r'\linebreakand' in source
-    assert 'The authors thank Rangana W. G. for supervising this project.' in source
+    assert 'acknowledg' not in source.lower() and 'Rangana' not in source
     assert '—' not in source and '–' not in source
     pages = pdf_text(PAPER / 'main.pdf')
     assert len(pages) == 6 and 'We contribute' in pages[0]
     text = re.sub(r'\s+', ' ', '\n'.join(pages))
     assert '??' not in text
+    assert '\u2013' not in text and '\u2014' not in text
+    assert 'acknowledg' not in text.lower() and 'Rangana' not in text
+    assert source.count(r'\begin{tabular}{|') == 6
+    assert all(rule not in source for rule in [r'\toprule', r'\midrule', r'\bottomrule'])
     for phrase in ['previously evaluated', 'Patient identifiers are unavailable', 'did not outperform', 'exploratory']:
         assert phrase in text, phrase
     log = (PAPER / 'main.log').read_text(errors='replace')
@@ -54,6 +58,7 @@ def verify_paper():
     assert not re.search(r'(Citation|Reference).*undefined', log)
     study = read(ROOT / 'outputs/all_novel/study.json')
     table = (PAPER / 'tables.tex').read_text()
+    assert all(r'\\ \hline' in row for row in table.splitlines() if ' & ' in row)
     for family, name in zip(FAMILIES, NAMES):
         e = study['evaluation']['none'][family]
         metrics = f"{name} & {e['macro_f1']:.3f} & {e['mcc']:.3f} & {100*e['binary']['sensitivity']:.1f} & {100*e['binary']['specificity']:.1f}"
@@ -71,6 +76,7 @@ def verify_paper():
                 contribution_page=1, results_checked_against_recorded_study=True,
                 experiment_verification=previous, unresolved_references=False,
                 overfull_boxes=False, prior_test_use_disclosed=True,
+                full_table_borders=True, long_text_dashes=False, acknowledgment=False,
                 scope='Blood cell detection and image-level ALL screening',
                 claim='ALL-specific supervised evidence formulation and controlled empirical evaluation; no superiority claim',
                 pdf_sha256=sha(PAPER/'main.pdf'))

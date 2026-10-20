@@ -21,7 +21,10 @@
   "unresolved_references": false,
   "overfull_boxes": false,
   "prior_test_use_disclosed": true,
+  "full_table_borders": true,
+  "long_text_dashes": false,
+  "acknowledgment": false,
   "scope": "Blood cell detection and image-level ALL screening",
   "claim": "ALL-specific supervised evidence formulation and controlled empirical evaluation; no superiority claim",
-  "pdf_sha256": "7bf51c43aa503ccba484b347e59572a6c59d15787253fa9792d457ee97257996"
+  "pdf_sha256": "f4a3f24e631e370a1e0ecc1c6d67fe7b8779755cb86604682fce9c154acef200"
 }

@@ -59,7 +59,7 @@ def results(study):
         s=sel[k];p=s['candidates'][s['selected']]
         tables['SelectionRows'].append(name+f" & {p['l2']:g} & {p['ranking_weight']:g} & {p['macro_f1']:.3f}"+r' \\')
     (HERE/'numbers.tex').write_text('\n'.join('\\newcommand{\\'+k+'}{'+v+'}' for k,v in defs.items())+'\n')
-    (HERE/'tables.tex').write_text('\n'.join('\\newcommand{\\'+k+'}{%\n'+'\n'.join(v)+'%\n}' for k,v in tables.items())+'\n')
+    (HERE/'tables.tex').write_text('\n'.join('\\newcommand{\\'+k+'}{%\n'+'\n'.join(row+r' \hline' for row in v)+'%\n}' for k,v in tables.items())+'\n')
 
 
 def architecture():

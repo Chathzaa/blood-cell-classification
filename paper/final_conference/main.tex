@@ -3,7 +3,11 @@
 \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
 \IfFontExistsTF{Arial}{\setsansfont{Arial}}{\setsansfont{TeX Gyre Heros}}
 \IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{\setmonofont{Latin Modern Mono}}
-\usepackage{amsmath,amssymb,graphicx,booktabs,array,cite}
+\usepackage{amsmath,amssymb,graphicx,array,cite,etoolbox}
+\patchcmd{\abstract}{---}{\space-\space}{}{\PackageError{paper}{Abstract separator patch failed}{}}
+\patchcmd{\IEEEkeywords}{---}{\space-\space}{}{\PackageError{paper}{Keyword separator patch failed}{}}
+\renewcommand{\citedash}{]-[}
+\setlength{\extrarowheight}{1pt}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
 \urlstyle{same}
@@ -54,16 +58,15 @@ Our adaptation uses a direct margin loss for four categories with stain proposal
 \caption{Closest Work and the Specific Extension Tested}
 \label{tab:related}
 \centering\footnotesize
-\begin{tabular}{@{}p{.28\columnwidth}p{.67\columnwidth}@{}}
-\toprule
-Work & Relationship to this study\\
-\midrule
-Ross \emph{et al.} \cite{ross} & Explanation constraints motivate evidence training; our penalty compares image erasures.\\
-Chang \emph{et al.} \cite{chang} & Context augmentation is an explicit control; ranking must add value beyond it.\\
-Askari Farsangi \emph{et al.} \cite{biomarker} & ALL screening guided by cell regions precedes this work; image labels here support field classification.\\
-Huang \emph{et al.} \cite{evidencerl} & Matched evidence comparison precedes this work; we test a supervised ALL margin formulation.\\
-Abdallat \emph{et al.} \cite{viewstudy} & Original and segmented ALL views motivate testing information loss instead of assuming benefit.\\
-\bottomrule
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{.28\columnwidth}|>{\raggedright\arraybackslash}p{\dimexpr.72\columnwidth-4\tabcolsep-3\arrayrulewidth\relax}|}
+\hline
+Work & Relationship to this study\\\hline
+Ross \emph{et al.} \cite{ross} & Explanation constraints motivate evidence training; our penalty compares image erasures.\\\hline
+Chang \emph{et al.} \cite{chang} & Context augmentation is an explicit control; ranking must add value beyond it.\\\hline
+Askari Farsangi \emph{et al.} \cite{biomarker} & ALL screening guided by cell regions precedes this work; image labels here support field classification.\\\hline
+Huang \emph{et al.} \cite{evidencerl} & Matched evidence comparison precedes this work; we test a supervised ALL margin formulation.\\\hline
+Abdallat \emph{et al.} \cite{viewstudy} & Original and segmented ALL views motivate testing information loss instead of assuming benefit.\\\hline
 \end{tabular}
 \end{table}
 
@@ -88,14 +91,14 @@ To group observable image relatives, we compute perceptual hashes of 64 bits und
 \caption{ALL Images After Deduplication and Grouping}
 \label{tab:data}
 \centering\footnotesize
-\begin{tabular}{@{}lrrr@{}}
-\toprule Category & Training & Validation & Test\\\midrule
-Benign & 305 & 103 & 96\\
-Early & 587 & 200 & 198\\
-Pre & 574 & 194 & 195\\
-Pro & 462 & 148 & 154\\\midrule
-Images & 1928 & 645 & 643\\
-Image groups & 1888 & 630 & 629\\\bottomrule
+\begin{tabular}{|l|r|r|r|}
+\hline Category & Training & Validation & Test\\\hline
+Benign & 305 & 103 & 96\\\hline
+Early & 587 & 200 & 198\\\hline
+Pre & 574 & 194 & 195\\\hline
+Pro & 462 & 148 & 154\\\hline
+Images & 1928 & 645 & 643\\\hline
+Image groups & 1888 & 630 & 629\\\hline
 \end{tabular}
 \end{table}
 
@@ -153,7 +156,7 @@ All family choices and artifact hashes are saved before new test prediction. Inf
 \subsection{Measurements and fixed perturbations}
 Detection average precision (AP) summarizes precision over recall; mean AP (mAP) averages over classes. We evaluate intersection over union (IoU) 0.50 and the range 0.50 to 0.95 \cite{voc,coco}. IoU is shared box area divided by combined box area. ALL evaluation reports accuracy across four categories, macro F1, Matthews correlation coefficient (MCC), binary sensitivity and specificity \cite{gorodkin,chicco}. Sensitivity measures correctly flagged ALL images; specificity measures correctly labelled benign images.
 
-The fixed conditions are original images, Gaussian blur with a $5\times5$ kernel and standard deviation one, and global blue, green and red gains of $(0.90,1,1.10)$. A fourth condition applies gains $(0.75,1,1.25)$ only outside the original stain proposal, preserving proposed evidence pixels exactly. Intensities are clipped to the valid range. The blur probes loss of detail; the colour gains probe global and sensitivity to context. These engineering stress settings do not represent calibrated laboratory variation. No parameter is retuned on them. Paired differences use 2,000 bootstrap resamples of source groups, retaining all members of each sampled group. These intervals quantify uncertainty across image groups and do not resolve patient dependence or test reuse.
+The fixed conditions are original images, Gaussian blur with a $5\times5$ kernel and standard deviation one, and global blue, green and red gains of $(0.90,1,1.10)$. A fourth condition applies gains $(0.75,1,1.25)$ only outside the original stain proposal, preserving proposed evidence pixels exactly. Intensities are clipped to the valid range. The blur probes loss of detail; the colour gains probe global colour variation and sensitivity to context. These engineering stress settings do not represent calibrated laboratory variation. No parameter is retuned on them. Paired differences use 2,000 bootstrap resamples of source groups, retaining all members of each sampled group. These intervals quantify uncertainty across image groups and do not resolve patient dependence or test reuse.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=.98\textwidth]{findings.pdf}
@@ -168,12 +171,13 @@ The detector achieves mAP 0.910 at IoU 0.50 and 0.621 across the stricter range 
 \begin{table}[!t]
 \caption{Cell Detection on 72 Test Fields}
 \label{tab:detector}\centering\footnotesize
-\begin{tabular}{@{}lrrr@{}}
-\toprule Category & Objects & AP at 0.50 & AP at 0.50 to 0.95\\\midrule
-RBC & 805 & 0.864 & 0.616\\
-WBC & 71 & 0.962 & 0.770\\
-Platelet & 69 & 0.903 & 0.476\\\midrule
-All classes & 945 & 0.910 & 0.621\\\bottomrule
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{|l|r|r|r|}
+\hline Category & Objects & AP at 0.50 & AP at 0.50 to 0.95\\\hline
+RBC & 805 & 0.864 & 0.616\\\hline
+WBC & 71 & 0.962 & 0.770\\\hline
+Platelet & 69 & 0.903 & 0.476\\\hline
+All classes & 945 & 0.910 & 0.621\\\hline
 \end{tabular}\end{table}
 
 \subsection{ALL training comparisons}
@@ -183,10 +187,9 @@ All 21 fitting candidates converged under the final optimization budget. Validat
 \caption{Accuracy Across Four Categories Under Fixed Conditions (\%)}
 \label{tab:accuracy}\centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lrrrr@{}}
-\toprule Training & Original & Blur & Global & Context\\\midrule
+\begin{tabular}{|l|r|r|r|r|}
+\hline Training & Original & Blur & Global & Context\\\hline
 \AccuracyRows
-\bottomrule
 \end{tabular}
 \par\smallskip\scriptsize Global and Context denote global colour and changes to context colour, respectively.
 \end{table}
@@ -195,10 +198,9 @@ All 21 fitting candidates converged under the final optimization budget. Validat
 \caption{ALL Metrics on Original Test Images}
 \label{tab:clean}\centering\footnotesize
 \setlength{\tabcolsep}{2pt}
-\begin{tabular}{@{}lrrrr@{}}
-\toprule Training & F1 & MCC & Sens. (\%) & Spec. (\%)\\\midrule
+\begin{tabular}{|l|r|r|r|r|}
+\hline Training & F1 & MCC & Sens. (\%) & Spec. (\%)\\\hline
 \CleanRows
-\bottomrule
 \end{tabular}
 \par\smallskip\scriptsize F1 is the macro average; sensitivity and specificity concern the binary ALL decision.
 \end{table}
@@ -209,10 +211,9 @@ All 21 fitting candidates converged under the final optimization budget. Validat
 \caption{AMER Accuracy Differences and 95\% Group Intervals}
 \label{tab:difference}\centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lrr@{}}
-\toprule Condition & vs original & vs matched aug.\\\midrule
+\begin{tabular}{|l|r|r|}
+\hline Condition & vs original & vs matched aug.\\\hline
 \DifferenceRows
-\bottomrule
 \end{tabular}
 \par\smallskip\scriptsize Values are percentage points. Intervals crossing zero do not establish a difference under this resampling analysis.
 \end{table}
@@ -220,7 +221,7 @@ All 21 fitting candidates converged under the final optimization budget. Validat
 
 
 \section{Discussion and Limitations}
-The central finding is that matching erased area does not, by itself, make automatic stain proposals an effective training target in this experiment. The supervised margin formulation makes this assumption measurable against ordinary augmentation. It extends evidence training to the available ALL image labels, while building on established explanation constraints, object and context interventions, and comparison of matched regionss \cite{ross,chang,evidencerl}.
+The central finding is that matching erased area does not, by itself, make automatic stain proposals an effective training target in this experiment. The supervised margin formulation makes this assumption measurable against ordinary augmentation. It extends evidence training to the available ALL image labels, while building on established explanation constraints, object and context interventions, and comparison of matched regions \cite{ross,chang,evidencerl}.
 
 Equal area controls the number of altered pixels, but not mask geometry or visual impact. Saturation proposals can include RBCs or exclude weakly stained structures. They are neither annotations of malignant cells nor validated nuclei, and erased images may depart from the natural image distribution. The lower accuracy under global colour changes is consistent with an imperfect evidence target, although the experiment cannot identify its biological cause. Stronger region annotations would allow this explanation to be tested.
 
@@ -229,9 +230,6 @@ The source audit reduces observable duplication but cannot recover missing patie
 \section{Conclusion}
 We presented a blood cell analysis system and an evidence regularizer for ALL based on equal area stain and context erasures. Its supervised margin loss requires no expert region labels or additional inference pass. The controlled comparison establishes a clear limit: the proposed ranking term did not outperform training on original images overall, despite 98.0\% clean accuracy. This result supports testing evidence constraints against augmentation controls rather than assuming that region guidance improves screening. External data from separate patients and validated region annotations are the next requirements for assessing generalization.
 
-\section*{Acknowledgment}
-The authors thank Rangana W. G. for supervising this project.
-
-\IEEEtriggeratref{11}
+\IEEEtriggeratref{12}
 \input{references}
 \end{document}

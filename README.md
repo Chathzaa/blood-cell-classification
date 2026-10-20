@@ -2,7 +2,7 @@
 
 University of Ruhuna, Department of Electrical and Information Engineering
 
-The current six-page IEEE conference paper is [main.pdf](paper/final_conference/main.pdf). Its [LaTeX source](paper/final_conference/main.tex), figures and [build instructions](paper/final_conference/BUILD.md) are kept together. This is the only manuscript version in the repository. The paper includes 31 references and acknowledges Rangana W. G. for project supervision.
+The current six-page IEEE conference paper is [main.pdf](paper/final_conference/main.pdf). Its [LaTeX source](paper/final_conference/main.tex), figures and [build instructions](paper/final_conference/BUILD.md) are kept together. This is the only manuscript version in the repository. The paper includes 31 references and fully bordered tables.
 
 ## Contribution and measured results
 
