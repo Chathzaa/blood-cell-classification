@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "evaluation_status": "exploratory; no demonstrated overall superiority",
+  "app_startup_variants": 6,
+  "all_candidates_converged": true,
+  "all_metrics_recomputed": true,
+  "training_only_standardization_verified": true,
+  "validation_only_selection_verified": true,
+  "previous_test_use_disclosed": true,
+  "default_model_preserved": true,
+  "study_sha256": "1540495e7f02f29b3d115d0975d25f15673282d8ee113728af589e48819d8bfb"
+}

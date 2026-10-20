@@ -1,0 +1,1393 @@
+{
+  "task": "blood_cells_and_all_screening",
+  "image_name": "WBC-Benign-010.jpg",
+  "cell_analysis": {
+    "schema_version": 2,
+    "image_name": "WBC-Benign-010.jpg",
+    "image_size": [
+      224,
+      224
+    ],
+    "elapsed_seconds": 4.458112500142306,
+    "cell_counts": {
+      "RBC": 1,
+      "WBC": 1,
+      "Platelet": 29,
+      "total": 31,
+      "wbc_subtypes": {
+        "EOSINOPHIL": 0,
+        "LYMPHOCYTE": 0,
+        "MONOCYTE": 0,
+        "NEUTROPHIL": 0
+      },
+      "wbc_review": 1
+    },
+    "detections": [
+      {
+        "object_id": 0,
+        "cell_type": "Platelet",
+        "box": [
+          147,
+          87,
+          170,
+          112
+        ],
+        "detector_score": 0.9233583211898804,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 1,
+          "features": {
+            "area": 165.5,
+            "perimeter": 50.041630029678345,
+            "circularity": 0.8305101923829058,
+            "eccentricity": 0.6598826375459456,
+            "solidity": 0.9566473988439307,
+            "high_saturation_fraction": 0.8191489361702128,
+            "stain_boundary_irregularity": 1.218538957228469,
+            "hue_mean": 128.73936170212767,
+            "hue_std": 1.5092423127295607,
+            "saturation_mean": 180.45212765957447,
+            "saturation_std": 30.298213656785343,
+            "value_mean": 224.4095744680851,
+            "value_std": 12.206874320233924,
+            "glcm_energy": 0.3136182414721488,
+            "glcm_contrast": 5.28235294117647,
+            "glcm_homogeneity": 0.629570703002385,
+            "glcm_entropy": 4.142166833931633,
+            "glcm_correlation": 0.24642116694639157,
+            "lbp_bin0": 0.21897810218978103,
+            "lbp_bin1": 0.16058394160583941,
+            "lbp_bin2": 0.3284671532846715,
+            "lbp_bin3": 0.291970802919708
+          }
+        }
+      },
+      {
+        "object_id": 1,
+        "cell_type": "Platelet",
+        "box": [
+          175,
+          177,
+          191,
+          195
+        ],
+        "detector_score": 0.8448922038078308,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 1,
+          "features": {
+            "area": 70.0,
+            "perimeter": 32.14213538169861,
+            "circularity": 0.8514486319911843,
+            "eccentricity": 0.6748210370609777,
+            "solidity": 0.9655172413793104,
+            "high_saturation_fraction": 0.7176470588235294,
+            "stain_boundary_irregularity": 1.2368306322699583,
+            "hue_mean": 122.14117647058823,
+            "hue_std": 0.6164975297211247,
+            "saturation_mean": 108.69411764705882,
+            "saturation_std": 20.05053822332415,
+            "value_mean": 243.0705882352941,
+            "value_std": 10.037328253948292,
+            "glcm_energy": 0.28422594412666335,
+            "glcm_contrast": 3.767123287671233,
+            "glcm_homogeneity": 0.543288475359386,
+            "glcm_entropy": 4.296803458084421,
+            "glcm_correlation": 0.04887120081491485,
+            "lbp_bin0": 0.27586206896551724,
+            "lbp_bin1": 0.13793103448275862,
+            "lbp_bin2": 0.20689655172413793,
+            "lbp_bin3": 0.3793103448275862
+          }
+        }
+      },
+      {
+        "object_id": 2,
+        "cell_type": "Platelet",
+        "box": [
+          153,
+          128,
+          177,
+          155
+        ],
+        "detector_score": 0.8425594568252563,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 1,
+          "features": {
+            "area": 190.5,
+            "perimeter": 54.041630029678345,
+            "circularity": 0.8196868429385534,
+            "eccentricity": 0.7366090262134819,
+            "solidity": 0.9621212121212122,
+            "high_saturation_fraction": 0.8372093023255814,
+            "stain_boundary_irregularity": 1.223694033273709,
+            "hue_mean": 129.59534883720931,
+            "hue_std": 1.7060703505727126,
+            "saturation_mean": 175.62790697674419,
+            "saturation_std": 29.039366428970133,
+            "value_mean": 234.0418604651163,
+            "value_std": 10.878744638549183,
+            "glcm_energy": 0.2538332035028632,
+            "glcm_contrast": 5.748717948717949,
+            "glcm_homogeneity": 0.540495473430146,
+            "glcm_entropy": 4.637299738001952,
+            "glcm_correlation": 0.16395916080385672,
+            "lbp_bin0": 0.24539877300613497,
+            "lbp_bin1": 0.19631901840490798,
+            "lbp_bin2": 0.25766871165644173,
+            "lbp_bin3": 0.3006134969325153
+          }
+        }
+      },
+      {
+        "object_id": 3,
+        "cell_type": "Platelet",
+        "box": [
+          52,
+          0,
+          73,
+          10
+        ],
+        "detector_score": 0.7528154850006104,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 49.0,
+            "perimeter": 32.14213526248932,
+            "circularity": 0.5960140468148426,
+            "eccentricity": 0.884709124679496,
+            "solidity": 0.8990825688073395,
+            "high_saturation_fraction": 0.671875,
+            "stain_boundary_irregularity": 2.936172431393236,
+            "hue_mean": 124.765625,
+            "hue_std": 1.114425125064488,
+            "saturation_mean": 48.453125,
+            "saturation_std": 10.429719686279924,
+            "value_mean": 220.46875,
+            "value_std": 5.66780587507194,
+            "glcm_energy": 0.28178096139391967,
+            "glcm_contrast": 1.4285714285714286,
+            "glcm_homogeneity": 0.6071428571428571,
+            "glcm_entropy": 3.9991695476615083,
+            "glcm_correlation": 0.5180722891566264,
+            "lbp_bin0": 0.2,
+            "lbp_bin1": 0.37142857142857144,
+            "lbp_bin2": 0.17142857142857143,
+            "lbp_bin3": 0.2571428571428571
+          }
+        }
+      },
+      {
+        "object_id": 4,
+        "cell_type": "Platelet",
+        "box": [
+          119,
+          134,
+          137,
+          154
+        ],
+        "detector_score": 0.7365020513534546,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 2,
+          "features": {
+            "area": 142.0,
+            "perimeter": 64.62741649150848,
+            "circularity": 0.4272328301335041,
+            "eccentricity": 0.7149665823242706,
+            "solidity": 0.8022598870056498,
+            "high_saturation_fraction": 0.45930232558139533,
+            "stain_boundary_irregularity": 1.4810992582299132,
+            "hue_mean": 112.48255813953489,
+            "hue_std": 21.694623124767336,
+            "saturation_mean": 14.180232558139535,
+            "saturation_std": 7.3947706187586535,
+            "value_mean": 222.84883720930233,
+            "value_std": 5.767828662948224,
+            "glcm_energy": 0.3695272679425761,
+            "glcm_contrast": 0.945945945945946,
+            "glcm_homogeneity": 0.7216216216216215,
+            "glcm_entropy": 3.5503861455265575,
+            "glcm_correlation": 0.6465128975023884,
+            "lbp_bin0": 0.20491803278688525,
+            "lbp_bin1": 0.20491803278688525,
+            "lbp_bin2": 0.3360655737704918,
+            "lbp_bin3": 0.2540983606557377
+          }
+        }
+      },
+      {
+        "object_id": 5,
+        "cell_type": "Platelet",
+        "box": [
+          47,
+          84,
+          68,
+          103
+        ],
+        "detector_score": 0.7307988405227661,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 190.5,
+            "perimeter": 54.870057106018066,
+            "circularity": 0.7951224570958323,
+            "eccentricity": 0.6431545759703126,
+            "solidity": 0.943069306930693,
+            "high_saturation_fraction": 0.4930232558139535,
+            "stain_boundary_irregularity": 2.108388329392675,
+            "hue_mean": 122.15813953488372,
+            "hue_std": 18.699163425611832,
+            "saturation_mean": 19.344186046511627,
+            "saturation_std": 10.16938639674572,
+            "value_mean": 224.41860465116278,
+            "value_std": 5.611585018966981,
+            "glcm_energy": 0.28117754199333944,
+            "glcm_contrast": 0.9090909090909091,
+            "glcm_homogeneity": 0.709090909090909,
+            "glcm_entropy": 4.055374402349053,
+            "glcm_correlation": 0.7805742993646257,
+            "lbp_bin0": 0.1411042944785276,
+            "lbp_bin1": 0.3496932515337423,
+            "lbp_bin2": 0.294478527607362,
+            "lbp_bin3": 0.2147239263803681
+          }
+        }
+      },
+      {
+        "object_id": 6,
+        "cell_type": "Platelet",
+        "box": [
+          142,
+          108,
+          166,
+          132
+        ],
+        "detector_score": 0.727455735206604,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 3,
+          "features": {
+            "area": 230.0,
+            "perimeter": 60.28427052497864,
+            "circularity": 0.795297614739239,
+            "eccentricity": 0.4672160509186183,
+            "solidity": 0.9465020576131687,
+            "high_saturation_fraction": 0.6498054474708171,
+            "stain_boundary_irregularity": 1.6497417750357186,
+            "hue_mean": 113.43190661478599,
+            "hue_std": 17.58946651159396,
+            "saturation_mean": 18.32295719844358,
+            "saturation_std": 7.3511677657069425,
+            "value_mean": 218.61867704280155,
+            "value_std": 5.458948442158272,
+            "glcm_energy": 0.5166321642198808,
+            "glcm_contrast": 0.7004219409282699,
+            "glcm_homogeneity": 0.7909655001241003,
+            "glcm_entropy": 2.9591503762996916,
+            "glcm_correlation": 0.5158980164394349,
+            "lbp_bin0": 0.11458333333333333,
+            "lbp_bin1": 0.25,
+            "lbp_bin2": 0.4322916666666667,
+            "lbp_bin3": 0.203125
+          }
+        }
+      },
+      {
+        "object_id": 7,
+        "cell_type": "Platelet",
+        "box": [
+          35,
+          167,
+          52,
+          185
+        ],
+        "detector_score": 0.7062154412269592,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 1,
+          "features": {
+            "area": 76.5,
+            "perimeter": 34.38477575778961,
+            "circularity": 0.8130905364607963,
+            "eccentricity": 0.7093192248053495,
+            "solidity": 0.9444444444444444,
+            "high_saturation_fraction": 0.7608695652173914,
+            "stain_boundary_irregularity": 1.1623852910948336,
+            "hue_mean": 124.93478260869566,
+            "hue_std": 0.5275939608483303,
+            "saturation_mean": 189.58695652173913,
+            "saturation_std": 34.723802190476306,
+            "value_mean": 225.20652173913044,
+            "value_std": 11.358331593916137,
+            "glcm_energy": 0.29086393147027995,
+            "glcm_contrast": 8.670886075949369,
+            "glcm_homogeneity": 0.5386132746904955,
+            "glcm_entropy": 4.384998156664022,
+            "glcm_correlation": 0.3032209053042252,
+            "lbp_bin0": 0.18867924528301888,
+            "lbp_bin1": 0.1320754716981132,
+            "lbp_bin2": 0.22641509433962265,
+            "lbp_bin3": 0.4528301886792453
+          }
+        }
+      },
+      {
+        "object_id": 8,
+        "cell_type": "Platelet",
+        "box": [
+          39,
+          215,
+          58,
+          224
+        ],
+        "detector_score": 0.6772472262382507,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 25.5,
+            "perimeter": 23.071067690849304,
+            "circularity": 0.602025181947225,
+            "eccentricity": 0.6428223307211359,
+            "solidity": 0.9272727272727272,
+            "high_saturation_fraction": 0.7567567567567568,
+            "stain_boundary_irregularity": 1.7082273130998713,
+            "hue_mean": 127.4054054054054,
+            "hue_std": 0.8840771477727636,
+            "saturation_mean": 207.43243243243242,
+            "saturation_std": 31.432072224935197,
+            "value_mean": 229.13513513513513,
+            "value_std": 11.299754032630743,
+            "glcm_energy": 0.2642427269576213,
+            "glcm_contrast": 6.375,
+            "glcm_homogeneity": 0.5178330206378987,
+            "glcm_entropy": 4.258467001462483,
+            "glcm_correlation": 0.3643622200584226,
+            "lbp_bin0": 0.23809523809523808,
+            "lbp_bin1": 0.14285714285714285,
+            "lbp_bin2": 0.38095238095238093,
+            "lbp_bin3": 0.23809523809523808
+          }
+        }
+      },
+      {
+        "object_id": 9,
+        "cell_type": "Platelet",
+        "box": [
+          80,
+          109,
+          99,
+          129
+        ],
+        "detector_score": 0.6651065349578857,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 2,
+          "features": {
+            "area": 60.0,
+            "perimeter": 33.31370830535889,
+            "circularity": 0.6793837531919755,
+            "eccentricity": 0.6548420430202382,
+            "solidity": 0.8823529411764706,
+            "high_saturation_fraction": 0.7236842105263158,
+            "stain_boundary_irregularity": 1.3721828136048617,
+            "hue_mean": 122.3157894736842,
+            "hue_std": 1.4618888855085423,
+            "saturation_mean": 79.57894736842105,
+            "saturation_std": 16.594437208305308,
+            "value_mean": 242.14473684210526,
+            "value_std": 9.840442795140477,
+            "glcm_energy": 0.22777155839239455,
+            "glcm_contrast": 4.03125,
+            "glcm_homogeneity": 0.5021756909624556,
+            "glcm_entropy": 4.832322355605086,
+            "glcm_correlation": 0.21273958234004006,
+            "lbp_bin0": 0.22727272727272727,
+            "lbp_bin1": 0.18181818181818182,
+            "lbp_bin2": 0.3181818181818182,
+            "lbp_bin3": 0.2727272727272727
+          }
+        }
+      },
+      {
+        "object_id": 10,
+        "cell_type": "Platelet",
+        "box": [
+          170,
+          207,
+          190,
+          223
+        ],
+        "detector_score": 0.6332289576530457,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 2,
+          "features": {
+            "area": 122.5,
+            "perimeter": 43.55634880065918,
+            "circularity": 0.8114149753909522,
+            "eccentricity": 0.4751015586014525,
+            "solidity": 0.9683794466403162,
+            "high_saturation_fraction": 0.5174825174825175,
+            "stain_boundary_irregularity": 3.7611011224920454,
+            "hue_mean": 126.68531468531468,
+            "hue_std": 2.090336006782851,
+            "saturation_mean": 30.81118881118881,
+            "saturation_std": 10.02301620429116,
+            "value_mean": 244.52447552447552,
+            "value_std": 6.099217154664244,
+            "glcm_energy": 0.25766360345298805,
+            "glcm_contrast": 1.3923076923076922,
+            "glcm_homogeneity": 0.5992307692307692,
+            "glcm_entropy": 4.3871157633866735,
+            "glcm_correlation": 0.6875560188289659,
+            "lbp_bin0": 0.16666666666666666,
+            "lbp_bin1": 0.3684210526315789,
+            "lbp_bin2": 0.21929824561403508,
+            "lbp_bin3": 0.24561403508771928
+          }
+        }
+      },
+      {
+        "object_id": 11,
+        "cell_type": "Platelet",
+        "box": [
+          134,
+          77,
+          156,
+          97
+        ],
+        "detector_score": 0.5960714817047119,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 8.5,
+            "perimeter": 14.242640614509583,
+            "circularity": 0.5265598703836083,
+            "eccentricity": 0.8614352298192838,
+            "solidity": 0.8947368421052632,
+            "high_saturation_fraction": 0.75,
+            "stain_boundary_irregularity": 1.5551405220855101,
+            "hue_mean": 127.375,
+            "hue_std": 0.8569568250501305,
+            "saturation_mean": 169.875,
+            "saturation_std": 39.4697273236084,
+            "value_mean": 220.125,
+            "value_std": 16.316690074889575,
+            "glcm_energy": 0.39370039370059057,
+            "glcm_contrast": 11.600000000000001,
+            "glcm_homogeneity": 0.48424116424116426,
+            "glcm_entropy": 3.0709505944546684,
+            "glcm_correlation": 0.006849315068493148,
+            "lbp_bin0": 0.2857142857142857,
+            "lbp_bin1": 0.14285714285714285,
+            "lbp_bin2": 0.14285714285714285,
+            "lbp_bin3": 0.42857142857142855
+          }
+        }
+      },
+      {
+        "object_id": 12,
+        "cell_type": "Platelet",
+        "box": [
+          180,
+          104,
+          208,
+          129
+        ],
+        "detector_score": 0.5958424806594849,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 372.0,
+            "perimeter": 108.08326017856598,
+            "circularity": 0.4001620799219391,
+            "eccentricity": 0.5249201907269869,
+            "solidity": 0.7244401168451802,
+            "high_saturation_fraction": 0.3976190476190476,
+            "stain_boundary_irregularity": 5.415376333560458,
+            "hue_mean": 122.3952380952381,
+            "hue_std": 7.2012549296881785,
+            "saturation_mean": 20.080952380952382,
+            "saturation_std": 7.893826342849566,
+            "value_mean": 226.13571428571427,
+            "value_std": 5.334805812888084,
+            "glcm_energy": 0.3208986114283022,
+            "glcm_contrast": 0.7357512953367875,
+            "glcm_homogeneity": 0.7160621761658033,
+            "glcm_entropy": 3.6131629134247283,
+            "glcm_correlation": 0.6292954774481093,
+            "lbp_bin0": 0.1838006230529595,
+            "lbp_bin1": 0.3052959501557632,
+            "lbp_bin2": 0.3177570093457944,
+            "lbp_bin3": 0.19314641744548286
+          }
+        }
+      },
+      {
+        "object_id": 13,
+        "cell_type": "Platelet",
+        "box": [
+          154,
+          170,
+          173,
+          194
+        ],
+        "detector_score": 0.57902991771698,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 1,
+          "features": {
+            "area": 159.5,
+            "perimeter": 52.041630148887634,
+            "circularity": 0.7400631290058943,
+            "eccentricity": 0.7745915734613683,
+            "solidity": 0.9354838709677419,
+            "high_saturation_fraction": 0.8469945355191257,
+            "stain_boundary_irregularity": 1.2911242593282377,
+            "hue_mean": 128.62841530054644,
+            "hue_std": 1.2604367367766485,
+            "saturation_mean": 171.50819672131146,
+            "saturation_std": 28.046189235401794,
+            "value_mean": 235.80327868852459,
+            "value_std": 11.122005468603412,
+            "glcm_energy": 0.26731153287158704,
+            "glcm_contrast": 5.355828220858895,
+            "glcm_homogeneity": 0.5318231966755437,
+            "glcm_entropy": 4.367107170386369,
+            "glcm_correlation": 0.2662295639887897,
+            "lbp_bin0": 0.234375,
+            "lbp_bin1": 0.15625,
+            "lbp_bin2": 0.3359375,
+            "lbp_bin3": 0.2734375
+          }
+        }
+      },
+      {
+        "object_id": 14,
+        "cell_type": "Platelet",
+        "box": [
+          21,
+          0,
+          43,
+          12
+        ],
+        "detector_score": 0.5262152552604675,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 69.5,
+            "perimeter": 51.21320307254791,
+            "circularity": 0.3329896924496276,
+            "eccentricity": 0.8849558612716268,
+            "solidity": 0.6915422885572139,
+            "high_saturation_fraction": 0.3870967741935484,
+            "stain_boundary_irregularity": 2.8623230889214364,
+            "hue_mean": 124.9247311827957,
+            "hue_std": 0.6431869431715346,
+            "saturation_mean": 44.26881720430107,
+            "saturation_std": 7.042329442545159,
+            "value_mean": 217.56989247311827,
+            "value_std": 5.428712692141141,
+            "glcm_energy": 0.31607572124515876,
+            "glcm_contrast": 0.7341772151898733,
+            "glcm_homogeneity": 0.7392405063291139,
+            "glcm_entropy": 3.568209212159201,
+            "glcm_correlation": 0.6990278507619548,
+            "lbp_bin0": 0.17391304347826086,
+            "lbp_bin1": 0.13043478260869565,
+            "lbp_bin2": 0.41304347826086957,
+            "lbp_bin3": 0.2826086956521739
+          }
+        }
+      },
+      {
+        "object_id": 15,
+        "cell_type": "Platelet",
+        "box": [
+          142,
+          55,
+          166,
+          83
+        ],
+        "detector_score": 0.5193002223968506,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 3,
+          "features": {
+            "area": 306.5,
+            "perimeter": 70.87005734443665,
+            "circularity": 0.7668576856299926,
+            "eccentricity": 0.7774814740966389,
+            "solidity": 0.9518633540372671,
+            "high_saturation_fraction": 0.41002949852507375,
+            "stain_boundary_irregularity": 2.402925729434504,
+            "hue_mean": 119.23008849557522,
+            "hue_std": 12.625774674365996,
+            "saturation_mean": 20.47787610619469,
+            "saturation_std": 10.753689642016072,
+            "value_mean": 222.46017699115043,
+            "value_std": 4.8700555106321675,
+            "glcm_energy": 0.26138598407244007,
+            "glcm_contrast": 1.0031948881789137,
+            "glcm_homogeneity": 0.678594249201278,
+            "glcm_entropy": 4.209940016433153,
+            "glcm_correlation": 0.7052942799227567,
+            "lbp_bin0": 0.18149466192170818,
+            "lbp_bin1": 0.3238434163701068,
+            "lbp_bin2": 0.3202846975088968,
+            "lbp_bin3": 0.17437722419928825
+          }
+        }
+      },
+      {
+        "object_id": 16,
+        "cell_type": "Platelet",
+        "box": [
+          168,
+          154,
+          189,
+          179
+        ],
+        "detector_score": 0.5177549719810486,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 4,
+          "features": {
+            "area": 152.5,
+            "perimeter": 49.21320307254791,
+            "circularity": 0.7912549558353487,
+            "eccentricity": 0.7636840722405686,
+            "solidity": 0.9501557632398754,
+            "high_saturation_fraction": 0.5828571428571429,
+            "stain_boundary_irregularity": 1.4821122393363386,
+            "hue_mean": 120.37142857142857,
+            "hue_std": 3.668286593303779,
+            "saturation_mean": 21.822857142857142,
+            "saturation_std": 6.921398938459343,
+            "value_mean": 236.3657142857143,
+            "value_std": 4.373030518801275,
+            "glcm_energy": 0.3560048054135572,
+            "glcm_contrast": 0.7579617834394905,
+            "glcm_homogeneity": 0.7203821656050956,
+            "glcm_entropy": 3.395954402710694,
+            "glcm_correlation": 0.5372345036844386,
+            "lbp_bin0": 0.13953488372093023,
+            "lbp_bin1": 0.3488372093023256,
+            "lbp_bin2": 0.32558139534883723,
+            "lbp_bin3": 0.18604651162790697
+          }
+        }
+      },
+      {
+        "object_id": 17,
+        "cell_type": "Platelet",
+        "box": [
+          147,
+          0,
+          164,
+          7
+        ],
+        "detector_score": 0.49312159419059753,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 16.0,
+            "perimeter": 20.485281229019165,
+            "circularity": 0.4791218596397519,
+            "eccentricity": 0.15004692688470972,
+            "solidity": 0.9411764705882353,
+            "high_saturation_fraction": 0.6923076923076923,
+            "stain_boundary_irregularity": 1.9507389164391313,
+            "hue_mean": 127.88461538461539,
+            "hue_std": 0.423076923076923,
+            "saturation_mean": 177.3846153846154,
+            "saturation_std": 30.84461918300141,
+            "value_mean": 204.0,
+            "value_std": 9.343858534229438,
+            "glcm_energy": 0.30151134457776363,
+            "glcm_contrast": 3.6363636363636362,
+            "glcm_homogeneity": 0.5726038667215136,
+            "glcm_entropy": 3.9317206879810787,
+            "glcm_correlation": 0.6339434276206322,
+            "lbp_bin0": 0.1,
+            "lbp_bin1": 0.3,
+            "lbp_bin2": 0.5,
+            "lbp_bin3": 0.1
+          }
+        }
+      },
+      {
+        "object_id": 18,
+        "cell_type": "RBC",
+        "box": [
+          209,
+          28,
+          224,
+          55
+        ],
+        "detector_score": 0.48870375752449036,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 2,
+          "features": {
+            "area": 191.0,
+            "perimeter": 78.28427064418793,
+            "circularity": 0.39164646580250784,
+            "eccentricity": 0.8243680411532356,
+            "solidity": 0.80083857442348,
+            "high_saturation_fraction": 0.5859030837004405,
+            "stain_boundary_irregularity": 2.5804320984405487,
+            "hue_mean": 132.18942731277534,
+            "hue_std": 6.149694532563021,
+            "saturation_mean": 22.80616740088106,
+            "saturation_std": 10.240601442801244,
+            "value_mean": 206.11453744493392,
+            "value_std": 6.621624574884355,
+            "glcm_energy": 0.29446334756138925,
+            "glcm_contrast": 0.6683673469387754,
+            "glcm_homogeneity": 0.7209183673469387,
+            "glcm_entropy": 3.8271878129375048,
+            "glcm_correlation": 0.7806735430414076,
+            "lbp_bin0": 0.04294478527607362,
+            "lbp_bin1": 0.6687116564417178,
+            "lbp_bin2": 0.15950920245398773,
+            "lbp_bin3": 0.12883435582822086
+          }
+        }
+      },
+      {
+        "object_id": 19,
+        "cell_type": "Platelet",
+        "box": [
+          56,
+          178,
+          80,
+          204
+        ],
+        "detector_score": 0.48187482357025146,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 348.5,
+            "perimeter": 128.32590067386627,
+            "circularity": 0.2659402080961683,
+            "eccentricity": 0.5757351879671947,
+            "solidity": 0.7170781893004116,
+            "high_saturation_fraction": 0.49014778325123154,
+            "stain_boundary_irregularity": 4.732731187513252,
+            "hue_mean": 123.95073891625616,
+            "hue_std": 2.205576663714052,
+            "saturation_mean": 21.389162561576356,
+            "saturation_std": 8.491449236504645,
+            "value_mean": 237.25615763546799,
+            "value_std": 5.240839910760961,
+            "glcm_energy": 0.31243050040161463,
+            "glcm_contrast": 0.85595567867036,
+            "glcm_homogeneity": 0.6983379501385042,
+            "glcm_entropy": 3.7891649206051623,
+            "glcm_correlation": 0.6058374042632132,
+            "lbp_bin0": 0.13523131672597866,
+            "lbp_bin1": 0.3736654804270463,
+            "lbp_bin2": 0.33451957295373663,
+            "lbp_bin3": 0.15658362989323843
+          }
+        }
+      },
+      {
+        "object_id": 20,
+        "cell_type": "Platelet",
+        "box": [
+          164,
+          187,
+          181,
+          205
+        ],
+        "detector_score": 0.4348188042640686,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 2,
+          "features": {
+            "area": 13.0,
+            "perimeter": 14.828427076339722,
+            "circularity": 0.7429559153356595,
+            "eccentricity": 0.8403397856703912,
+            "solidity": 0.9629629629629629,
+            "high_saturation_fraction": 0.7619047619047619,
+            "stain_boundary_irregularity": 1.4551053787684471,
+            "hue_mean": 127.76190476190476,
+            "hue_std": 0.6098213559459856,
+            "saturation_mean": 159.9047619047619,
+            "saturation_std": 36.424618521916194,
+            "value_mean": 231.66666666666666,
+            "value_std": 13.217352711432525,
+            "glcm_energy": 0.29315098498896436,
+            "glcm_contrast": 6.8125,
+            "glcm_homogeneity": 0.38490384615384615,
+            "glcm_entropy": 3.8522170014624826,
+            "glcm_correlation": 0.5223880597014925,
+            "lbp_bin0": 0.4666666666666667,
+            "lbp_bin1": 0.06666666666666667,
+            "lbp_bin2": 0.26666666666666666,
+            "lbp_bin3": 0.2
+          }
+        }
+      },
+      {
+        "object_id": 21,
+        "cell_type": "Platelet",
+        "box": [
+          193,
+          193,
+          209,
+          208
+        ],
+        "detector_score": 0.42484036087989807,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": false,
+          "foreground_regions": 2,
+          "features": {
+            "area": 65.0,
+            "perimeter": 38.97056233882904,
+            "circularity": 0.5378360087603924,
+            "eccentricity": 0.37729079886520345,
+            "solidity": 0.8227848101265823,
+            "high_saturation_fraction": 0.5662650602409639,
+            "stain_boundary_irregularity": 3.8048264365592788,
+            "hue_mean": 126.83132530120481,
+            "hue_std": 1.6414750720773725,
+            "saturation_mean": 26.204819277108435,
+            "saturation_std": 6.023566241732887,
+            "value_mean": 242.89156626506025,
+            "value_std": 5.3728726206207575,
+            "glcm_energy": 0.3173549049341767,
+            "glcm_contrast": 1.1449275362318843,
+            "glcm_homogeneity": 0.618840579710145,
+            "glcm_entropy": 3.5702963234761222,
+            "glcm_correlation": 0.31351929979220444,
+            "lbp_bin0": 0.15217391304347827,
+            "lbp_bin1": 0.3695652173913043,
+            "lbp_bin2": 0.1956521739130435,
+            "lbp_bin3": 0.2826086956521739
+          }
+        }
+      },
+      {
+        "object_id": 22,
+        "cell_type": "WBC",
+        "box": [
+          0,
+          68,
+          15,
+          113
+        ],
+        "detector_score": 0.400649756193161,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 2,
+          "features": {
+            "area": 137.5,
+            "perimeter": 58.041629910469055,
+            "circularity": 0.5129007838886098,
+            "eccentricity": 0.8185605451757609,
+            "solidity": 0.8957654723127035,
+            "high_saturation_fraction": 0.6585365853658537,
+            "stain_boundary_irregularity": 1.9793607371324138,
+            "hue_mean": 126.15243902439025,
+            "hue_std": 3.465147925950781,
+            "saturation_mean": 155.4512195121951,
+            "saturation_std": 28.393211331800813,
+            "value_mean": 239.140243902439,
+            "value_std": 9.676402775423258,
+            "glcm_energy": 0.18426072420945502,
+            "glcm_contrast": 4.134751773049645,
+            "glcm_homogeneity": 0.46810500304868263,
+            "glcm_entropy": 5.354096198139759,
+            "glcm_correlation": 0.5314105907602328,
+            "lbp_bin0": 0.24786324786324787,
+            "lbp_bin1": 0.19658119658119658,
+            "lbp_bin2": 0.28205128205128205,
+            "lbp_bin3": 0.27350427350427353
+          }
+        },
+        "subtype_status": "not_assessed_in_combined_mode"
+      },
+      {
+        "object_id": 23,
+        "cell_type": "Platelet",
+        "box": [
+          20,
+          0,
+          49,
+          13
+        ],
+        "detector_score": 0.39683547616004944,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 2,
+          "features": {
+            "area": 89.5,
+            "perimeter": 66.04163002967834,
+            "circularity": 0.25786792850058043,
+            "eccentricity": 0.7846397196889116,
+            "solidity": 0.662962962962963,
+            "high_saturation_fraction": 0.39166666666666666,
+            "stain_boundary_irregularity": 1.8188760359579084,
+            "hue_mean": 124.83333333333333,
+            "hue_std": 0.7226494462892933,
+            "saturation_mean": 42.225,
+            "saturation_std": 7.717364079355939,
+            "value_mean": 218.81666666666666,
+            "value_std": 5.543740213570216,
+            "glcm_energy": 0.2991672263314481,
+            "glcm_contrast": 0.8712871287128714,
+            "glcm_homogeneity": 0.7188118811881188,
+            "glcm_entropy": 3.8636584833427388,
+            "glcm_correlation": 0.6981183343522858,
+            "lbp_bin0": 0.09836065573770492,
+            "lbp_bin1": 0.22950819672131148,
+            "lbp_bin2": 0.47540983606557374,
+            "lbp_bin3": 0.19672131147540983
+          }
+        }
+      },
+      {
+        "object_id": 24,
+        "cell_type": "Platelet",
+        "box": [
+          52,
+          45,
+          72,
+          69
+        ],
+        "detector_score": 0.3935990035533905,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 3,
+          "features": {
+            "area": 171.5,
+            "perimeter": 73.35533833503723,
+            "circularity": 0.4005073950177455,
+            "eccentricity": 0.7166119802284424,
+            "solidity": 0.7622222222222222,
+            "high_saturation_fraction": 0.5637254901960784,
+            "stain_boundary_irregularity": 4.994741997924806,
+            "hue_mean": 124.81372549019608,
+            "hue_std": 1.6071555201102468,
+            "saturation_mean": 24.877450980392158,
+            "saturation_std": 9.698882155750038,
+            "value_mean": 221.8186274509804,
+            "value_std": 5.941004575912323,
+            "glcm_energy": 0.2545905075422339,
+            "glcm_contrast": 1.6285714285714286,
+            "glcm_homogeneity": 0.623764705882353,
+            "glcm_entropy": 4.325975122394379,
+            "glcm_correlation": 0.4840294840294841,
+            "lbp_bin0": 0.1297709923664122,
+            "lbp_bin1": 0.3511450381679389,
+            "lbp_bin2": 0.32061068702290074,
+            "lbp_bin3": 0.1984732824427481
+          }
+        }
+      },
+      {
+        "object_id": 25,
+        "cell_type": "Platelet",
+        "box": [
+          41,
+          108,
+          60,
+          129
+        ],
+        "detector_score": 0.39174535870552063,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 202.0,
+            "perimeter": 94.28427076339722,
+            "circularity": 0.2855503788440645,
+            "eccentricity": 0.4628305995779219,
+            "solidity": 0.6801346801346801,
+            "high_saturation_fraction": 0.35772357723577236,
+            "stain_boundary_irregularity": 3.063947464123212,
+            "hue_mean": 119.95934959349593,
+            "hue_std": 19.107483050366962,
+            "saturation_mean": 17.333333333333332,
+            "saturation_std": 8.965758408982392,
+            "value_mean": 232.390243902439,
+            "value_std": 5.159463869452561,
+            "glcm_energy": 0.3055220239709465,
+            "glcm_contrast": 0.8009049773755655,
+            "glcm_homogeneity": 0.7135746606334842,
+            "glcm_entropy": 3.867435711806934,
+            "glcm_correlation": 0.726478454680535,
+            "lbp_bin0": 0.17159763313609466,
+            "lbp_bin1": 0.33136094674556216,
+            "lbp_bin2": 0.33136094674556216,
+            "lbp_bin3": 0.16568047337278108
+          }
+        }
+      },
+      {
+        "object_id": 26,
+        "cell_type": "Platelet",
+        "box": [
+          179,
+          192,
+          197,
+          211
+        ],
+        "detector_score": 0.3727118670940399,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 141.5,
+            "perimeter": 48.870057106018066,
+            "circularity": 0.7445272724946593,
+            "eccentricity": 0.47330237432474503,
+            "solidity": 0.9218241042345277,
+            "high_saturation_fraction": 0.6993865030674846,
+            "stain_boundary_irregularity": 1.8856497649645916,
+            "hue_mean": 126.0920245398773,
+            "hue_std": 1.6310251808301701,
+            "saturation_mean": 23.938650306748468,
+            "saturation_std": 6.733027515762978,
+            "value_mean": 245.27607361963192,
+            "value_std": 4.942973377485567,
+            "glcm_energy": 0.3386430484748695,
+            "glcm_contrast": 0.9109589041095889,
+            "glcm_homogeneity": 0.6924657534246577,
+            "glcm_entropy": 3.6816217192792102,
+            "glcm_correlation": 0.6494787670923777,
+            "lbp_bin0": 0.10091743119266056,
+            "lbp_bin1": 0.5229357798165137,
+            "lbp_bin2": 0.23853211009174313,
+            "lbp_bin3": 0.13761467889908258
+          }
+        }
+      },
+      {
+        "object_id": 27,
+        "cell_type": "Platelet",
+        "box": [
+          217,
+          194,
+          224,
+          212
+        ],
+        "detector_score": 0.34141507744789124,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 20.5,
+            "perimeter": 41.899494647979736,
+            "circularity": 0.14673920275113114,
+            "eccentricity": 0.973369699579664,
+            "solidity": 0.41836734693877553,
+            "high_saturation_fraction": 0.4634146341463415,
+            "stain_boundary_irregularity": 1.899119276354049,
+            "hue_mean": 126.6829268292683,
+            "hue_std": 0.6023945870843156,
+            "saturation_mean": 29.317073170731707,
+            "saturation_std": 6.395268923540443,
+            "value_mean": 238.17073170731706,
+            "value_std": 5.069769028386774,
+            "glcm_energy": 0.3148212604566327,
+            "glcm_contrast": 0.8846153846153847,
+            "glcm_homogeneity": 0.6961538461538461,
+            "glcm_entropy": 3.4493118330264454,
+            "glcm_correlation": 0.5696293630802445,
+            "lbp_bin0": 0.23076923076923078,
+            "lbp_bin1": 0.15384615384615385,
+            "lbp_bin2": 0.38461538461538464,
+            "lbp_bin3": 0.23076923076923078
+          }
+        }
+      },
+      {
+        "object_id": 28,
+        "cell_type": "Platelet",
+        "box": [
+          97,
+          165,
+          116,
+          187
+        ],
+        "detector_score": 0.3247237503528595,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 211.5,
+            "perimeter": 62.041630148887634,
+            "circularity": 0.6904843424812628,
+            "eccentricity": 0.5321570914277522,
+            "solidity": 0.8961864406779662,
+            "high_saturation_fraction": 0.44583333333333336,
+            "stain_boundary_irregularity": 2.756321992065175,
+            "hue_mean": 120.39583333333333,
+            "hue_std": 10.23665713529351,
+            "saturation_mean": 14.9375,
+            "saturation_std": 7.269818458301876,
+            "value_mean": 230.275,
+            "value_std": 4.066043326544041,
+            "glcm_energy": 0.33015940607351996,
+            "glcm_contrast": 0.8127853881278538,
+            "glcm_homogeneity": 0.741552511415525,
+            "glcm_entropy": 3.706000121097303,
+            "glcm_correlation": 0.6397959749404002,
+            "lbp_bin0": 0.16129032258064516,
+            "lbp_bin1": 0.3225806451612903,
+            "lbp_bin2": 0.3172043010752688,
+            "lbp_bin3": 0.1989247311827957
+          }
+        }
+      },
+      {
+        "object_id": 29,
+        "cell_type": "Platelet",
+        "box": [
+          152,
+          210,
+          170,
+          223
+        ],
+        "detector_score": 0.29599952697753906,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 99.0,
+            "perimeter": 57.79898953437805,
+            "circularity": 0.37239562203191456,
+            "eccentricity": 0.7713258631880724,
+            "solidity": 0.7734375,
+            "high_saturation_fraction": 0.5,
+            "stain_boundary_irregularity": 3.4171477309063656,
+            "hue_mean": 126.03968253968254,
+            "hue_std": 1.3177710476936357,
+            "saturation_mean": 28.642857142857142,
+            "saturation_std": 8.780809057811846,
+            "value_mean": 241.14285714285714,
+            "value_std": 4.482265381238131,
+            "glcm_energy": 0.2739131007430438,
+            "glcm_contrast": 1.5327102803738317,
+            "glcm_homogeneity": 0.5588785046728971,
+            "glcm_entropy": 3.999497339166896,
+            "glcm_correlation": 0.4959499052105474,
+            "lbp_bin0": 0.13924050632911392,
+            "lbp_bin1": 0.4810126582278481,
+            "lbp_bin2": 0.22784810126582278,
+            "lbp_bin3": 0.1518987341772152
+          }
+        }
+      },
+      {
+        "object_id": 30,
+        "cell_type": "Platelet",
+        "box": [
+          126,
+          213,
+          143,
+          223
+        ],
+        "detector_score": 0.2801452577114105,
+        "morphology": {
+          "available": true,
+          "method": "largest Otsu foreground region within detector box",
+          "touches_crop_border": true,
+          "foreground_regions": 1,
+          "features": {
+            "area": 64.0,
+            "perimeter": 52.62741661071777,
+            "circularity": 0.29037935380984686,
+            "eccentricity": 0.7276305550654445,
+            "solidity": 0.624390243902439,
+            "high_saturation_fraction": 0.4431818181818182,
+            "stain_boundary_irregularity": 3.1275712610865383,
+            "hue_mean": 126.11363636363636,
+            "hue_std": 2.967367283475593,
+            "saturation_mean": 21.693181818181817,
+            "saturation_std": 5.96458859845005,
+            "value_mean": 240.04545454545453,
+            "value_std": 4.7575516308980985,
+            "glcm_energy": 0.31762768405636865,
+            "glcm_contrast": 1.2222222222222223,
+            "glcm_homogeneity": 0.5888888888888889,
+            "glcm_entropy": 3.4940248552863866,
+            "glcm_correlation": 0.22123893805309733,
+            "lbp_bin0": 0.17391304347826086,
+            "lbp_bin1": 0.2608695652173913,
+            "lbp_bin2": 0.391304347826087,
+            "lbp_bin3": 0.17391304347826086
+          }
+        }
+      }
+    ],
+    "diagnosis": {
+      "status": "not_assessed"
+    },
+    "model_provenance": {
+      "detector": {
+        "path": "runs/detect/runs/stage1_detection/weights/best.pt",
+        "task": "detect",
+        "names": [
+          "RBC",
+          "WBC",
+          "Platelet"
+        ],
+        "sha256": "e3fca87cb77bb571810a77880e40d2e41f51195147b89340097e8283cdcae63d",
+        "confidence": 0.25
+      },
+      "wbc": {
+        "path": "runs/verified/wbc_crop_seed42/weights/last.pt",
+        "task": "classify",
+        "names": [
+          "EOSINOPHIL",
+          "LYMPHOCYTE",
+          "MONOCYTE",
+          "NEUTROPHIL"
+        ],
+        "sha256": "846e9343680cfaa2ff6b540d66a6f3f04a56e8f16e67faaf5fc26395d246d802",
+        "review_threshold": 0.5,
+        "review_policy": "Minimum validation threshold on 0.50:0.01:0.99 with at least 20 accepted matches and 90% empirical correctness. No guarantee on new data."
+      }
+    },
+    "scope": "Image-field counts and research predictions; not a complete blood count or diagnosis."
+  },
+  "leukemia_screening": {
+    "task": "acute_lymphoblastic_leukemia_screening",
+    "image_name": "WBC-Benign-010.jpg",
+    "status": "benign_pattern",
+    "label": "Benign-like image pattern",
+    "all_model_support": 0.05122823859972192,
+    "binary_agreement": true,
+    "binary_accepted": true,
+    "subtype": null,
+    "subtype_display": null,
+    "subtype_accepted": false,
+    "subtype_status": "not_applicable",
+    "views": {
+      "original": {
+        "Benign": 0.9979861005074341,
+        "Early": 0.0008381428878808447,
+        "Pre": 1.792392485967873e-06,
+        "Pro": 0.001173964212199197
+      },
+      "stain": {
+        "Benign": 0.8995574222931221,
+        "Early": 0.09775217023664139,
+        "Pre": 0.0002542078944372468,
+        "Pro": 0.002436199575799211
+      }
+    },
+    "elapsed_seconds": 1.1190686002373695,
+    "model_provenance": {
+      "backbone": {
+        "path": "yolov8n-cls.pt",
+        "sha256": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a"
+      },
+      "heads": {
+        "original": {
+          "path": "runs/all_verified/original_head.joblib",
+          "sha256": "be1779a5dd5a1586561314ca65e6e1d9e581e085dbeed3beabc3d63c20a1c9cf",
+          "temperature": 0.9103393699998712
+        },
+        "stain": {
+          "path": "runs/all_verified/stain_head.joblib",
+          "sha256": "86e87b8792c85c73bc36fa12e650dd2851b7d95896dc03386ae4e590a6f77164",
+          "temperature": 0.8119646480312076
+        }
+      },
+      "thresholds": {
+        "binary": 0.5,
+        "subtype": 0.5
+      },
+      "labels": [
+        "Benign",
+        "Early",
+        "Pre",
+        "Pro"
+      ],
+      "transformation_sha256": "aef0246844187b1e50529155cf4d1a6c2e1d73db804dee6bdce556858ce3e2db",
+      "scope": "Image-level ALL screening; patient independence and clinical performance unestablished."
+    },
+    "diagnosis": {
+      "status": "not_assessed"
+    },
+    "scope": "ALL source-domain image screening; other leukemia types and clinical diagnosis are not assessed."
+  },
+  "scope": "Components evaluated on their respective datasets; combined clinical accuracy is not established."
+}

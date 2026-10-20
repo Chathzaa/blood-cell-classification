@@ -1,0 +1,5569 @@
+{
+  "view": "crop",
+  "seed": 43,
+  "review_threshold": 0.5,
+  "val": {
+    "native": {
+      "n": 84,
+      "correct": 77,
+      "accuracy": 0.9166666666666666,
+      "accuracy_wilson95": [
+        0.8378427769435238,
+        0.9590474493775928
+      ],
+      "macro_f1": 0.9059523809523811,
+      "mcc": 0.849786040902857,
+      "labels": [
+        "EOSINOPHIL",
+        "LYMPHOCYTE",
+        "MONOCYTE",
+        "NEUTROPHIL"
+      ],
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          8,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          2,
+          0,
+          2,
+          49
+        ]
+      ],
+      "per_class": {
+        "EOSINOPHIL": {
+          "precision": 0.8823529411764706,
+          "recall": 0.8333333333333334,
+          "f1": 0.8571428571428571,
+          "n": 18
+        },
+        "LYMPHOCYTE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "n": 8
+        },
+        "MONOCYTE": {
+          "precision": 0.7142857142857143,
+          "recall": 1.0,
+          "f1": 0.8333333333333334,
+          "n": 5
+        },
+        "NEUTROPHIL": {
+          "precision": 0.9423076923076923,
+          "recall": 0.9245283018867925,
+          "f1": 0.9333333333333333,
+          "n": 53
+        }
+      }
+    },
+    "cascade": {
+      "n": 84,
+      "correct": 76,
+      "accuracy": 0.9047619047619048,
+      "accuracy_wilson95": [
+        0.8231736440500729,
+        0.9509482900904406
+      ],
+      "macro_f1": 0.9084048027444254,
+      "missed": 0,
+      "false_positive_wbc": 0,
+      "confusion_matrix": [
+        [
+          14,
+          0,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          8,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          1,
+          49,
+          0
+        ]
+      ],
+      "per_class": {
+        "EOSINOPHIL": {
+          "tp": 14,
+          "fp": 3,
+          "fn": 4,
+          "precision": 0.8235294117647058,
+          "recall": 0.7777777777777778,
+          "f1": 0.8
+        },
+        "LYMPHOCYTE": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "MONOCYTE": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091
+        },
+        "NEUTROPHIL": {
+          "tp": 49,
+          "fp": 4,
+          "fn": 4,
+          "precision": 0.9245283018867925,
+          "recall": 0.9245283018867925,
+          "f1": 0.9245283018867925
+        }
+      }
+    },
+    "native_predictions": [
+      {
+        "source_id": "BloodImage_00000",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.997639536857605,
+        "probabilities": {
+          "EOSINOPHIL": 0.001747648580931127,
+          "LYMPHOCYTE": 2.9859033929824363e-06,
+          "MONOCYTE": 0.0006098781595937908,
+          "NEUTROPHIL": 0.997639536857605
+        }
+      },
+      {
+        "source_id": "BloodImage_00002",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999976396560669,
+        "probabilities": {
+          "EOSINOPHIL": 1.2671330296143424e-07,
+          "LYMPHOCYTE": 9.26622902852614e-08,
+          "MONOCYTE": 2.3404234525514767e-05,
+          "NEUTROPHIL": 0.999976396560669
+        }
+      },
+      {
+        "source_id": "BloodImage_00014",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999442100524902,
+        "probabilities": {
+          "EOSINOPHIL": 4.531160357146291e-06,
+          "LYMPHOCYTE": 3.2068527389128576e-08,
+          "MONOCYTE": 5.124651943333447e-05,
+          "NEUTROPHIL": 0.9999442100524902
+        }
+      },
+      {
+        "source_id": "BloodImage_00017",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999998807907104,
+          "LYMPHOCYTE": 2.7633711985330933e-10,
+          "MONOCYTE": 8.942792617538942e-10,
+          "NEUTROPHIL": 8.282152919036889e-08
+        }
+      },
+      {
+        "source_id": "BloodImage_00028",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9985696077346802,
+        "probabilities": {
+          "EOSINOPHIL": 0.9985696077346802,
+          "LYMPHOCYTE": 8.22542531864201e-08,
+          "MONOCYTE": 2.81466400338104e-05,
+          "NEUTROPHIL": 0.001402118243277073
+        }
+      },
+      {
+        "source_id": "BloodImage_00029",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999843835830688,
+        "probabilities": {
+          "EOSINOPHIL": 1.5052692106110044e-05,
+          "LYMPHOCYTE": 2.3700852835872865e-08,
+          "MONOCYTE": 5.398941311796079e-07,
+          "NEUTROPHIL": 0.9999843835830688
+        }
+      },
+      {
+        "source_id": "BloodImage_00030",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9996635913848877,
+        "probabilities": {
+          "EOSINOPHIL": 0.0001978665532078594,
+          "LYMPHOCYTE": 2.077639919662033e-06,
+          "MONOCYTE": 0.00013647162995766848,
+          "NEUTROPHIL": 0.9996635913848877
+        }
+      },
+      {
+        "source_id": "BloodImage_00035",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.7379454970359802,
+        "probabilities": {
+          "EOSINOPHIL": 0.7379454970359802,
+          "LYMPHOCYTE": 1.6398801108152838e-06,
+          "MONOCYTE": 0.0006672862218692899,
+          "NEUTROPHIL": 0.26138558983802795
+        }
+      },
+      {
+        "source_id": "BloodImage_00053",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9834364652633667,
+        "probabilities": {
+          "EOSINOPHIL": 0.014329876750707626,
+          "LYMPHOCYTE": 0.0010367498034611344,
+          "MONOCYTE": 0.0011968979379162192,
+          "NEUTROPHIL": 0.9834364652633667
+        }
+      },
+      {
+        "source_id": "BloodImage_00055",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999266862869263,
+        "probabilities": {
+          "EOSINOPHIL": 1.156359758169856e-06,
+          "LYMPHOCYTE": 0.9999266862869263,
+          "MONOCYTE": 1.5324925698223524e-05,
+          "NEUTROPHIL": 5.675657666870393e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00064",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.6381752490997314,
+        "probabilities": {
+          "EOSINOPHIL": 0.3612423241138458,
+          "LYMPHOCYTE": 0.00019199696544092149,
+          "MONOCYTE": 0.0003904453187715262,
+          "NEUTROPHIL": 0.6381752490997314
+        }
+      },
+      {
+        "source_id": "BloodImage_00066",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9982230067253113,
+        "probabilities": {
+          "EOSINOPHIL": 0.001726458896882832,
+          "LYMPHOCYTE": 4.660373633669224e-06,
+          "MONOCYTE": 4.585035640047863e-05,
+          "NEUTROPHIL": 0.9982230067253113
+        }
+      },
+      {
+        "source_id": "BloodImage_00072",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9988759160041809,
+        "probabilities": {
+          "EOSINOPHIL": 0.0011171819642186165,
+          "LYMPHOCYTE": 1.8675028456982545e-07,
+          "MONOCYTE": 6.642993866989855e-06,
+          "NEUTROPHIL": 0.9988759160041809
+        }
+      },
+      {
+        "source_id": "BloodImage_00073",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.7660443186759949,
+        "probabilities": {
+          "EOSINOPHIL": 0.7660443186759949,
+          "LYMPHOCYTE": 2.470203435223084e-05,
+          "MONOCYTE": 7.046464452287182e-05,
+          "NEUTROPHIL": 0.23386047780513763
+        }
+      },
+      {
+        "source_id": "BloodImage_00089",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9782222509384155,
+        "probabilities": {
+          "EOSINOPHIL": 5.2431637413974386e-06,
+          "LYMPHOCYTE": 0.9782222509384155,
+          "MONOCYTE": 0.021771257743239403,
+          "NEUTROPHIL": 1.2705166909654508e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00099",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999653100967407,
+        "probabilities": {
+          "EOSINOPHIL": 6.242687959456816e-06,
+          "LYMPHOCYTE": 0.9999653100967407,
+          "MONOCYTE": 2.8439084417186677e-05,
+          "NEUTROPHIL": 5.207974940191207e-09
+        }
+      },
+      {
+        "source_id": "BloodImage_00104",
+        "split": "val",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9994171857833862,
+        "probabilities": {
+          "EOSINOPHIL": 0.0001589771272847429,
+          "LYMPHOCYTE": 3.5578977986006066e-05,
+          "MONOCYTE": 0.9994171857833862,
+          "NEUTROPHIL": 0.0003883201570715755
+        }
+      },
+      {
+        "source_id": "BloodImage_00109",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.594603955745697,
+        "probabilities": {
+          "EOSINOPHIL": 0.594603955745697,
+          "LYMPHOCYTE": 3.534069765009917e-05,
+          "MONOCYTE": 0.001178410486318171,
+          "NEUTROPHIL": 0.4041823446750641
+        }
+      },
+      {
+        "source_id": "BloodImage_00111",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9996166229248047,
+        "probabilities": {
+          "EOSINOPHIL": 0.0002210859820479527,
+          "LYMPHOCYTE": 0.9996166229248047,
+          "MONOCYTE": 0.0001557397044962272,
+          "NEUTROPHIL": 6.522552666865522e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00115",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.998324453830719,
+        "probabilities": {
+          "EOSINOPHIL": 0.0016693176003172994,
+          "LYMPHOCYTE": 6.238363994270912e-07,
+          "MONOCYTE": 5.572280315391254e-06,
+          "NEUTROPHIL": 0.998324453830719
+        }
+      },
+      {
+        "source_id": "BloodImage_00125",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998286962509155,
+        "probabilities": {
+          "EOSINOPHIL": 0.00015921118028927594,
+          "LYMPHOCYTE": 7.233674068629625e-07,
+          "MONOCYTE": 1.1398223250580486e-05,
+          "NEUTROPHIL": 0.9998286962509155
+        }
+      },
+      {
+        "source_id": "BloodImage_00130",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9906322956085205,
+        "probabilities": {
+          "EOSINOPHIL": 0.00866814237087965,
+          "LYMPHOCYTE": 5.388958743424155e-05,
+          "MONOCYTE": 0.0006457088165916502,
+          "NEUTROPHIL": 0.9906322956085205
+        }
+      },
+      {
+        "source_id": "BloodImage_00140",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999018907546997,
+        "probabilities": {
+          "EOSINOPHIL": 1.6636469126751763e-06,
+          "LYMPHOCYTE": 0.9999018907546997,
+          "MONOCYTE": 5.279614561004564e-05,
+          "NEUTROPHIL": 4.3588548578554764e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00143",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8408974409103394,
+        "probabilities": {
+          "EOSINOPHIL": 0.15909479558467865,
+          "LYMPHOCYTE": 1.5173526435319218e-06,
+          "MONOCYTE": 6.191332886373857e-06,
+          "NEUTROPHIL": 0.8408974409103394
+        }
+      },
+      {
+        "source_id": "BloodImage_00145",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9590784907341003,
+        "probabilities": {
+          "EOSINOPHIL": 0.03815918415784836,
+          "LYMPHOCYTE": 0.0006549250101670623,
+          "MONOCYTE": 0.002107372274622321,
+          "NEUTROPHIL": 0.9590784907341003
+        }
+      },
+      {
+        "source_id": "BloodImage_00147",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999538660049438,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999538660049438,
+          "LYMPHOCYTE": 2.3058493070493569e-07,
+          "MONOCYTE": 1.4322241668196511e-06,
+          "NEUTROPHIL": 4.445349259185605e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00148",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9875263571739197,
+        "probabilities": {
+          "EOSINOPHIL": 0.00014765096420887858,
+          "LYMPHOCYTE": 0.9875263571739197,
+          "MONOCYTE": 0.008240250870585442,
+          "NEUTROPHIL": 0.0040858155116438866
+        }
+      },
+      {
+        "source_id": "BloodImage_00152",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9766936898231506,
+        "probabilities": {
+          "EOSINOPHIL": 0.9766936898231506,
+          "LYMPHOCYTE": 1.5109922060219105e-06,
+          "MONOCYTE": 0.00010746601037681103,
+          "NEUTROPHIL": 0.02319735661149025
+        }
+      },
+      {
+        "source_id": "BloodImage_00162",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9998805522918701,
+        "probabilities": {
+          "EOSINOPHIL": 0.9998805522918701,
+          "LYMPHOCYTE": 7.315601919799519e-07,
+          "MONOCYTE": 3.1817871786188334e-05,
+          "NEUTROPHIL": 8.68482529767789e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00183",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999912977218628,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999912977218628,
+          "LYMPHOCYTE": 5.259272839452933e-08,
+          "MONOCYTE": 1.4934315117898223e-07,
+          "NEUTROPHIL": 8.57353734318167e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00192",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9593014717102051,
+        "probabilities": {
+          "EOSINOPHIL": 0.035770487040281296,
+          "LYMPHOCYTE": 0.0033095518592745066,
+          "MONOCYTE": 0.001618498470634222,
+          "NEUTROPHIL": 0.9593014717102051
+        }
+      },
+      {
+        "source_id": "BloodImage_00207",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998587369918823,
+        "probabilities": {
+          "EOSINOPHIL": 9.945666533894837e-06,
+          "LYMPHOCYTE": 5.509829179572989e-07,
+          "MONOCYTE": 0.00013077640323899686,
+          "NEUTROPHIL": 0.9998587369918823
+        }
+      },
+      {
+        "source_id": "BloodImage_00209",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999713897705078,
+        "probabilities": {
+          "EOSINOPHIL": 1.570994936628267e-05,
+          "LYMPHOCYTE": 1.6669644082867308e-06,
+          "MONOCYTE": 1.126783354266081e-05,
+          "NEUTROPHIL": 0.9999713897705078
+        }
+      },
+      {
+        "source_id": "BloodImage_00216",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 4.882981130549524e-08,
+          "LYMPHOCYTE": 4.494474126204295e-09,
+          "MONOCYTE": 6.151064724235766e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00217",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.997795820236206,
+        "probabilities": {
+          "EOSINOPHIL": 5.4831758461659774e-05,
+          "LYMPHOCYTE": 0.997795820236206,
+          "MONOCYTE": 0.00029418585472740233,
+          "NEUTROPHIL": 0.0018551965476945043
+        }
+      },
+      {
+        "source_id": "BloodImage_00218",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9992353916168213,
+        "probabilities": {
+          "EOSINOPHIL": 0.0006849659257568419,
+          "LYMPHOCYTE": 5.728677206207067e-05,
+          "MONOCYTE": 2.238003617094364e-05,
+          "NEUTROPHIL": 0.9992353916168213
+        }
+      },
+      {
+        "source_id": "BloodImage_00219",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9965904951095581,
+        "probabilities": {
+          "EOSINOPHIL": 0.9965904951095581,
+          "LYMPHOCYTE": 2.443903940729797e-05,
+          "MONOCYTE": 7.80526315793395e-05,
+          "NEUTROPHIL": 0.0033069648779928684
+        }
+      },
+      {
+        "source_id": "BloodImage_00221",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9976018071174622,
+        "probabilities": {
+          "EOSINOPHIL": 0.0018610167317092419,
+          "LYMPHOCYTE": 5.911741027375683e-06,
+          "MONOCYTE": 0.0005312498542480171,
+          "NEUTROPHIL": 0.9976018071174622
+        }
+      },
+      {
+        "source_id": "BloodImage_00222",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999785423278809,
+        "probabilities": {
+          "EOSINOPHIL": 1.1081717275374103e-05,
+          "LYMPHOCYTE": 3.8315562278512516e-07,
+          "MONOCYTE": 1.0035872946900781e-05,
+          "NEUTROPHIL": 0.9999785423278809
+        }
+      },
+      {
+        "source_id": "BloodImage_00223",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 1.0,
+        "probabilities": {
+          "EOSINOPHIL": 2.7797182333699766e-09,
+          "LYMPHOCYTE": 1.6780368761182274e-10,
+          "MONOCYTE": 4.59643567651824e-09,
+          "NEUTROPHIL": 1.0
+        }
+      },
+      {
+        "source_id": "BloodImage_00230",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 1.1420462797673281e-08,
+          "LYMPHOCYTE": 8.631065639974622e-09,
+          "MONOCYTE": 6.36662846886793e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00236",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999829530715942,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999829530715942,
+          "LYMPHOCYTE": 5.852946287632221e-07,
+          "MONOCYTE": 6.295818366197636e-06,
+          "NEUTROPHIL": 1.0099613064085133e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00241",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9998897314071655,
+        "probabilities": {
+          "EOSINOPHIL": 4.951200389768928e-05,
+          "LYMPHOCYTE": 0.9998897314071655,
+          "MONOCYTE": 6.04718406975735e-05,
+          "NEUTROPHIL": 3.767856355807453e-07
+        }
+      },
+      {
+        "source_id": "BloodImage_00244",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9991577863693237,
+        "probabilities": {
+          "EOSINOPHIL": 0.00020768701506312937,
+          "LYMPHOCYTE": 0.00018326705321669579,
+          "MONOCYTE": 0.0004512847517617047,
+          "NEUTROPHIL": 0.9991577863693237
+        }
+      },
+      {
+        "source_id": "BloodImage_00245",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 1.0,
+        "probabilities": {
+          "EOSINOPHIL": 1.0956187068700274e-09,
+          "LYMPHOCYTE": 3.0486271840324264e-10,
+          "MONOCYTE": 1.5531955721570512e-09,
+          "NEUTROPHIL": 1.0
+        }
+      },
+      {
+        "source_id": "BloodImage_00246",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9939980506896973,
+        "probabilities": {
+          "EOSINOPHIL": 0.005705040413886309,
+          "LYMPHOCYTE": 8.068477654887829e-07,
+          "MONOCYTE": 0.00029607393662445247,
+          "NEUTROPHIL": 0.9939980506896973
+        }
+      },
+      {
+        "source_id": "BloodImage_00255",
+        "split": "val",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9963924288749695,
+        "probabilities": {
+          "EOSINOPHIL": 0.000339957739925012,
+          "LYMPHOCYTE": 0.00099017599131912,
+          "MONOCYTE": 0.9963924288749695,
+          "NEUTROPHIL": 0.002277517458423972
+        }
+      },
+      {
+        "source_id": "BloodImage_00260",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9963510036468506,
+        "probabilities": {
+          "EOSINOPHIL": 0.001997739542275667,
+          "LYMPHOCYTE": 6.844887684565037e-05,
+          "MONOCYTE": 0.00158279063180089,
+          "NEUTROPHIL": 0.9963510036468506
+        }
+      },
+      {
+        "source_id": "BloodImage_00261",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9974024891853333,
+        "probabilities": {
+          "EOSINOPHIL": 0.9974024891853333,
+          "LYMPHOCYTE": 6.073205076972954e-05,
+          "MONOCYTE": 0.00019626620633061975,
+          "NEUTROPHIL": 0.0023404795210808516
+        }
+      },
+      {
+        "source_id": "BloodImage_00262",
+        "split": "val",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9999936819076538,
+        "probabilities": {
+          "EOSINOPHIL": 2.715901018746081e-06,
+          "LYMPHOCYTE": 6.646328074566554e-07,
+          "MONOCYTE": 0.9999936819076538,
+          "NEUTROPHIL": 3.0373080335266422e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00269",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999865293502808,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999865293502808,
+          "LYMPHOCYTE": 2.010828836773726e-08,
+          "MONOCYTE": 1.9968804281234043e-06,
+          "NEUTROPHIL": 1.1394240573281422e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00272",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999245405197144,
+        "probabilities": {
+          "EOSINOPHIL": 3.8682141166646034e-05,
+          "LYMPHOCYTE": 1.5128134691622108e-05,
+          "MONOCYTE": 2.163598037441261e-05,
+          "NEUTROPHIL": 0.9999245405197144
+        }
+      },
+      {
+        "source_id": "BloodImage_00274",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.7985039353370667,
+        "probabilities": {
+          "EOSINOPHIL": 0.19935618340969086,
+          "LYMPHOCYTE": 5.6588010920677334e-05,
+          "MONOCYTE": 0.0020833476446568966,
+          "NEUTROPHIL": 0.7985039353370667
+        }
+      },
+      {
+        "source_id": "BloodImage_00277",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9982525706291199,
+        "probabilities": {
+          "EOSINOPHIL": 0.9982525706291199,
+          "LYMPHOCYTE": 0.00021690021094400436,
+          "MONOCYTE": 0.00027977253193967044,
+          "NEUTROPHIL": 0.0012507113860920072
+        }
+      },
+      {
+        "source_id": "BloodImage_00285",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.6052759885787964,
+        "probabilities": {
+          "EOSINOPHIL": 0.3423539102077484,
+          "LYMPHOCYTE": 0.02410026080906391,
+          "MONOCYTE": 0.02826983481645584,
+          "NEUTROPHIL": 0.6052759885787964
+        }
+      },
+      {
+        "source_id": "BloodImage_00298",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 2.485373329363938e-08,
+          "LYMPHOCYTE": 9.872672679378525e-10,
+          "MONOCYTE": 7.955956249361407e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00304",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 1.2680004601861583e-07,
+          "LYMPHOCYTE": 3.6889531429551425e-09,
+          "MONOCYTE": 3.2484699374890624e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00310",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9220054149627686,
+        "probabilities": {
+          "EOSINOPHIL": 0.003534190123900771,
+          "LYMPHOCYTE": 0.001247872831299901,
+          "MONOCYTE": 0.07321254909038544,
+          "NEUTROPHIL": 0.9220054149627686
+        }
+      },
+      {
+        "source_id": "BloodImage_00312",
+        "split": "val",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9944460391998291,
+        "probabilities": {
+          "EOSINOPHIL": 8.558082299714442e-06,
+          "LYMPHOCYTE": 0.005545333493500948,
+          "MONOCYTE": 0.9944460391998291,
+          "NEUTROPHIL": 2.5986944152123215e-08
+        }
+      },
+      {
+        "source_id": "BloodImage_00315",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9768658876419067,
+        "probabilities": {
+          "EOSINOPHIL": 0.0007096044137142599,
+          "LYMPHOCYTE": 0.0001050285209203139,
+          "MONOCYTE": 0.02231946773827076,
+          "NEUTROPHIL": 0.9768658876419067
+        }
+      },
+      {
+        "source_id": "BloodImage_00326",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9991363883018494,
+        "probabilities": {
+          "EOSINOPHIL": 0.0008358137565664947,
+          "LYMPHOCYTE": 8.060647815000266e-06,
+          "MONOCYTE": 1.978785076062195e-05,
+          "NEUTROPHIL": 0.9991363883018494
+        }
+      },
+      {
+        "source_id": "BloodImage_00330",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999803304672241,
+        "probabilities": {
+          "EOSINOPHIL": 1.2015283573418856e-05,
+          "LYMPHOCYTE": 6.588502401427832e-07,
+          "MONOCYTE": 7.019229087745771e-06,
+          "NEUTROPHIL": 0.9999803304672241
+        }
+      },
+      {
+        "source_id": "BloodImage_00331",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999914169311523,
+        "probabilities": {
+          "EOSINOPHIL": 4.8193051043199375e-06,
+          "LYMPHOCYTE": 9.73201053966477e-07,
+          "MONOCYTE": 2.847514906534343e-06,
+          "NEUTROPHIL": 0.9999914169311523
+        }
+      },
+      {
+        "source_id": "BloodImage_00334",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999349117279053,
+        "probabilities": {
+          "EOSINOPHIL": 5.196094571147114e-05,
+          "LYMPHOCYTE": 4.34408377714135e-07,
+          "MONOCYTE": 1.2704151231446303e-05,
+          "NEUTROPHIL": 0.9999349117279053
+        }
+      },
+      {
+        "source_id": "BloodImage_00337",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999788999557495,
+        "probabilities": {
+          "EOSINOPHIL": 2.026456240855623e-05,
+          "LYMPHOCYTE": 1.9194591516225046e-07,
+          "MONOCYTE": 6.732703923262306e-07,
+          "NEUTROPHIL": 0.9999788999557495
+        }
+      },
+      {
+        "source_id": "BloodImage_00338",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE",
+        "score": 0.5040016174316406,
+        "probabilities": {
+          "EOSINOPHIL": 0.09593817591667175,
+          "LYMPHOCYTE": 0.020321417599916458,
+          "MONOCYTE": 0.5040016174316406,
+          "NEUTROPHIL": 0.3797387480735779
+        }
+      },
+      {
+        "source_id": "BloodImage_00340",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9640063643455505,
+        "probabilities": {
+          "EOSINOPHIL": 0.016368409618735313,
+          "LYMPHOCYTE": 0.001435288111679256,
+          "MONOCYTE": 0.018189989030361176,
+          "NEUTROPHIL": 0.9640063643455505
+        }
+      },
+      {
+        "source_id": "BloodImage_00342",
+        "split": "val",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.999861478805542,
+        "probabilities": {
+          "EOSINOPHIL": 1.0763996215246152e-05,
+          "LYMPHOCYTE": 0.00012526428326964378,
+          "MONOCYTE": 0.999861478805542,
+          "NEUTROPHIL": 2.493316742402385e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00349",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.7908953428268433,
+        "probabilities": {
+          "EOSINOPHIL": 0.1969771683216095,
+          "LYMPHOCYTE": 0.0031254093628376722,
+          "MONOCYTE": 0.009002107195556164,
+          "NEUTROPHIL": 0.7908953428268433
+        }
+      },
+      {
+        "source_id": "BloodImage_00350",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE",
+        "score": 0.7535386681556702,
+        "probabilities": {
+          "EOSINOPHIL": 0.1877237856388092,
+          "LYMPHOCYTE": 0.04002542048692703,
+          "MONOCYTE": 0.7535386681556702,
+          "NEUTROPHIL": 0.01871216855943203
+        }
+      },
+      {
+        "source_id": "BloodImage_00352",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.8118709325790405,
+        "probabilities": {
+          "EOSINOPHIL": 0.8118709325790405,
+          "LYMPHOCYTE": 0.0005592796369455755,
+          "MONOCYTE": 0.18573209643363953,
+          "NEUTROPHIL": 0.0018376449588686228
+        }
+      },
+      {
+        "source_id": "BloodImage_00367",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 3.886382415885237e-08,
+          "LYMPHOCYTE": 7.42608108339482e-09,
+          "MONOCYTE": 4.909896489380117e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00368",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9997386336326599,
+        "probabilities": {
+          "EOSINOPHIL": 0.00013060093624517322,
+          "LYMPHOCYTE": 2.882241278712172e-05,
+          "MONOCYTE": 0.00010187811130890623,
+          "NEUTROPHIL": 0.9997386336326599
+        }
+      },
+      {
+        "source_id": "BloodImage_00381",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999810457229614,
+        "probabilities": {
+          "EOSINOPHIL": 8.76981812325539e-06,
+          "LYMPHOCYTE": 1.2113177660921792e-07,
+          "MONOCYTE": 1.0107166417583358e-05,
+          "NEUTROPHIL": 0.9999810457229614
+        }
+      },
+      {
+        "source_id": "BloodImage_00383",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9784606099128723,
+        "probabilities": {
+          "EOSINOPHIL": 0.9784606099128723,
+          "LYMPHOCYTE": 1.4212470887287054e-05,
+          "MONOCYTE": 0.020695677027106285,
+          "NEUTROPHIL": 0.0008293813443742692
+        }
+      },
+      {
+        "source_id": "BloodImage_00386",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9979304075241089,
+        "probabilities": {
+          "EOSINOPHIL": 0.001819159253500402,
+          "LYMPHOCYTE": 9.978674643207341e-05,
+          "MONOCYTE": 0.00015061171143315732,
+          "NEUTROPHIL": 0.9979304075241089
+        }
+      },
+      {
+        "source_id": "BloodImage_00389",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9991355538368225,
+        "probabilities": {
+          "EOSINOPHIL": 4.246852040523663e-05,
+          "LYMPHOCYTE": 1.845491715357639e-05,
+          "MONOCYTE": 0.0008035076898522675,
+          "NEUTROPHIL": 0.9991355538368225
+        }
+      },
+      {
+        "source_id": "BloodImage_00392",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998732805252075,
+        "probabilities": {
+          "EOSINOPHIL": 9.683056123321876e-05,
+          "LYMPHOCYTE": 1.0083588676934596e-05,
+          "MONOCYTE": 1.9803521354333498e-05,
+          "NEUTROPHIL": 0.9998732805252075
+        }
+      },
+      {
+        "source_id": "BloodImage_00396",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999995231628418,
+        "probabilities": {
+          "EOSINOPHIL": 1.316827535902121e-07,
+          "LYMPHOCYTE": 1.3716396907170747e-08,
+          "MONOCYTE": 3.4860011055570794e-07,
+          "NEUTROPHIL": 0.9999995231628418
+        }
+      },
+      {
+        "source_id": "BloodImage_00397",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999681711196899,
+        "probabilities": {
+          "EOSINOPHIL": 7.941150215629023e-06,
+          "LYMPHOCYTE": 1.9575286387407687e-06,
+          "MONOCYTE": 2.1960811864119023e-05,
+          "NEUTROPHIL": 0.9999681711196899
+        }
+      },
+      {
+        "source_id": "BloodImage_00398",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9958999752998352,
+        "probabilities": {
+          "EOSINOPHIL": 0.0002598897845018655,
+          "LYMPHOCYTE": 2.3985476218513213e-06,
+          "MONOCYTE": 0.0038377277087420225,
+          "NEUTROPHIL": 0.9958999752998352
+        }
+      },
+      {
+        "source_id": "BloodImage_00402",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9948858618736267,
+        "probabilities": {
+          "EOSINOPHIL": 0.004021155182272196,
+          "LYMPHOCYTE": 0.0005254168645478785,
+          "MONOCYTE": 0.0005676147993654013,
+          "NEUTROPHIL": 0.9948858618736267
+        }
+      },
+      {
+        "source_id": "BloodImage_00409",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999909400939941,
+        "probabilities": {
+          "EOSINOPHIL": 8.36811068438692e-06,
+          "LYMPHOCYTE": 3.900844092186162e-08,
+          "MONOCYTE": 6.706580961690634e-07,
+          "NEUTROPHIL": 0.9999909400939941
+        }
+      },
+      {
+        "source_id": "BloodImage_00410",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9995338916778564,
+        "probabilities": {
+          "EOSINOPHIL": 0.9995338916778564,
+          "LYMPHOCYTE": 2.283567482663784e-06,
+          "MONOCYTE": 3.785997023442178e-06,
+          "NEUTROPHIL": 0.0004600677639245987
+        }
+      }
+    ],
+    "cascade_predictions": [
+      {
+        "source_id": "BloodImage_00000",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          254.2781982421875,
+          168.8101806640625,
+          496.68670654296875,
+          381.894287109375
+        ],
+        "match_iou": 0.8899510904696928,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9963678121566772,
+        "probabilities": {
+          "EOSINOPHIL": 0.0018526411149650812,
+          "LYMPHOCYTE": 3.8889020288479514e-06,
+          "MONOCYTE": 0.0017756543820723891,
+          "NEUTROPHIL": 0.9963678121566772
+        }
+      },
+      {
+        "source_id": "BloodImage_00002",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          342.02294921875,
+          0.0,
+          519.552001953125,
+          108.98008728027344
+        ],
+        "match_iou": 0.610633416856722,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999275207519531,
+        "probabilities": {
+          "EOSINOPHIL": 2.5459740982114454e-07,
+          "LYMPHOCYTE": 8.698035713905483e-08,
+          "MONOCYTE": 7.208040915429592e-05,
+          "NEUTROPHIL": 0.9999275207519531
+        }
+      },
+      {
+        "source_id": "BloodImage_00014",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          234.0234375,
+          215.21844482421875,
+          389.237060546875,
+          354.297607421875
+        ],
+        "match_iou": 0.8879030435761484,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999818801879883,
+        "probabilities": {
+          "EOSINOPHIL": 3.396950887690764e-06,
+          "LYMPHOCYTE": 6.87206238580984e-08,
+          "MONOCYTE": 1.459778559365077e-05,
+          "NEUTROPHIL": 0.9999818801879883
+        }
+      },
+      {
+        "source_id": "BloodImage_00017",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          129.1800537109375,
+          207.44564819335938,
+          332.40118408203125,
+          400.4628601074219
+        ],
+        "match_iou": 0.8926942915772091,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 1.0,
+        "probabilities": {
+          "EOSINOPHIL": 1.0,
+          "LYMPHOCYTE": 1.0392472299391997e-10,
+          "MONOCYTE": 5.305589856341442e-10,
+          "NEUTROPHIL": 3.9525115624883256e-08
+        }
+      },
+      {
+        "source_id": "BloodImage_00028",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          254.64212036132812,
+          0.30426025390625,
+          432.3152770996094,
+          161.23114013671875
+        ],
+        "match_iou": 0.9731611509226042,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9978308081626892,
+        "probabilities": {
+          "EOSINOPHIL": 0.9978308081626892,
+          "LYMPHOCYTE": 1.4870957443235966e-07,
+          "MONOCYTE": 2.2960655769566074e-05,
+          "NEUTROPHIL": 0.0021461008582264185
+        }
+      },
+      {
+        "source_id": "BloodImage_00029",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          67.71686553955078,
+          168.30950927734375,
+          228.13323974609375,
+          319.89654541015625
+        ],
+        "match_iou": 0.8333250156709411,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999992847442627,
+        "probabilities": {
+          "EOSINOPHIL": 6.3784955273149535e-06,
+          "LYMPHOCYTE": 2.074961358289329e-08,
+          "MONOCYTE": 7.487492439395282e-07,
+          "NEUTROPHIL": 0.999992847442627
+        }
+      },
+      {
+        "source_id": "BloodImage_00030",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          0.0,
+          186.02218627929688,
+          141.28857421875,
+          343.0594787597656
+        ],
+        "match_iou": 0.8881162188041178,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9990054965019226,
+        "probabilities": {
+          "EOSINOPHIL": 0.0006755706272087991,
+          "LYMPHOCYTE": 1.5105965758266393e-06,
+          "MONOCYTE": 0.0003173954610247165,
+          "NEUTROPHIL": 0.9990054965019226
+        }
+      },
+      {
+        "source_id": "BloodImage_00035",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          183.0040740966797,
+          282.29962158203125,
+          332.38189697265625,
+          424.40338134765625
+        ],
+        "match_iou": 0.9665974812825893,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.809842050075531,
+        "probabilities": {
+          "EOSINOPHIL": 0.809842050075531,
+          "LYMPHOCYTE": 5.679482342202391e-07,
+          "MONOCYTE": 0.0003611051070038229,
+          "NEUTROPHIL": 0.1897963285446167
+        }
+      },
+      {
+        "source_id": "BloodImage_00053",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          103.55389404296875,
+          6.61187744140625,
+          249.01763916015625,
+          144.99191284179688
+        ],
+        "match_iou": 0.885078929510305,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9891489148139954,
+        "probabilities": {
+          "EOSINOPHIL": 0.008911467157304287,
+          "LYMPHOCYTE": 0.0012819734402000904,
+          "MONOCYTE": 0.0006576235173270106,
+          "NEUTROPHIL": 0.9891489148139954
+        }
+      },
+      {
+        "source_id": "BloodImage_00055",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          159.16732788085938,
+          141.932373046875,
+          269.5651550292969,
+          246.601806640625
+        ],
+        "match_iou": 0.7638338205716334,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999637603759766,
+        "probabilities": {
+          "EOSINOPHIL": 1.1520612588356016e-06,
+          "LYMPHOCYTE": 0.9999637603759766,
+          "MONOCYTE": 1.511631126049906e-05,
+          "NEUTROPHIL": 1.9848728697979823e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00064",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          34.01713562011719,
+          127.99256134033203,
+          166.40771484375,
+          248.88360595703125
+        ],
+        "match_iou": 0.8709751016864214,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8068382740020752,
+        "probabilities": {
+          "EOSINOPHIL": 0.19214776158332825,
+          "LYMPHOCYTE": 0.00031729356851428747,
+          "MONOCYTE": 0.0006966855144128203,
+          "NEUTROPHIL": 0.8068382740020752
+        }
+      },
+      {
+        "source_id": "BloodImage_00066",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          432.15179443359375,
+          193.59921264648438,
+          581.62939453125,
+          330.5228576660156
+        ],
+        "match_iou": 0.9366288795277329,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9993815422058105,
+        "probabilities": {
+          "EOSINOPHIL": 0.0006062725442461669,
+          "LYMPHOCYTE": 1.4502662679660716e-06,
+          "MONOCYTE": 1.07594041764969e-05,
+          "NEUTROPHIL": 0.9993815422058105
+        }
+      },
+      {
+        "source_id": "BloodImage_00072",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          192.5540771484375,
+          286.2996826171875,
+          316.6551513671875,
+          409.937744140625
+        ],
+        "match_iou": 0.9241225897657084,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999866247177124,
+        "probabilities": {
+          "EOSINOPHIL": 0.00013227832096163183,
+          "LYMPHOCYTE": 1.2641370616961467e-08,
+          "MONOCYTE": 1.4563414652002393e-06,
+          "NEUTROPHIL": 0.999866247177124
+        }
+      },
+      {
+        "source_id": "BloodImage_00073",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          209.33309936523438,
+          43.69793701171875,
+          351.5561218261719,
+          173.66152954101562
+        ],
+        "match_iou": 0.9155636258575677,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.5986509323120117,
+        "probabilities": {
+          "EOSINOPHIL": 0.5986509323120117,
+          "LYMPHOCYTE": 4.052784061059356e-05,
+          "MONOCYTE": 1.4786012798140291e-05,
+          "NEUTROPHIL": 0.4012938141822815
+        }
+      },
+      {
+        "source_id": "BloodImage_00089",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          295.7446594238281,
+          228.81106567382812,
+          459.5529479980469,
+          380.8564758300781
+        ],
+        "match_iou": 0.8034112359832761,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.6947202086448669,
+        "probabilities": {
+          "EOSINOPHIL": 1.26730110423523e-05,
+          "LYMPHOCYTE": 0.6947202086448669,
+          "MONOCYTE": 0.30526161193847656,
+          "NEUTROPHIL": 5.561898888117867e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00099",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          220.041259765625,
+          225.07315063476562,
+          379.52020263671875,
+          348.6365661621094
+        ],
+        "match_iou": 0.8919638780748215,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999867677688599,
+        "probabilities": {
+          "EOSINOPHIL": 3.134538019367028e-06,
+          "LYMPHOCYTE": 0.9999867677688599,
+          "MONOCYTE": 1.0113742973771878e-05,
+          "NEUTROPHIL": 3.6135829883932047e-09
+        }
+      },
+      {
+        "source_id": "BloodImage_00104",
+        "split": "val",
+        "true": "MONOCYTE",
+        "box": [
+          259.78118896484375,
+          249.5107421875,
+          498.58380126953125,
+          479.55462646484375
+        ],
+        "match_iou": 0.8640468736087786,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9977147579193115,
+        "probabilities": {
+          "EOSINOPHIL": 0.0008701694896444678,
+          "LYMPHOCYTE": 0.0002139973803423345,
+          "MONOCYTE": 0.9977147579193115,
+          "NEUTROPHIL": 0.0012011248618364334
+        }
+      },
+      {
+        "source_id": "BloodImage_00109",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          353.22540283203125,
+          252.90432739257812,
+          532.182861328125,
+          423.2244567871094
+        ],
+        "match_iou": 0.8520262527798543,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.5036689639091492,
+        "probabilities": {
+          "EOSINOPHIL": 0.4958987236022949,
+          "LYMPHOCYTE": 2.4366012439713813e-05,
+          "MONOCYTE": 0.00040790997445583344,
+          "NEUTROPHIL": 0.5036689639091492
+        }
+      },
+      {
+        "source_id": "BloodImage_00111",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          136.55126953125,
+          377.3928527832031,
+          245.4093017578125,
+          480.0
+        ],
+        "match_iou": 0.8394912451677489,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9996824264526367,
+        "probabilities": {
+          "EOSINOPHIL": 7.78486173658166e-06,
+          "LYMPHOCYTE": 0.9996824264526367,
+          "MONOCYTE": 0.00030972802778705955,
+          "NEUTROPHIL": 1.1698916324576203e-07
+        }
+      },
+      {
+        "source_id": "BloodImage_00115",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          196.103759765625,
+          247.73117065429688,
+          359.09716796875,
+          401.1015930175781
+        ],
+        "match_iou": 0.9210553074814876,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9986396431922913,
+        "probabilities": {
+          "EOSINOPHIL": 0.0013583407271653414,
+          "LYMPHOCYTE": 2.600943673769507e-07,
+          "MONOCYTE": 1.7706651078697178e-06,
+          "NEUTROPHIL": 0.9986396431922913
+        }
+      },
+      {
+        "source_id": "BloodImage_00125",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          114.31985473632812,
+          147.75991821289062,
+          269.5296630859375,
+          296.1780090332031
+        ],
+        "match_iou": 0.8667448578777298,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999731779098511,
+        "probabilities": {
+          "EOSINOPHIL": 2.2762102162232623e-05,
+          "LYMPHOCYTE": 2.5186218977069075e-07,
+          "MONOCYTE": 3.849634595098905e-06,
+          "NEUTROPHIL": 0.9999731779098511
+        }
+      },
+      {
+        "source_id": "BloodImage_00130",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          240.6326141357422,
+          52.63713073730469,
+          404.75799560546875,
+          208.95851135253906
+        ],
+        "match_iou": 0.924352178594489,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9993014335632324,
+        "probabilities": {
+          "EOSINOPHIL": 0.0006572630372829735,
+          "LYMPHOCYTE": 1.7217902268384933e-06,
+          "MONOCYTE": 3.9593320252606645e-05,
+          "NEUTROPHIL": 0.9993014335632324
+        }
+      },
+      {
+        "source_id": "BloodImage_00140",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          244.3095703125,
+          95.84182739257812,
+          371.8148193359375,
+          234.03509521484375
+        ],
+        "match_iou": 0.8613050876798325,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999626874923706,
+        "probabilities": {
+          "EOSINOPHIL": 6.492902002719347e-07,
+          "LYMPHOCYTE": 0.9999626874923706,
+          "MONOCYTE": 2.558860433055088e-05,
+          "NEUTROPHIL": 1.1071580047428142e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00143",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          42.10894775390625,
+          44.668212890625,
+          206.65728759765625,
+          200.23939514160156
+        ],
+        "match_iou": 0.8524468786855698,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.5714384317398071,
+        "probabilities": {
+          "EOSINOPHIL": 0.4284941554069519,
+          "LYMPHOCYTE": 1.3629533896164503e-05,
+          "MONOCYTE": 5.3778610890731215e-05,
+          "NEUTROPHIL": 0.5714384317398071
+        }
+      },
+      {
+        "source_id": "BloodImage_00145",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          293.6533508300781,
+          350.23046875,
+          463.2760314941406,
+          480.0
+        ],
+        "match_iou": 0.9101458877077087,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9689544439315796,
+        "probabilities": {
+          "EOSINOPHIL": 0.03011108562350273,
+          "LYMPHOCYTE": 0.0001818567980080843,
+          "MONOCYTE": 0.0007525903056375682,
+          "NEUTROPHIL": 0.9689544439315796
+        }
+      },
+      {
+        "source_id": "BloodImage_00147",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          337.734619140625,
+          41.21533203125,
+          507.8238525390625,
+          208.59536743164062
+        ],
+        "match_iou": 0.9446338509063554,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9998928308486938,
+        "probabilities": {
+          "EOSINOPHIL": 0.9998928308486938,
+          "LYMPHOCYTE": 2.8914385552525346e-07,
+          "MONOCYTE": 2.3950542527018115e-06,
+          "NEUTROPHIL": 0.00010454928269609809
+        }
+      },
+      {
+        "source_id": "BloodImage_00148",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          252.487548828125,
+          186.23538208007812,
+          399.62921142578125,
+          315.1490478515625
+        ],
+        "match_iou": 0.8967326035072594,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9855814576148987,
+        "probabilities": {
+          "EOSINOPHIL": 0.00018406534218229353,
+          "LYMPHOCYTE": 0.9855814576148987,
+          "MONOCYTE": 0.011637083254754543,
+          "NEUTROPHIL": 0.002597345970571041
+        }
+      },
+      {
+        "source_id": "BloodImage_00152",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          129.63357543945312,
+          29.969741821289062,
+          282.9970397949219,
+          179.68316650390625
+        ],
+        "match_iou": 0.9203033320689274,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.7667971253395081,
+        "probabilities": {
+          "EOSINOPHIL": 0.7667971253395081,
+          "LYMPHOCYTE": 1.0917289728240576e-05,
+          "MONOCYTE": 0.0001247605396201834,
+          "NEUTROPHIL": 0.23306721448898315
+        }
+      },
+      {
+        "source_id": "BloodImage_00162",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          127.41738891601562,
+          291.46807861328125,
+          356.6602478027344,
+          480.0
+        ],
+        "match_iou": 0.8906366880325411,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999969005584717,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999969005584717,
+          "LYMPHOCYTE": 1.970684282426305e-09,
+          "MONOCYTE": 9.424169320482179e-07,
+          "NEUTROPHIL": 2.165840669476893e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00183",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          251.17185974121094,
+          93.87948608398438,
+          468.8145751953125,
+          305.36297607421875
+        ],
+        "match_iou": 0.9731044616318164,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999927282333374,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999927282333374,
+          "LYMPHOCYTE": 1.9915541216164456e-08,
+          "MONOCYTE": 5.811131131849834e-08,
+          "NEUTROPHIL": 7.317989457078511e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00192",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          417.7242126464844,
+          173.885986328125,
+          615.8145751953125,
+          358.69818115234375
+        ],
+        "match_iou": 0.9237455616499496,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9409441947937012,
+        "probabilities": {
+          "EOSINOPHIL": 0.05552675947546959,
+          "LYMPHOCYTE": 0.001795191434212029,
+          "MONOCYTE": 0.0017338189063593745,
+          "NEUTROPHIL": 0.9409441947937012
+        }
+      },
+      {
+        "source_id": "BloodImage_00207",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          418.4474182128906,
+          304.14178466796875,
+          640.0,
+          480.0
+        ],
+        "match_iou": 0.9436155596583652,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999914288520813,
+        "probabilities": {
+          "EOSINOPHIL": 1.1808037015725859e-05,
+          "LYMPHOCYTE": 1.243607584910933e-06,
+          "MONOCYTE": 7.262295548571274e-05,
+          "NEUTROPHIL": 0.999914288520813
+        }
+      },
+      {
+        "source_id": "BloodImage_00209",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          288.66387939453125,
+          223.8417205810547,
+          483.100341796875,
+          409.06915283203125
+        ],
+        "match_iou": 0.9195617621756134,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998908042907715,
+        "probabilities": {
+          "EOSINOPHIL": 8.768161933403462e-05,
+          "LYMPHOCYTE": 4.7474018174398225e-06,
+          "MONOCYTE": 1.6717467588023283e-05,
+          "NEUTROPHIL": 0.9998908042907715
+        }
+      },
+      {
+        "source_id": "BloodImage_00216",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          269.94708251953125,
+          101.69808959960938,
+          478.7889404296875,
+          329.8097839355469
+        ],
+        "match_iou": 0.9338062027515982,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999995231628418,
+        "probabilities": {
+          "EOSINOPHIL": 1.2941637805852224e-07,
+          "LYMPHOCYTE": 2.3425529960263702e-08,
+          "MONOCYTE": 3.1745335604682623e-07,
+          "NEUTROPHIL": 0.9999995231628418
+        }
+      },
+      {
+        "source_id": "BloodImage_00217",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          79.8270263671875,
+          245.06491088867188,
+          224.47067260742188,
+          386.5283508300781
+        ],
+        "match_iou": 0.8529654326070869,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9991806149482727,
+        "probabilities": {
+          "EOSINOPHIL": 1.651087404752616e-05,
+          "LYMPHOCYTE": 0.9991806149482727,
+          "MONOCYTE": 0.00013224221765995026,
+          "NEUTROPHIL": 0.0006705622072331607
+        }
+      },
+      {
+        "source_id": "BloodImage_00218",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          412.5196228027344,
+          217.42340087890625,
+          621.8675537109375,
+          407.3006591796875
+        ],
+        "match_iou": 0.8456767873830005,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9985120892524719,
+        "probabilities": {
+          "EOSINOPHIL": 0.0011706805089488626,
+          "LYMPHOCYTE": 0.00020821952784899622,
+          "MONOCYTE": 0.00010905788076343015,
+          "NEUTROPHIL": 0.9985120892524719
+        }
+      },
+      {
+        "source_id": "BloodImage_00219",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          328.34588623046875,
+          2.2899017333984375,
+          558.907470703125,
+          241.16195678710938
+        ],
+        "match_iou": 0.9733357209224037,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9965781569480896,
+        "probabilities": {
+          "EOSINOPHIL": 0.9965781569480896,
+          "LYMPHOCYTE": 1.598372182343155e-05,
+          "MONOCYTE": 0.0001069188438123092,
+          "NEUTROPHIL": 0.0032988584134727716
+        }
+      },
+      {
+        "source_id": "BloodImage_00221",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          264.1943359375,
+          141.75210571289062,
+          472.9154052734375,
+          349.7017822265625
+        ],
+        "match_iou": 0.9235217150566353,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9989079236984253,
+        "probabilities": {
+          "EOSINOPHIL": 0.000942201295401901,
+          "LYMPHOCYTE": 1.1093990906374529e-05,
+          "MONOCYTE": 0.0001388219534419477,
+          "NEUTROPHIL": 0.9989079236984253
+        }
+      },
+      {
+        "source_id": "BloodImage_00222",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          132.741455078125,
+          21.974380493164062,
+          336.6522216796875,
+          231.05596923828125
+        ],
+        "match_iou": 0.921660029764759,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999537467956543,
+        "probabilities": {
+          "EOSINOPHIL": 3.020717304025311e-05,
+          "LYMPHOCYTE": 7.131008032956743e-07,
+          "MONOCYTE": 1.537832577014342e-05,
+          "NEUTROPHIL": 0.9999537467956543
+        }
+      },
+      {
+        "source_id": "BloodImage_00223",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          246.00418090820312,
+          0.0,
+          465.9184875488281,
+          180.1370086669922
+        ],
+        "match_iou": 0.898757157860017,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 1.0,
+        "probabilities": {
+          "EOSINOPHIL": 1.5408682330075862e-08,
+          "LYMPHOCYTE": 6.529136675759162e-10,
+          "MONOCYTE": 2.4765153483485847e-08,
+          "NEUTROPHIL": 1.0
+        }
+      },
+      {
+        "source_id": "BloodImage_00230",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          197.41697692871094,
+          54.97748565673828,
+          415.4488525390625,
+          258.14447021484375
+        ],
+        "match_iou": 0.9112136604845146,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 1.0,
+        "probabilities": {
+          "EOSINOPHIL": 1.9058918887537857e-09,
+          "LYMPHOCYTE": 7.905969212629316e-10,
+          "MONOCYTE": 8.054741762464346e-09,
+          "NEUTROPHIL": 1.0
+        }
+      },
+      {
+        "source_id": "BloodImage_00236",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          197.195068359375,
+          205.98565673828125,
+          434.23614501953125,
+          441.3775634765625
+        ],
+        "match_iou": 0.9199584091822373,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999790191650391,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999790191650391,
+          "LYMPHOCYTE": 5.470581641020544e-07,
+          "MONOCYTE": 1.4230773558665533e-05,
+          "NEUTROPHIL": 6.172367193357786e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00241",
+        "split": "val",
+        "true": "LYMPHOCYTE",
+        "box": [
+          251.2406005859375,
+          16.882247924804688,
+          442.51593017578125,
+          209.9866180419922
+        ],
+        "match_iou": 0.9068394661643044,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.999890923500061,
+        "probabilities": {
+          "EOSINOPHIL": 6.560283509315923e-05,
+          "LYMPHOCYTE": 0.999890923500061,
+          "MONOCYTE": 4.184247154626064e-05,
+          "NEUTROPHIL": 1.631855752748379e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00244",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          330.13751220703125,
+          27.504417419433594,
+          547.3505249023438,
+          239.97683715820312
+        ],
+        "match_iou": 0.8588178779231385,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9973804354667664,
+        "probabilities": {
+          "EOSINOPHIL": 0.0005234460695646703,
+          "LYMPHOCYTE": 0.0005266132648102939,
+          "MONOCYTE": 0.0015694781905040145,
+          "NEUTROPHIL": 0.9973804354667664
+        }
+      },
+      {
+        "source_id": "BloodImage_00245",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          73.69049835205078,
+          146.72640991210938,
+          292.35296630859375,
+          365.5477600097656
+        ],
+        "match_iou": 0.8654904229910503,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 2.5465066499918976e-08,
+          "LYMPHOCYTE": 2.325528880575689e-09,
+          "MONOCYTE": 3.6455951146763255e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00246",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          127.47412872314453,
+          273.9143981933594,
+          345.1612548828125,
+          480.0
+        ],
+        "match_iou": 0.9321431897865812,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9992223978042603,
+        "probabilities": {
+          "EOSINOPHIL": 0.0007584469858556986,
+          "LYMPHOCYTE": 1.269608986831372e-07,
+          "MONOCYTE": 1.896464527817443e-05,
+          "NEUTROPHIL": 0.9992223978042603
+        }
+      },
+      {
+        "source_id": "BloodImage_00255",
+        "split": "val",
+        "true": "MONOCYTE",
+        "box": [
+          265.8465576171875,
+          38.662109375,
+          549.1193237304688,
+          294.3450622558594
+        ],
+        "match_iou": 0.9198940723503641,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9954931735992432,
+        "probabilities": {
+          "EOSINOPHIL": 0.0010317753767594695,
+          "LYMPHOCYTE": 0.0016004630597308278,
+          "MONOCYTE": 0.9954931735992432,
+          "NEUTROPHIL": 0.0018745207926258445
+        }
+      },
+      {
+        "source_id": "BloodImage_00260",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          203.95298767089844,
+          266.7777099609375,
+          437.1422119140625,
+          479.863037109375
+        ],
+        "match_iou": 0.9770331966241573,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9762479662895203,
+        "probabilities": {
+          "EOSINOPHIL": 0.007638853043317795,
+          "LYMPHOCYTE": 0.0001370893296552822,
+          "MONOCYTE": 0.015976054593920708,
+          "NEUTROPHIL": 0.9762479662895203
+        }
+      },
+      {
+        "source_id": "BloodImage_00261",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          265.06353759765625,
+          161.91744995117188,
+          464.27935791015625,
+          354.6146545410156
+        ],
+        "match_iou": 0.9060565665121861,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9979704022407532,
+        "probabilities": {
+          "EOSINOPHIL": 0.9979704022407532,
+          "LYMPHOCYTE": 8.685731700097676e-06,
+          "MONOCYTE": 0.00015900199650786817,
+          "NEUTROPHIL": 0.0018617967143654823
+        }
+      },
+      {
+        "source_id": "BloodImage_00262",
+        "split": "val",
+        "true": "MONOCYTE",
+        "box": [
+          180.46575927734375,
+          292.30828857421875,
+          458.08447265625,
+          480.0
+        ],
+        "match_iou": 0.8376491854427972,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9999979734420776,
+        "probabilities": {
+          "EOSINOPHIL": 1.2084209402019042e-06,
+          "LYMPHOCYTE": 1.775094489175899e-07,
+          "MONOCYTE": 0.9999979734420776,
+          "NEUTROPHIL": 5.465595904752263e-07
+        }
+      },
+      {
+        "source_id": "BloodImage_00269",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          98.27198028564453,
+          7.08612060546875,
+          334.490966796875,
+          226.4529266357422
+        ],
+        "match_iou": 0.8755408860184707,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999866485595703,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999866485595703,
+          "LYMPHOCYTE": 2.286273215190704e-08,
+          "MONOCYTE": 1.4643890153820394e-06,
+          "NEUTROPHIL": 1.1879172234330326e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00272",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          0.0,
+          215.79664611816406,
+          134.94512939453125,
+          405.5936279296875
+        ],
+        "match_iou": 0.8809605554953209,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9997276663780212,
+        "probabilities": {
+          "EOSINOPHIL": 5.387635246734135e-05,
+          "LYMPHOCYTE": 0.00010959124483633786,
+          "MONOCYTE": 0.00010879929322982207,
+          "NEUTROPHIL": 0.9997276663780212
+        }
+      },
+      {
+        "source_id": "BloodImage_00274",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          191.16905212402344,
+          165.78456115722656,
+          400.161376953125,
+          377.9600830078125
+        ],
+        "match_iou": 0.8687167162524663,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.91594398021698,
+        "probabilities": {
+          "EOSINOPHIL": 0.0823875442147255,
+          "LYMPHOCYTE": 0.00023643721942789853,
+          "MONOCYTE": 0.0014319836627691984,
+          "NEUTROPHIL": 0.91594398021698
+        }
+      },
+      {
+        "source_id": "BloodImage_00277",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          330.2330627441406,
+          182.06427001953125,
+          493.7147521972656,
+          360.1854248046875
+        ],
+        "match_iou": 0.8773193316876099,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9992178678512573,
+        "probabilities": {
+          "EOSINOPHIL": 0.9992178678512573,
+          "LYMPHOCYTE": 0.00011342679499648511,
+          "MONOCYTE": 0.0004329537623561919,
+          "NEUTROPHIL": 0.00023576502280775458
+        }
+      },
+      {
+        "source_id": "BloodImage_00285",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          177.98484802246094,
+          260.58642578125,
+          400.3577880859375,
+          474.1778564453125
+        ],
+        "match_iou": 0.928159923922049,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.6306823492050171,
+        "probabilities": {
+          "EOSINOPHIL": 0.6306823492050171,
+          "LYMPHOCYTE": 0.008715596981346607,
+          "MONOCYTE": 0.009770783595740795,
+          "NEUTROPHIL": 0.3508312404155731
+        }
+      },
+      {
+        "source_id": "BloodImage_00298",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          120.18539428710938,
+          209.86212158203125,
+          328.59124755859375,
+          441.05670166015625
+        ],
+        "match_iou": 0.8928059549143551,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999954700469971,
+        "probabilities": {
+          "EOSINOPHIL": 3.025855903615593e-06,
+          "LYMPHOCYTE": 7.057797546394795e-08,
+          "MONOCYTE": 1.3988274076837115e-06,
+          "NEUTROPHIL": 0.9999954700469971
+        }
+      },
+      {
+        "source_id": "BloodImage_00304",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          166.1339111328125,
+          112.4844741821289,
+          395.75140380859375,
+          331.7988586425781
+        ],
+        "match_iou": 0.9077925964809792,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 1.0,
+        "probabilities": {
+          "EOSINOPHIL": 6.896895943242498e-09,
+          "LYMPHOCYTE": 3.2892549794993897e-10,
+          "MONOCYTE": 9.85860371116587e-09,
+          "NEUTROPHIL": 1.0
+        }
+      },
+      {
+        "source_id": "BloodImage_00310",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          71.77336883544922,
+          115.72268676757812,
+          287.1680908203125,
+          353.82342529296875
+        ],
+        "match_iou": 0.8817850321480392,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9957894682884216,
+        "probabilities": {
+          "EOSINOPHIL": 0.00011459169763838872,
+          "LYMPHOCYTE": 6.287208816502243e-05,
+          "MONOCYTE": 0.00403308542445302,
+          "NEUTROPHIL": 0.9957894682884216
+        }
+      },
+      {
+        "source_id": "BloodImage_00312",
+        "split": "val",
+        "true": "MONOCYTE",
+        "box": [
+          75.06268310546875,
+          273.4080810546875,
+          327.81451416015625,
+          480.0
+        ],
+        "match_iou": 0.9571689714369167,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9955381751060486,
+        "probabilities": {
+          "EOSINOPHIL": 5.776741454610601e-05,
+          "LYMPHOCYTE": 0.0044037881307303905,
+          "MONOCYTE": 0.9955381751060486,
+          "NEUTROPHIL": 2.584903597835364e-07
+        }
+      },
+      {
+        "source_id": "BloodImage_00315",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          239.81466674804688,
+          334.08990478515625,
+          482.1117858886719,
+          480.0
+        ],
+        "match_iou": 0.8764189734465447,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9706339836120605,
+        "probabilities": {
+          "EOSINOPHIL": 7.382615876849741e-05,
+          "LYMPHOCYTE": 8.117045217659324e-05,
+          "MONOCYTE": 0.029211020097136497,
+          "NEUTROPHIL": 0.9706339836120605
+        }
+      },
+      {
+        "source_id": "BloodImage_00326",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          219.1065673828125,
+          269.25390625,
+          455.37103271484375,
+          480.0
+        ],
+        "match_iou": 0.9271685281281472,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999338388442993,
+        "probabilities": {
+          "EOSINOPHIL": 5.914983194088563e-05,
+          "LYMPHOCYTE": 8.419586947638891e-07,
+          "MONOCYTE": 6.125319032435073e-06,
+          "NEUTROPHIL": 0.9999338388442993
+        }
+      },
+      {
+        "source_id": "BloodImage_00330",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          284.1406555175781,
+          362.22210693359375,
+          504.0071105957031,
+          480.0
+        ],
+        "match_iou": 0.9249482996147459,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999798536300659,
+        "probabilities": {
+          "EOSINOPHIL": 1.6972609955701046e-05,
+          "LYMPHOCYTE": 5.973594738861721e-07,
+          "MONOCYTE": 2.617418203954003e-06,
+          "NEUTROPHIL": 0.9999798536300659
+        }
+      },
+      {
+        "source_id": "BloodImage_00331",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          240.6418914794922,
+          0.0,
+          463.58892822265625,
+          202.59646606445312
+        ],
+        "match_iou": 0.9281955913073312,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999991655349731,
+        "probabilities": {
+          "EOSINOPHIL": 2.7931224622079753e-07,
+          "LYMPHOCYTE": 1.8048049810204247e-07,
+          "MONOCYTE": 4.086338663000788e-07,
+          "NEUTROPHIL": 0.9999991655349731
+        }
+      },
+      {
+        "source_id": "BloodImage_00334",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          239.51181030273438,
+          123.37854766845703,
+          459.3031921386719,
+          361.1837158203125
+        ],
+        "match_iou": 0.9211833578868369,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999969005584717,
+        "probabilities": {
+          "EOSINOPHIL": 2.3560198769700946e-07,
+          "LYMPHOCYTE": 2.437880475270049e-08,
+          "MONOCYTE": 2.887904656745377e-06,
+          "NEUTROPHIL": 0.9999969005584717
+        }
+      },
+      {
+        "source_id": "BloodImage_00337",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          125.90462493896484,
+          242.3446044921875,
+          343.3552551269531,
+          449.58905029296875
+        ],
+        "match_iou": 0.9010897085875397,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999732971191406,
+        "probabilities": {
+          "EOSINOPHIL": 2.5248366000596434e-05,
+          "LYMPHOCYTE": 2.938735406132764e-07,
+          "MONOCYTE": 1.1106992587883724e-06,
+          "NEUTROPHIL": 0.9999732971191406
+        }
+      },
+      {
+        "source_id": "BloodImage_00338",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          248.0696563720703,
+          322.91778564453125,
+          520.4497680664062,
+          480.0
+        ],
+        "match_iou": 0.9137593353623933,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.6517547965049744,
+        "probabilities": {
+          "EOSINOPHIL": 0.1763933002948761,
+          "LYMPHOCYTE": 0.005491113290190697,
+          "MONOCYTE": 0.16636081039905548,
+          "NEUTROPHIL": 0.6517547965049744
+        }
+      },
+      {
+        "source_id": "BloodImage_00340",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          253.99002075195312,
+          353.10968017578125,
+          447.9192810058594,
+          480.0
+        ],
+        "match_iou": 0.8178055191957342,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8748935461044312,
+        "probabilities": {
+          "EOSINOPHIL": 0.03967401757836342,
+          "LYMPHOCYTE": 0.0009930103551596403,
+          "MONOCYTE": 0.08443941175937653,
+          "NEUTROPHIL": 0.8748935461044312
+        }
+      },
+      {
+        "source_id": "BloodImage_00342",
+        "split": "val",
+        "true": "MONOCYTE",
+        "box": [
+          111.99714660644531,
+          105.12539672851562,
+          407.20477294921875,
+          363.8983459472656
+        ],
+        "match_iou": 0.9455793024250692,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9997310042381287,
+        "probabilities": {
+          "EOSINOPHIL": 5.433991100289859e-05,
+          "LYMPHOCYTE": 0.00020368385594338179,
+          "MONOCYTE": 0.9997310042381287,
+          "NEUTROPHIL": 1.099663586501265e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00349",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          206.01541137695312,
+          173.5906982421875,
+          432.5984802246094,
+          401.64166259765625
+        ],
+        "match_iou": 0.855673484294744,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8390271663665771,
+        "probabilities": {
+          "EOSINOPHIL": 0.14445890486240387,
+          "LYMPHOCYTE": 0.005080892238765955,
+          "MONOCYTE": 0.011433054693043232,
+          "NEUTROPHIL": 0.8390271663665771
+        }
+      },
+      {
+        "source_id": "BloodImage_00350",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          183.11410522460938,
+          284.30706787109375,
+          407.4516296386719,
+          480.0
+        ],
+        "match_iou": 0.9507532572353643,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.7730417847633362,
+        "probabilities": {
+          "EOSINOPHIL": 0.16751670837402344,
+          "LYMPHOCYTE": 0.03865925595164299,
+          "MONOCYTE": 0.7730417847633362,
+          "NEUTROPHIL": 0.020782239735126495
+        }
+      },
+      {
+        "source_id": "BloodImage_00352",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          339.46405029296875,
+          179.5686492919922,
+          593.1626586914062,
+          423.24139404296875
+        ],
+        "match_iou": 0.7213085478023066,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9899651408195496,
+        "probabilities": {
+          "EOSINOPHIL": 0.9899651408195496,
+          "LYMPHOCYTE": 0.00020794148440472782,
+          "MONOCYTE": 0.009316363371908665,
+          "NEUTROPHIL": 0.0005104909650981426
+        }
+      },
+      {
+        "source_id": "BloodImage_00367",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          26.1827392578125,
+          225.429443359375,
+          225.06680297851562,
+          437.83148193359375
+        ],
+        "match_iou": 0.9572569312014126,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999998807907104,
+        "probabilities": {
+          "EOSINOPHIL": 1.4497469003060814e-08,
+          "LYMPHOCYTE": 3.2276488148852422e-09,
+          "MONOCYTE": 9.088412866731232e-08,
+          "NEUTROPHIL": 0.9999998807907104
+        }
+      },
+      {
+        "source_id": "BloodImage_00368",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          0.0,
+          216.43809509277344,
+          145.90280151367188,
+          433.4166259765625
+        ],
+        "match_iou": 0.8686080051148968,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9993987083435059,
+        "probabilities": {
+          "EOSINOPHIL": 0.0004130602756049484,
+          "LYMPHOCYTE": 2.7718968340195715e-05,
+          "MONOCYTE": 0.00016047903045546263,
+          "NEUTROPHIL": 0.9993987083435059
+        }
+      },
+      {
+        "source_id": "BloodImage_00381",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          12.687118530273438,
+          291.11865234375,
+          231.69692993164062,
+          480.0
+        ],
+        "match_iou": 0.9634919114623869,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999985694885254,
+        "probabilities": {
+          "EOSINOPHIL": 8.225856049648428e-07,
+          "LYMPHOCYTE": 1.8982028393565997e-08,
+          "MONOCYTE": 6.42244685877813e-07,
+          "NEUTROPHIL": 0.9999985694885254
+        }
+      },
+      {
+        "source_id": "BloodImage_00383",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          229.69384765625,
+          223.81021118164062,
+          533.2530517578125,
+          480.0
+        ],
+        "match_iou": 0.9486707565057003,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9484561681747437,
+        "probabilities": {
+          "EOSINOPHIL": 0.9484561681747437,
+          "LYMPHOCYTE": 3.0803079425822943e-05,
+          "MONOCYTE": 0.050447218120098114,
+          "NEUTROPHIL": 0.0010658674873411655
+        }
+      },
+      {
+        "source_id": "BloodImage_00386",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          170.24392700195312,
+          151.13409423828125,
+          371.9674987792969,
+          385.3548583984375
+        ],
+        "match_iou": 0.8719874243711051,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9876405596733093,
+        "probabilities": {
+          "EOSINOPHIL": 0.009816508740186691,
+          "LYMPHOCYTE": 0.0007342772441916168,
+          "MONOCYTE": 0.0018086128402501345,
+          "NEUTROPHIL": 0.9876405596733093
+        }
+      },
+      {
+        "source_id": "BloodImage_00389",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          3.7018280029296875,
+          2.7526702880859375,
+          221.4078369140625,
+          224.55552673339844
+        ],
+        "match_iou": 0.9334152577013923,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9938900470733643,
+        "probabilities": {
+          "EOSINOPHIL": 0.00013532006414607167,
+          "LYMPHOCYTE": 0.0001523137034382671,
+          "MONOCYTE": 0.005822352599352598,
+          "NEUTROPHIL": 0.9938900470733643
+        }
+      },
+      {
+        "source_id": "BloodImage_00392",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          112.6082763671875,
+          67.74444580078125,
+          392.4720458984375,
+          311.29107666015625
+        ],
+        "match_iou": 0.8341392690686827,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999008178710938,
+        "probabilities": {
+          "EOSINOPHIL": 9.058151772478595e-05,
+          "LYMPHOCYTE": 2.2549381810677005e-06,
+          "MONOCYTE": 6.312344339676201e-06,
+          "NEUTROPHIL": 0.9999008178710938
+        }
+      },
+      {
+        "source_id": "BloodImage_00396",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          247.1586151123047,
+          131.22409057617188,
+          465.02166748046875,
+          359.8963317871094
+        ],
+        "match_iou": 0.8586796449780791,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999977350234985,
+        "probabilities": {
+          "EOSINOPHIL": 1.6090970120785641e-06,
+          "LYMPHOCYTE": 1.1069940342167683e-07,
+          "MONOCYTE": 5.809367848996771e-07,
+          "NEUTROPHIL": 0.9999977350234985
+        }
+      },
+      {
+        "source_id": "BloodImage_00397",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          237.8560791015625,
+          343.3160400390625,
+          458.7359619140625,
+          480.0
+        ],
+        "match_iou": 0.8786221214503125,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998818635940552,
+        "probabilities": {
+          "EOSINOPHIL": 1.6235448129009455e-05,
+          "LYMPHOCYTE": 5.847063675901154e-06,
+          "MONOCYTE": 9.598094766261056e-05,
+          "NEUTROPHIL": 0.9998818635940552
+        }
+      },
+      {
+        "source_id": "BloodImage_00398",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          182.55227661132812,
+          52.35820770263672,
+          394.8393859863281,
+          259.478271484375
+        ],
+        "match_iou": 0.915285265350132,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9854534268379211,
+        "probabilities": {
+          "EOSINOPHIL": 0.0067043970339000225,
+          "LYMPHOCYTE": 1.7069662135327235e-05,
+          "MONOCYTE": 0.007825096137821674,
+          "NEUTROPHIL": 0.9854534268379211
+        }
+      },
+      {
+        "source_id": "BloodImage_00402",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          452.8216247558594,
+          261.42120361328125,
+          640.0,
+          467.78778076171875
+        ],
+        "match_iou": 0.9051873967830775,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998106360435486,
+        "probabilities": {
+          "EOSINOPHIL": 0.00011948341852985322,
+          "LYMPHOCYTE": 3.555261355359107e-05,
+          "MONOCYTE": 3.4353673981968313e-05,
+          "NEUTROPHIL": 0.9998106360435486
+        }
+      },
+      {
+        "source_id": "BloodImage_00409",
+        "split": "val",
+        "true": "NEUTROPHIL",
+        "box": [
+          61.674163818359375,
+          289.7188720703125,
+          293.71484375,
+          479.8409423828125
+        ],
+        "match_iou": 0.8646986070153906,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999885559082031,
+        "probabilities": {
+          "EOSINOPHIL": 9.966366633307189e-06,
+          "LYMPHOCYTE": 8.231960890725531e-08,
+          "MONOCYTE": 1.40946474402881e-06,
+          "NEUTROPHIL": 0.9999885559082031
+        }
+      },
+      {
+        "source_id": "BloodImage_00410",
+        "split": "val",
+        "true": "EOSINOPHIL",
+        "box": [
+          379.72613525390625,
+          165.4287872314453,
+          597.8070678710938,
+          392.61297607421875
+        ],
+        "match_iou": 0.8863523818239112,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.995776355266571,
+        "probabilities": {
+          "EOSINOPHIL": 0.995776355266571,
+          "LYMPHOCYTE": 0.00019472326675895602,
+          "MONOCYTE": 7.260119309648871e-05,
+          "NEUTROPHIL": 0.00395632442086935
+        }
+      }
+    ],
+    "selective": {
+      "threshold": 0.5,
+      "n": 84,
+      "accepted": 84,
+      "correct": 76,
+      "coverage": 1.0,
+      "accuracy": 0.9047619047619048,
+      "accuracy_wilson95": [
+        0.8231736440500729,
+        0.9509482900904406
+      ],
+      "accepted_false_positive_wbc": 0
+    },
+    "threshold_sensitivity": [
+      {
+        "threshold": 0.0,
+        "n": 84,
+        "accepted": 84,
+        "correct": 76,
+        "coverage": 1.0,
+        "accuracy": 0.9047619047619048,
+        "accuracy_wilson95": [
+          0.8231736440500729,
+          0.9509482900904406
+        ]
+      },
+      {
+        "threshold": 0.5,
+        "n": 84,
+        "accepted": 84,
+        "correct": 76,
+        "coverage": 1.0,
+        "accuracy": 0.9047619047619048,
+        "accuracy_wilson95": [
+          0.8231736440500729,
+          0.9509482900904406
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "n": 84,
+        "accepted": 78,
+        "correct": 74,
+        "coverage": 0.9285714285714286,
+        "accuracy": 0.9487179487179487,
+        "accuracy_wilson95": [
+          0.8754332345270551,
+          0.9798789875261039
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "n": 84,
+        "accepted": 76,
+        "correct": 73,
+        "coverage": 0.9047619047619048,
+        "accuracy": 0.9605263157894737,
+        "accuracy_wilson95": [
+          0.8902521225345447,
+          0.9864853649054605
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "n": 84,
+        "accepted": 72,
+        "correct": 71,
+        "coverage": 0.8571428571428571,
+        "accuracy": 0.9861111111111112,
+        "accuracy_wilson95": [
+          0.9254339785252386,
+          0.9975440481170943
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "n": 84,
+        "accepted": 69,
+        "correct": 69,
+        "coverage": 0.8214285714285714,
+        "accuracy": 1.0,
+        "accuracy_wilson95": [
+          0.9472627418109483,
+          1.0
+        ]
+      },
+      {
+        "threshold": 0.99,
+        "n": 84,
+        "accepted": 61,
+        "correct": 61,
+        "coverage": 0.7261904761904762,
+        "accuracy": 1.0,
+        "accuracy_wilson95": [
+          0.9407561321018871,
+          1.0
+        ]
+      }
+    ]
+  },
+  "test": {
+    "native": {
+      "n": 63,
+      "correct": 55,
+      "accuracy": 0.873015873015873,
+      "accuracy_wilson95": [
+        0.7689296552173035,
+        0.9342267514386327
+      ],
+      "macro_f1": 0.9203413940256047,
+      "mcc": 0.7740627372544021,
+      "labels": [
+        "EOSINOPHIL",
+        "LYMPHOCYTE",
+        "MONOCYTE",
+        "NEUTROPHIL"
+      ],
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          5
+        ],
+        [
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          33
+        ]
+      ],
+      "per_class": {
+        "EOSINOPHIL": {
+          "precision": 0.8333333333333334,
+          "recall": 0.75,
+          "f1": 0.7894736842105263,
+          "n": 20
+        },
+        "LYMPHOCYTE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "n": 4
+        },
+        "MONOCYTE": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "n": 3
+        },
+        "NEUTROPHIL": {
+          "precision": 0.868421052631579,
+          "recall": 0.9166666666666666,
+          "f1": 0.8918918918918919,
+          "n": 36
+        }
+      }
+    },
+    "cascade": {
+      "n": 63,
+      "correct": 56,
+      "accuracy": 0.8888888888888888,
+      "accuracy_wilson95": [
+        0.7879534424991748,
+        0.9451245133761628
+      ],
+      "macro_f1": 0.8957041457041457,
+      "missed": 0,
+      "false_positive_wbc": 3,
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          34,
+          0
+        ]
+      ],
+      "per_class": {
+        "EOSINOPHIL": {
+          "tp": 15,
+          "fp": 2,
+          "fn": 5,
+          "precision": 0.8823529411764706,
+          "recall": 0.75,
+          "f1": 0.8108108108108109
+        },
+        "LYMPHOCYTE": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 0,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.8888888888888888
+        },
+        "MONOCYTE": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "NEUTROPHIL": {
+          "tp": 34,
+          "fp": 7,
+          "fn": 2,
+          "precision": 0.8292682926829268,
+          "recall": 0.9444444444444444,
+          "f1": 0.8831168831168831
+        }
+      }
+    },
+    "native_predictions": [
+      {
+        "source_id": "BloodImage_00007",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9888057708740234,
+        "probabilities": {
+          "EOSINOPHIL": 0.0018891385989263654,
+          "LYMPHOCYTE": 3.5547116112866206e-06,
+          "MONOCYTE": 0.009301482699811459,
+          "NEUTROPHIL": 0.9888057708740234
+        }
+      },
+      {
+        "source_id": "BloodImage_00011",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9822169542312622,
+        "probabilities": {
+          "EOSINOPHIL": 0.0074115111492574215,
+          "LYMPHOCYTE": 5.569962468143785e-06,
+          "MONOCYTE": 0.010366019792854786,
+          "NEUTROPHIL": 0.9822169542312622
+        }
+      },
+      {
+        "source_id": "BloodImage_00015",
+        "split": "test",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9999567270278931,
+        "probabilities": {
+          "EOSINOPHIL": 6.667029083473608e-06,
+          "LYMPHOCYTE": 1.4459868680205545e-06,
+          "MONOCYTE": 0.9999567270278931,
+          "NEUTROPHIL": 3.5207351174904034e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00016",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8847330808639526,
+        "probabilities": {
+          "EOSINOPHIL": 0.11190077662467957,
+          "LYMPHOCYTE": 0.0007189248572103679,
+          "MONOCYTE": 0.0026472522877156734,
+          "NEUTROPHIL": 0.8847330808639526
+        }
+      },
+      {
+        "source_id": "BloodImage_00018",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998390674591064,
+        "probabilities": {
+          "EOSINOPHIL": 2.8259366445126943e-05,
+          "LYMPHOCYTE": 1.3181345366319874e-06,
+          "MONOCYTE": 0.0001312955719185993,
+          "NEUTROPHIL": 0.9998390674591064
+        }
+      },
+      {
+        "source_id": "BloodImage_00019",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9868500232696533,
+        "probabilities": {
+          "EOSINOPHIL": 0.011736122891306877,
+          "LYMPHOCYTE": 3.583068246371113e-05,
+          "MONOCYTE": 0.001378068351186812,
+          "NEUTROPHIL": 0.9868500232696533
+        }
+      },
+      {
+        "source_id": "BloodImage_00021",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.8459100127220154,
+        "probabilities": {
+          "EOSINOPHIL": 4.9638641939964145e-05,
+          "LYMPHOCYTE": 0.8459100127220154,
+          "MONOCYTE": 0.15403668582439423,
+          "NEUTROPHIL": 3.7370271002146183e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00033",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.6607052087783813,
+        "probabilities": {
+          "EOSINOPHIL": 0.3347776532173157,
+          "LYMPHOCYTE": 0.00015636853640899062,
+          "MONOCYTE": 0.0043607186526060104,
+          "NEUTROPHIL": 0.6607052087783813
+        }
+      },
+      {
+        "source_id": "BloodImage_00041",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9989847540855408,
+        "probabilities": {
+          "EOSINOPHIL": 0.9989847540855408,
+          "LYMPHOCYTE": 4.0955919189400447e-07,
+          "MONOCYTE": 2.8376277896313695e-06,
+          "NEUTROPHIL": 0.0010120258666574955
+        }
+      },
+      {
+        "source_id": "BloodImage_00057",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.5012511610984802,
+        "probabilities": {
+          "EOSINOPHIL": 0.5012511610984802,
+          "LYMPHOCYTE": 0.0004578842199407518,
+          "MONOCYTE": 0.00035851082066074014,
+          "NEUTROPHIL": 0.4979323446750641
+        }
+      },
+      {
+        "source_id": "BloodImage_00058",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9939747452735901,
+        "probabilities": {
+          "EOSINOPHIL": 0.9939747452735901,
+          "LYMPHOCYTE": 3.943225408420403e-07,
+          "MONOCYTE": 8.103104391921079e-07,
+          "NEUTROPHIL": 0.006024140398949385
+        }
+      },
+      {
+        "source_id": "BloodImage_00062",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9930907487869263,
+        "probabilities": {
+          "EOSINOPHIL": 0.9930907487869263,
+          "LYMPHOCYTE": 7.789732990204357e-06,
+          "MONOCYTE": 3.6008800634590443e-06,
+          "NEUTROPHIL": 0.0068978117778897285
+        }
+      },
+      {
+        "source_id": "BloodImage_00063",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9931619167327881,
+        "probabilities": {
+          "EOSINOPHIL": 0.006371894385665655,
+          "LYMPHOCYTE": 5.2061062888242304e-05,
+          "MONOCYTE": 0.00041418560431338847,
+          "NEUTROPHIL": 0.9931619167327881
+        }
+      },
+      {
+        "source_id": "BloodImage_00067",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9576422572135925,
+        "probabilities": {
+          "EOSINOPHIL": 0.9576422572135925,
+          "LYMPHOCYTE": 0.0004107057466171682,
+          "MONOCYTE": 0.0007535025360994041,
+          "NEUTROPHIL": 0.04119357094168663
+        }
+      },
+      {
+        "source_id": "BloodImage_00068",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9284787774085999,
+        "probabilities": {
+          "EOSINOPHIL": 0.03599146008491516,
+          "LYMPHOCYTE": 0.03186291828751564,
+          "MONOCYTE": 0.0036668519023805857,
+          "NEUTROPHIL": 0.9284787774085999
+        }
+      },
+      {
+        "source_id": "BloodImage_00074",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9993428587913513,
+        "probabilities": {
+          "EOSINOPHIL": 5.6223911087727174e-05,
+          "LYMPHOCYTE": 0.0004361537576187402,
+          "MONOCYTE": 0.00016480415069963783,
+          "NEUTROPHIL": 0.9993428587913513
+        }
+      },
+      {
+        "source_id": "BloodImage_00075",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9311760067939758,
+        "probabilities": {
+          "EOSINOPHIL": 0.9311760067939758,
+          "LYMPHOCYTE": 2.3683976905886084e-05,
+          "MONOCYTE": 1.466188405174762e-05,
+          "NEUTROPHIL": 0.06878568977117538
+        }
+      },
+      {
+        "source_id": "BloodImage_00077",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.5252506732940674,
+        "probabilities": {
+          "EOSINOPHIL": 0.5252506732940674,
+          "LYMPHOCYTE": 0.0006895481492392719,
+          "MONOCYTE": 0.00036104110768064857,
+          "NEUTROPHIL": 0.4736986756324768
+        }
+      },
+      {
+        "source_id": "BloodImage_00088",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.5893137454986572,
+        "probabilities": {
+          "EOSINOPHIL": 0.5893137454986572,
+          "LYMPHOCYTE": 0.0007391691906377673,
+          "MONOCYTE": 0.010173662565648556,
+          "NEUTROPHIL": 0.39977335929870605
+        }
+      },
+      {
+        "source_id": "BloodImage_00093",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8854134678840637,
+        "probabilities": {
+          "EOSINOPHIL": 0.07770739495754242,
+          "LYMPHOCYTE": 0.035319093614816666,
+          "MONOCYTE": 0.0015600345795974135,
+          "NEUTROPHIL": 0.8854134678840637
+        }
+      },
+      {
+        "source_id": "BloodImage_00098",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9997674822807312,
+        "probabilities": {
+          "EOSINOPHIL": 0.00021614794968627393,
+          "LYMPHOCYTE": 3.487921844680386e-07,
+          "MONOCYTE": 1.5998077287804335e-05,
+          "NEUTROPHIL": 0.9997674822807312
+        }
+      },
+      {
+        "source_id": "BloodImage_00136",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9970757961273193,
+        "probabilities": {
+          "EOSINOPHIL": 0.0027508505154401064,
+          "LYMPHOCYTE": 1.2993662494409364e-05,
+          "MONOCYTE": 0.00016039516776800156,
+          "NEUTROPHIL": 0.9970757961273193
+        }
+      },
+      {
+        "source_id": "BloodImage_00137",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8647148013114929,
+        "probabilities": {
+          "EOSINOPHIL": 0.13526414334774017,
+          "LYMPHOCYTE": 1.6342854678441654e-06,
+          "MONOCYTE": 1.9382918253540993e-05,
+          "NEUTROPHIL": 0.8647148013114929
+        }
+      },
+      {
+        "source_id": "BloodImage_00149",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9672735333442688,
+        "probabilities": {
+          "EOSINOPHIL": 0.9672735333442688,
+          "LYMPHOCYTE": 0.0001607419253559783,
+          "MONOCYTE": 3.467308488325216e-05,
+          "NEUTROPHIL": 0.0325310043990612
+        }
+      },
+      {
+        "source_id": "BloodImage_00157",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999954700469971,
+        "probabilities": {
+          "EOSINOPHIL": 4.1027436736840173e-07,
+          "LYMPHOCYTE": 0.9999954700469971,
+          "MONOCYTE": 4.138139047427103e-06,
+          "NEUTROPHIL": 6.936825780456957e-09
+        }
+      },
+      {
+        "source_id": "BloodImage_00161",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998241066932678,
+        "probabilities": {
+          "EOSINOPHIL": 0.0001597834489075467,
+          "LYMPHOCYTE": 2.920143515439122e-06,
+          "MONOCYTE": 1.3180388123146258e-05,
+          "NEUTROPHIL": 0.9998241066932678
+        }
+      },
+      {
+        "source_id": "BloodImage_00167",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.984258770942688,
+        "probabilities": {
+          "EOSINOPHIL": 0.007284435443580151,
+          "LYMPHOCYTE": 4.595615610014647e-05,
+          "MONOCYTE": 0.00841091014444828,
+          "NEUTROPHIL": 0.984258770942688
+        }
+      },
+      {
+        "source_id": "BloodImage_00169",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999977350234985,
+        "probabilities": {
+          "EOSINOPHIL": 1.6751296243455727e-06,
+          "LYMPHOCYTE": 6.647689332339723e-08,
+          "MONOCYTE": 5.676980663338327e-07,
+          "NEUTROPHIL": 0.9999977350234985
+        }
+      },
+      {
+        "source_id": "BloodImage_00172",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9566713571548462,
+        "probabilities": {
+          "EOSINOPHIL": 0.04323447123169899,
+          "LYMPHOCYTE": 1.2545086065074429e-05,
+          "MONOCYTE": 8.161504229065031e-05,
+          "NEUTROPHIL": 0.9566713571548462
+        }
+      },
+      {
+        "source_id": "BloodImage_00180",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9970948696136475,
+        "probabilities": {
+          "EOSINOPHIL": 0.9970948696136475,
+          "LYMPHOCYTE": 9.535664275972522e-07,
+          "MONOCYTE": 6.678554314021312e-07,
+          "NEUTROPHIL": 0.0029035063926130533
+        }
+      },
+      {
+        "source_id": "BloodImage_00184",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9824076294898987,
+        "probabilities": {
+          "EOSINOPHIL": 0.9824076294898987,
+          "LYMPHOCYTE": 0.005884877406060696,
+          "MONOCYTE": 0.0007388187805190682,
+          "NEUTROPHIL": 0.010968555696308613
+        }
+      },
+      {
+        "source_id": "BloodImage_00205",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9989175796508789,
+        "probabilities": {
+          "EOSINOPHIL": 0.0010243196738883853,
+          "LYMPHOCYTE": 1.7236347048310563e-05,
+          "MONOCYTE": 4.082724990439601e-05,
+          "NEUTROPHIL": 0.9989175796508789
+        }
+      },
+      {
+        "source_id": "BloodImage_00208",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9944419264793396,
+        "probabilities": {
+          "EOSINOPHIL": 0.004507699515670538,
+          "LYMPHOCYTE": 0.0005992757505737245,
+          "MONOCYTE": 0.00045110195060260594,
+          "NEUTROPHIL": 0.9944419264793396
+        }
+      },
+      {
+        "source_id": "BloodImage_00220",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.999697208404541,
+        "probabilities": {
+          "EOSINOPHIL": 0.999697208404541,
+          "LYMPHOCYTE": 5.163219611858949e-07,
+          "MONOCYTE": 1.5492619240831118e-06,
+          "NEUTROPHIL": 0.00030080240685492754
+        }
+      },
+      {
+        "source_id": "BloodImage_00225",
+        "split": "test",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9999961853027344,
+        "probabilities": {
+          "EOSINOPHIL": 4.6930882291462694e-08,
+          "LYMPHOCYTE": 6.983927391956968e-07,
+          "MONOCYTE": 0.9999961853027344,
+          "NEUTROPHIL": 3.125036982964957e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00226",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999760389328003,
+        "probabilities": {
+          "EOSINOPHIL": 2.2965339667280205e-05,
+          "LYMPHOCYTE": 1.9734738998522516e-07,
+          "MONOCYTE": 7.679806230953545e-07,
+          "NEUTROPHIL": 0.9999760389328003
+        }
+      },
+      {
+        "source_id": "BloodImage_00227",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9993808269500732,
+        "probabilities": {
+          "EOSINOPHIL": 0.00024257673067040741,
+          "LYMPHOCYTE": 1.645096199354157e-05,
+          "MONOCYTE": 0.00036011432530358434,
+          "NEUTROPHIL": 0.9993808269500732
+        }
+      },
+      {
+        "source_id": "BloodImage_00229",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999500513076782,
+        "probabilities": {
+          "EOSINOPHIL": 3.0410956242121756e-05,
+          "LYMPHOCYTE": 0.9999500513076782,
+          "MONOCYTE": 1.9261115085100755e-05,
+          "NEUTROPHIL": 1.956040307504736e-07
+        }
+      },
+      {
+        "source_id": "BloodImage_00233",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9998835325241089,
+        "probabilities": {
+          "EOSINOPHIL": 5.323521236277884e-06,
+          "LYMPHOCYTE": 0.9998835325241089,
+          "MONOCYTE": 8.99706719792448e-05,
+          "NEUTROPHIL": 2.1134441340109333e-05
+        }
+      },
+      {
+        "source_id": "BloodImage_00234",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999994039535522,
+        "probabilities": {
+          "EOSINOPHIL": 2.803215295443806e-07,
+          "LYMPHOCYTE": 5.625858889857227e-09,
+          "MONOCYTE": 2.838680757122347e-07,
+          "NEUTROPHIL": 0.9999994039535522
+        }
+      },
+      {
+        "source_id": "BloodImage_00253",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9999123811721802,
+        "probabilities": {
+          "EOSINOPHIL": 0.9999123811721802,
+          "LYMPHOCYTE": 4.0843595343176275e-05,
+          "MONOCYTE": 4.4975458877161145e-05,
+          "NEUTROPHIL": 1.7954822624233202e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00271",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9996594190597534,
+        "probabilities": {
+          "EOSINOPHIL": 0.9996594190597534,
+          "LYMPHOCYTE": 9.685453505881014e-07,
+          "MONOCYTE": 5.764295110566309e-06,
+          "NEUTROPHIL": 0.00033387570874765515
+        }
+      },
+      {
+        "source_id": "BloodImage_00282",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9994827508926392,
+        "probabilities": {
+          "EOSINOPHIL": 1.2223555131640751e-05,
+          "LYMPHOCYTE": 2.4595336071797647e-05,
+          "MONOCYTE": 0.0004804169002454728,
+          "NEUTROPHIL": 0.9994827508926392
+        }
+      },
+      {
+        "source_id": "BloodImage_00284",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9214181303977966,
+        "probabilities": {
+          "EOSINOPHIL": 0.9214181303977966,
+          "LYMPHOCYTE": 0.0008709176327101886,
+          "MONOCYTE": 0.05815739184617996,
+          "NEUTROPHIL": 0.019553514197468758
+        }
+      },
+      {
+        "source_id": "BloodImage_00287",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9272342920303345,
+        "probabilities": {
+          "EOSINOPHIL": 0.0631537064909935,
+          "LYMPHOCYTE": 0.001507905195467174,
+          "MONOCYTE": 0.008104111067950726,
+          "NEUTROPHIL": 0.9272342920303345
+        }
+      },
+      {
+        "source_id": "BloodImage_00290",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.7946222424507141,
+        "probabilities": {
+          "EOSINOPHIL": 0.7946222424507141,
+          "LYMPHOCYTE": 0.02709817886352539,
+          "MONOCYTE": 0.13808459043502808,
+          "NEUTROPHIL": 0.04019492492079735
+        }
+      },
+      {
+        "source_id": "BloodImage_00293",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9943333864212036,
+        "probabilities": {
+          "EOSINOPHIL": 0.00500493822619319,
+          "LYMPHOCYTE": 0.0001228697510669008,
+          "MONOCYTE": 0.0005388603312894702,
+          "NEUTROPHIL": 0.9943333864212036
+        }
+      },
+      {
+        "source_id": "BloodImage_00296",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999973773956299,
+        "probabilities": {
+          "EOSINOPHIL": 1.5551177057204768e-06,
+          "LYMPHOCYTE": 1.03355105807168e-07,
+          "MONOCYTE": 9.774892077984987e-07,
+          "NEUTROPHIL": 0.9999973773956299
+        }
+      },
+      {
+        "source_id": "BloodImage_00303",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999977707862854,
+        "probabilities": {
+          "EOSINOPHIL": 1.7949292669072747e-05,
+          "LYMPHOCYTE": 2.449895930567436e-07,
+          "MONOCYTE": 4.0607496885058936e-06,
+          "NEUTROPHIL": 0.999977707862854
+        }
+      },
+      {
+        "source_id": "BloodImage_00319",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9971020817756653,
+        "probabilities": {
+          "EOSINOPHIL": 0.9971020817756653,
+          "LYMPHOCYTE": 3.7088436783960788e-06,
+          "MONOCYTE": 1.1059644748456776e-05,
+          "NEUTROPHIL": 0.0028831912204623222
+        }
+      },
+      {
+        "source_id": "BloodImage_00320",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999769926071167,
+        "probabilities": {
+          "EOSINOPHIL": 1.939925095939543e-05,
+          "LYMPHOCYTE": 8.616796094429446e-07,
+          "MONOCYTE": 2.7979885999229737e-06,
+          "NEUTROPHIL": 0.9999769926071167
+        }
+      },
+      {
+        "source_id": "BloodImage_00323",
+        "split": "test",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE",
+        "score": 0.9999847412109375,
+        "probabilities": {
+          "EOSINOPHIL": 1.3210494216764346e-05,
+          "LYMPHOCYTE": 6.349648629111471e-07,
+          "MONOCYTE": 0.9999847412109375,
+          "NEUTROPHIL": 1.4384308997250628e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00333",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9996902942657471,
+        "probabilities": {
+          "EOSINOPHIL": 0.0002552182413637638,
+          "LYMPHOCYTE": 2.3992242859094404e-05,
+          "MONOCYTE": 3.052635656786151e-05,
+          "NEUTROPHIL": 0.9996902942657471
+        }
+      },
+      {
+        "source_id": "BloodImage_00341",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999958276748657,
+        "probabilities": {
+          "EOSINOPHIL": 1.7506347660400934e-07,
+          "LYMPHOCYTE": 1.676793459637338e-08,
+          "MONOCYTE": 4.01736951971543e-06,
+          "NEUTROPHIL": 0.9999958276748657
+        }
+      },
+      {
+        "source_id": "BloodImage_00346",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.952367901802063,
+        "probabilities": {
+          "EOSINOPHIL": 0.0453910268843174,
+          "LYMPHOCYTE": 0.0007908861734904349,
+          "MONOCYTE": 0.0014502007979899645,
+          "NEUTROPHIL": 0.952367901802063
+        }
+      },
+      {
+        "source_id": "BloodImage_00360",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9992478489875793,
+        "probabilities": {
+          "EOSINOPHIL": 0.0002900342224165797,
+          "LYMPHOCYTE": 1.554244772705715e-05,
+          "MONOCYTE": 0.00044648931361734867,
+          "NEUTROPHIL": 0.9992478489875793
+        }
+      },
+      {
+        "source_id": "BloodImage_00365",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999004602432251,
+        "probabilities": {
+          "EOSINOPHIL": 3.343017306178808e-05,
+          "LYMPHOCYTE": 5.5548800446558744e-05,
+          "MONOCYTE": 1.058571069734171e-05,
+          "NEUTROPHIL": 0.9999004602432251
+        }
+      },
+      {
+        "source_id": "BloodImage_00366",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999392032623291,
+        "probabilities": {
+          "EOSINOPHIL": 3.3504624298075214e-05,
+          "LYMPHOCYTE": 1.0499463314772584e-05,
+          "MONOCYTE": 1.6741747458581813e-05,
+          "NEUTROPHIL": 0.9999392032623291
+        }
+      },
+      {
+        "source_id": "BloodImage_00375",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.998482882976532,
+        "probabilities": {
+          "EOSINOPHIL": 0.0008081634878180921,
+          "LYMPHOCYTE": 0.000268487841822207,
+          "MONOCYTE": 0.0004405188956297934,
+          "NEUTROPHIL": 0.998482882976532
+        }
+      },
+      {
+        "source_id": "BloodImage_00385",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL",
+        "score": 0.6688251495361328,
+        "probabilities": {
+          "EOSINOPHIL": 0.6688251495361328,
+          "LYMPHOCYTE": 0.00042712767026387155,
+          "MONOCYTE": 0.024493763223290443,
+          "NEUTROPHIL": 0.3062540590763092
+        }
+      },
+      {
+        "source_id": "BloodImage_00390",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9744306206703186,
+        "probabilities": {
+          "EOSINOPHIL": 0.002443174831569195,
+          "LYMPHOCYTE": 0.00016050176054704934,
+          "MONOCYTE": 0.022965693846344948,
+          "NEUTROPHIL": 0.9744306206703186
+        }
+      },
+      {
+        "source_id": "BloodImage_00391",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9813527464866638,
+        "probabilities": {
+          "EOSINOPHIL": 0.0166543647646904,
+          "LYMPHOCYTE": 0.0004169370513409376,
+          "MONOCYTE": 0.0015759458765387535,
+          "NEUTROPHIL": 0.9813527464866638
+        }
+      },
+      {
+        "source_id": "BloodImage_00407",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998817443847656,
+        "probabilities": {
+          "EOSINOPHIL": 1.058914767781971e-05,
+          "LYMPHOCYTE": 8.823179996397812e-06,
+          "MONOCYTE": 9.879367280518636e-05,
+          "NEUTROPHIL": 0.9998817443847656
+        }
+      }
+    ],
+    "cascade_predictions": [
+      {
+        "source_id": "BloodImage_00007",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          195.83270263671875,
+          90.736572265625,
+          403.50225830078125,
+          286.14361572265625
+        ],
+        "match_iou": 0.8971104841486509,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9919298887252808,
+        "probabilities": {
+          "EOSINOPHIL": 0.001982069807127118,
+          "LYMPHOCYTE": 7.765438567730598e-06,
+          "MONOCYTE": 0.006080274470150471,
+          "NEUTROPHIL": 0.9919298887252808
+        }
+      },
+      {
+        "source_id": "BloodImage_00011",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          95.56139373779297,
+          112.69366455078125,
+          307.16424560546875,
+          341.81744384765625
+        ],
+        "match_iou": 0.8566877049731358,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9939876794815063,
+        "probabilities": {
+          "EOSINOPHIL": 0.004024166148155928,
+          "LYMPHOCYTE": 6.508660135295941e-07,
+          "MONOCYTE": 0.0019874784629791975,
+          "NEUTROPHIL": 0.9939876794815063
+        }
+      },
+      {
+        "source_id": "BloodImage_00015",
+        "split": "test",
+        "true": "MONOCYTE",
+        "box": [
+          139.90127563476562,
+          4.79412841796875,
+          378.9260559082031,
+          243.72064208984375
+        ],
+        "match_iou": 0.8869357476411132,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.999377965927124,
+        "probabilities": {
+          "EOSINOPHIL": 6.422055594157428e-05,
+          "LYMPHOCYTE": 2.1784861019114032e-05,
+          "MONOCYTE": 0.999377965927124,
+          "NEUTROPHIL": 0.0005360276554711163
+        }
+      },
+      {
+        "source_id": "BloodImage_00016",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          157.74578857421875,
+          116.72845458984375,
+          319.3143310546875,
+          271.7869873046875
+        ],
+        "match_iou": 0.8608515788343247,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.6443436145782471,
+        "probabilities": {
+          "EOSINOPHIL": 0.35120493173599243,
+          "LYMPHOCYTE": 0.0010418127058073878,
+          "MONOCYTE": 0.003409586613997817,
+          "NEUTROPHIL": 0.6443436145782471
+        }
+      },
+      {
+        "source_id": "BloodImage_00018",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          305.237060546875,
+          0.261077880859375,
+          489.4188232421875,
+          161.80474853515625
+        ],
+        "match_iou": 0.9109950720510223,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999686479568481,
+        "probabilities": {
+          "EOSINOPHIL": 1.3439271242532413e-06,
+          "LYMPHOCYTE": 6.551142917032848e-08,
+          "MONOCYTE": 3.000105789396912e-05,
+          "NEUTROPHIL": 0.9999686479568481
+        }
+      },
+      {
+        "source_id": "BloodImage_00019",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          107.43447875976562,
+          92.97540283203125,
+          304.3572692871094,
+          279.5790100097656
+        ],
+        "match_iou": 0.8659919340379846,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.6195793151855469,
+        "probabilities": {
+          "EOSINOPHIL": 0.35706520080566406,
+          "LYMPHOCYTE": 0.002462310018017888,
+          "MONOCYTE": 0.020893150940537453,
+          "NEUTROPHIL": 0.6195793151855469
+        }
+      },
+      {
+        "source_id": "BloodImage_00021",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "box": [
+          338.27099609375,
+          303.81719970703125,
+          477.34918212890625,
+          441.69903564453125
+        ],
+        "match_iou": 0.8178424141712538,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9927483201026917,
+        "probabilities": {
+          "EOSINOPHIL": 6.417425902327523e-05,
+          "LYMPHOCYTE": 0.9927483201026917,
+          "MONOCYTE": 0.00718586053699255,
+          "NEUTROPHIL": 1.5993663282642956e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00033",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          127.58847045898438,
+          106.32559204101562,
+          303.1744079589844,
+          249.79910278320312
+        ],
+        "match_iou": 0.8379159470596295,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.7348927855491638,
+        "probabilities": {
+          "EOSINOPHIL": 0.26311051845550537,
+          "LYMPHOCYTE": 4.638111204258166e-05,
+          "MONOCYTE": 0.0019502900540828705,
+          "NEUTROPHIL": 0.7348927855491638
+        }
+      },
+      {
+        "source_id": "BloodImage_00041",
+        "split": "test",
+        "true": "UNMATCHED",
+        "box": [
+          586.2520751953125,
+          0.0,
+          640.0,
+          119.7743911743164
+        ],
+        "match_iou": 0.0,
+        "kind": "false_positive",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9761156439781189,
+        "probabilities": {
+          "EOSINOPHIL": 7.9721230576979e-06,
+          "LYMPHOCYTE": 0.0021445206366479397,
+          "MONOCYTE": 0.0217319056391716,
+          "NEUTROPHIL": 0.9761156439781189
+        }
+      },
+      {
+        "source_id": "BloodImage_00041",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          263.43524169921875,
+          221.5372314453125,
+          430.37451171875,
+          372.4859619140625
+        ],
+        "match_iou": 0.8855907502019287,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9998584985733032,
+        "probabilities": {
+          "EOSINOPHIL": 0.9998584985733032,
+          "LYMPHOCYTE": 1.2416037975526706e-07,
+          "MONOCYTE": 1.1789740028689266e-06,
+          "NEUTROPHIL": 0.00014014543558005244
+        }
+      },
+      {
+        "source_id": "BloodImage_00057",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          169.56069946289062,
+          81.19866943359375,
+          310.1454772949219,
+          209.46542358398438
+        ],
+        "match_iou": 0.8238465431043694,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.5720862150192261,
+        "probabilities": {
+          "EOSINOPHIL": 0.5720862150192261,
+          "LYMPHOCYTE": 0.00015730141603853554,
+          "MONOCYTE": 0.00012507278006523848,
+          "NEUTROPHIL": 0.4276314079761505
+        }
+      },
+      {
+        "source_id": "BloodImage_00058",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          211.1914520263672,
+          0.7837486267089844,
+          347.15240478515625,
+          128.22695922851562
+        ],
+        "match_iou": 0.8835003137266932,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9414440393447876,
+        "probabilities": {
+          "EOSINOPHIL": 0.9414440393447876,
+          "LYMPHOCYTE": 7.493746579712024e-06,
+          "MONOCYTE": 3.214784101146506e-06,
+          "NEUTROPHIL": 0.058545228093862534
+        }
+      },
+      {
+        "source_id": "BloodImage_00062",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          93.80562591552734,
+          256.8505859375,
+          244.99606323242188,
+          397.9730224609375
+        ],
+        "match_iou": 0.9232172638895948,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9968740940093994,
+        "probabilities": {
+          "EOSINOPHIL": 0.9968740940093994,
+          "LYMPHOCYTE": 2.5531911887810566e-05,
+          "MONOCYTE": 4.6158152144926134e-06,
+          "NEUTROPHIL": 0.0030957176350057125
+        }
+      },
+      {
+        "source_id": "BloodImage_00063",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          366.9327392578125,
+          294.9696044921875,
+          494.540283203125,
+          420.7032470703125
+        ],
+        "match_iou": 0.9518422713802793,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9951773881912231,
+        "probabilities": {
+          "EOSINOPHIL": 0.0047144838608801365,
+          "LYMPHOCYTE": 8.8012693595374e-06,
+          "MONOCYTE": 9.929295629262924e-05,
+          "NEUTROPHIL": 0.9951773881912231
+        }
+      },
+      {
+        "source_id": "BloodImage_00067",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          134.73721313476562,
+          344.0341796875,
+          263.69708251953125,
+          480.0
+        ],
+        "match_iou": 0.8651780181151686,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9219523072242737,
+        "probabilities": {
+          "EOSINOPHIL": 0.9219523072242737,
+          "LYMPHOCYTE": 0.0011475664796307683,
+          "MONOCYTE": 0.003569523338228464,
+          "NEUTROPHIL": 0.07333066314458847
+        }
+      },
+      {
+        "source_id": "BloodImage_00068",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          0.0,
+          217.57305908203125,
+          107.13114929199219,
+          353.25927734375
+        ],
+        "match_iou": 0.8125220717147199,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9516430497169495,
+        "probabilities": {
+          "EOSINOPHIL": 0.04583919420838356,
+          "LYMPHOCYTE": 0.001906815217807889,
+          "MONOCYTE": 0.0006109762471169233,
+          "NEUTROPHIL": 0.9516430497169495
+        }
+      },
+      {
+        "source_id": "BloodImage_00074",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          10.406787872314453,
+          13.856765747070312,
+          129.79261779785156,
+          139.1361846923828
+        ],
+        "match_iou": 0.8376225024291661,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9983060359954834,
+        "probabilities": {
+          "EOSINOPHIL": 6.986234075156972e-05,
+          "LYMPHOCYTE": 0.0013413365231826901,
+          "MONOCYTE": 0.00028274935903027654,
+          "NEUTROPHIL": 0.9983060359954834
+        }
+      },
+      {
+        "source_id": "BloodImage_00075",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          164.13848876953125,
+          1.5757980346679688,
+          328.76806640625,
+          115.02611541748047
+        ],
+        "match_iou": 0.9194059301947368,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.8090170621871948,
+        "probabilities": {
+          "EOSINOPHIL": 0.8090170621871948,
+          "LYMPHOCYTE": 1.051171147992136e-05,
+          "MONOCYTE": 6.245922577363672e-06,
+          "NEUTROPHIL": 0.1909661740064621
+        }
+      },
+      {
+        "source_id": "BloodImage_00077",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          134.2137451171875,
+          89.97437286376953,
+          302.53753662109375,
+          216.1868896484375
+        ],
+        "match_iou": 0.9185286250386857,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.7038788795471191,
+        "probabilities": {
+          "EOSINOPHIL": 0.7038788795471191,
+          "LYMPHOCYTE": 0.00042949829366989434,
+          "MONOCYTE": 0.0005541361169889569,
+          "NEUTROPHIL": 0.295137494802475
+        }
+      },
+      {
+        "source_id": "BloodImage_00088",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          254.09262084960938,
+          223.21133422851562,
+          381.9971008300781,
+          367.8484802246094
+        ],
+        "match_iou": 0.9649910030816674,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.8774988055229187,
+        "probabilities": {
+          "EOSINOPHIL": 0.8774988055229187,
+          "LYMPHOCYTE": 0.0011598319979384542,
+          "MONOCYTE": 0.00778833357617259,
+          "NEUTROPHIL": 0.11355295777320862
+        }
+      },
+      {
+        "source_id": "BloodImage_00093",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          6.252716064453125,
+          0.6708755493164062,
+          144.5447998046875,
+          98.17605590820312
+        ],
+        "match_iou": 0.8820618051876321,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9706677794456482,
+        "probabilities": {
+          "EOSINOPHIL": 0.011174837127327919,
+          "LYMPHOCYTE": 0.017534533515572548,
+          "MONOCYTE": 0.000622855091933161,
+          "NEUTROPHIL": 0.9706677794456482
+        }
+      },
+      {
+        "source_id": "BloodImage_00098",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          174.31895446777344,
+          130.4168701171875,
+          366.7476806640625,
+          314.2497253417969
+        ],
+        "match_iou": 0.9270967647518005,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999034404754639,
+        "probabilities": {
+          "EOSINOPHIL": 8.008431905182078e-05,
+          "LYMPHOCYTE": 3.3012796052389604e-07,
+          "MONOCYTE": 1.6155867342604324e-05,
+          "NEUTROPHIL": 0.9999034404754639
+        }
+      },
+      {
+        "source_id": "BloodImage_00136",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          100.42367553710938,
+          113.16690826416016,
+          283.7391357421875,
+          280.1042175292969
+        ],
+        "match_iou": 0.8932040580029605,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9932283759117126,
+        "probabilities": {
+          "EOSINOPHIL": 0.006658036261796951,
+          "LYMPHOCYTE": 5.046872956881998e-06,
+          "MONOCYTE": 0.00010852279956452549,
+          "NEUTROPHIL": 0.9932283759117126
+        }
+      },
+      {
+        "source_id": "BloodImage_00137",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          230.04959106445312,
+          8.35308837890625,
+          405.3343200683594,
+          166.58450317382812
+        ],
+        "match_iou": 0.8575967392883962,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9698726534843445,
+        "probabilities": {
+          "EOSINOPHIL": 0.030091606080532074,
+          "LYMPHOCYTE": 3.198164222339983e-06,
+          "MONOCYTE": 3.258719516452402e-05,
+          "NEUTROPHIL": 0.9698726534843445
+        }
+      },
+      {
+        "source_id": "BloodImage_00149",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          61.06163787841797,
+          56.2745361328125,
+          212.35748291015625,
+          211.01278686523438
+        ],
+        "match_iou": 0.9081913395490553,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9483582377433777,
+        "probabilities": {
+          "EOSINOPHIL": 0.9483582377433777,
+          "LYMPHOCYTE": 0.00034550749114714563,
+          "MONOCYTE": 0.00019224491552449763,
+          "NEUTROPHIL": 0.05110408365726471
+        }
+      },
+      {
+        "source_id": "BloodImage_00157",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "box": [
+          199.501708984375,
+          181.87217712402344,
+          370.3343505859375,
+          350.8670654296875
+        ],
+        "match_iou": 0.910532809015582,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9999887943267822,
+        "probabilities": {
+          "EOSINOPHIL": 2.916577159339795e-06,
+          "LYMPHOCYTE": 0.9999887943267822,
+          "MONOCYTE": 8.361439540749416e-06,
+          "NEUTROPHIL": 5.04198460760108e-08
+        }
+      },
+      {
+        "source_id": "BloodImage_00157",
+        "split": "test",
+        "true": "UNMATCHED",
+        "box": [
+          2.7091064453125,
+          455.4298095703125,
+          191.9736328125,
+          480.0
+        ],
+        "match_iou": 0.0,
+        "kind": "false_positive",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9802047610282898,
+        "probabilities": {
+          "EOSINOPHIL": 2.6300156605429947e-05,
+          "LYMPHOCYTE": 0.9802047610282898,
+          "MONOCYTE": 0.016264868900179863,
+          "NEUTROPHIL": 0.0035040650982409716
+        }
+      },
+      {
+        "source_id": "BloodImage_00161",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          201.74295043945312,
+          20.947296142578125,
+          377.8645324707031,
+          219.74838256835938
+        ],
+        "match_iou": 0.8387437596908514,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9872296452522278,
+        "probabilities": {
+          "EOSINOPHIL": 0.01263336930423975,
+          "LYMPHOCYTE": 7.180247484939173e-05,
+          "MONOCYTE": 6.518782174680382e-05,
+          "NEUTROPHIL": 0.9872296452522278
+        }
+      },
+      {
+        "source_id": "BloodImage_00167",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          219.51585388183594,
+          258.15380859375,
+          441.4075927734375,
+          478.356201171875
+        ],
+        "match_iou": 0.9092064871712499,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9976484179496765,
+        "probabilities": {
+          "EOSINOPHIL": 0.0005456632352434099,
+          "LYMPHOCYTE": 5.076857974017912e-07,
+          "MONOCYTE": 0.0018053908133879304,
+          "NEUTROPHIL": 0.9976484179496765
+        }
+      },
+      {
+        "source_id": "BloodImage_00169",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          148.8332977294922,
+          4.56353759765625,
+          385.08197021484375,
+          193.43185424804688
+        ],
+        "match_iou": 0.8784011278770414,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999977350234985,
+        "probabilities": {
+          "EOSINOPHIL": 1.809237460292934e-06,
+          "LYMPHOCYTE": 1.0804674488440469e-08,
+          "MONOCYTE": 4.2178206172138744e-07,
+          "NEUTROPHIL": 0.9999977350234985
+        }
+      },
+      {
+        "source_id": "BloodImage_00172",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          252.54295349121094,
+          39.452980041503906,
+          467.028076171875,
+          246.85140991210938
+        ],
+        "match_iou": 0.9416042087357304,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9969017505645752,
+        "probabilities": {
+          "EOSINOPHIL": 0.0030793447513133287,
+          "LYMPHOCYTE": 3.6420276501303306e-06,
+          "MONOCYTE": 1.5271703887265176e-05,
+          "NEUTROPHIL": 0.9969017505645752
+        }
+      },
+      {
+        "source_id": "BloodImage_00180",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          170.44683837890625,
+          0.770111083984375,
+          385.0301513671875,
+          120.52827453613281
+        ],
+        "match_iou": 0.8995223819248153,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9994906187057495,
+        "probabilities": {
+          "EOSINOPHIL": 0.9994906187057495,
+          "LYMPHOCYTE": 3.2053449672275747e-07,
+          "MONOCYTE": 5.532712066269596e-07,
+          "NEUTROPHIL": 0.0005084169679321349
+        }
+      },
+      {
+        "source_id": "BloodImage_00184",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          92.39834594726562,
+          0.150054931640625,
+          298.85150146484375,
+          168.84933471679688
+        ],
+        "match_iou": 0.9552110958077583,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9559873938560486,
+        "probabilities": {
+          "EOSINOPHIL": 0.9559873938560486,
+          "LYMPHOCYTE": 0.004255203064531088,
+          "MONOCYTE": 0.00166427216026932,
+          "NEUTROPHIL": 0.03809301182627678
+        }
+      },
+      {
+        "source_id": "BloodImage_00205",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          147.9478759765625,
+          232.69183349609375,
+          345.02703857421875,
+          425.047607421875
+        ],
+        "match_iou": 0.9183585997060175,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999967098236084,
+        "probabilities": {
+          "EOSINOPHIL": 2.9334307328099385e-05,
+          "LYMPHOCYTE": 1.1025009598597535e-06,
+          "MONOCYTE": 2.44494185608346e-06,
+          "NEUTROPHIL": 0.999967098236084
+        }
+      },
+      {
+        "source_id": "BloodImage_00208",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          260.2625732421875,
+          81.56661987304688,
+          477.78155517578125,
+          249.04107666015625
+        ],
+        "match_iou": 0.8945562447234487,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9310099482536316,
+        "probabilities": {
+          "EOSINOPHIL": 0.0686035305261612,
+          "LYMPHOCYTE": 9.278065408580005e-05,
+          "MONOCYTE": 0.00029380482737906277,
+          "NEUTROPHIL": 0.9310099482536316
+        }
+      },
+      {
+        "source_id": "BloodImage_00220",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          261.605712890625,
+          18.891876220703125,
+          469.98370361328125,
+          223.43679809570312
+        ],
+        "match_iou": 0.9633036284932317,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9992465972900391,
+        "probabilities": {
+          "EOSINOPHIL": 0.9992465972900391,
+          "LYMPHOCYTE": 3.0283467822300736e-07,
+          "MONOCYTE": 5.737571200370439e-07,
+          "NEUTROPHIL": 0.0007525277324020863
+        }
+      },
+      {
+        "source_id": "BloodImage_00225",
+        "split": "test",
+        "true": "MONOCYTE",
+        "box": [
+          263.79901123046875,
+          0.0,
+          557.2218017578125,
+          221.855224609375
+        ],
+        "match_iou": 0.9209211942116203,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9999997615814209,
+        "probabilities": {
+          "EOSINOPHIL": 3.9132617146719895e-09,
+          "LYMPHOCYTE": 3.5151142441236516e-08,
+          "MONOCYTE": 0.9999997615814209,
+          "NEUTROPHIL": 2.1939418104466313e-07
+        }
+      },
+      {
+        "source_id": "BloodImage_00226",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          199.49685668945312,
+          73.19317626953125,
+          399.1812438964844,
+          265.4729919433594
+        ],
+        "match_iou": 0.863964447647609,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9950382113456726,
+        "probabilities": {
+          "EOSINOPHIL": 0.004941143561154604,
+          "LYMPHOCYTE": 3.861037839669734e-06,
+          "MONOCYTE": 1.6830676031531766e-05,
+          "NEUTROPHIL": 0.9950382113456726
+        }
+      },
+      {
+        "source_id": "BloodImage_00227",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          151.44244384765625,
+          236.51695251464844,
+          392.93560791015625,
+          459.5257568359375
+        ],
+        "match_iou": 0.9509219798587847,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.997524082660675,
+        "probabilities": {
+          "EOSINOPHIL": 0.00010301540169166401,
+          "LYMPHOCYTE": 7.688118785154074e-06,
+          "MONOCYTE": 0.0023651598021388054,
+          "NEUTROPHIL": 0.997524082660675
+        }
+      },
+      {
+        "source_id": "BloodImage_00229",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "box": [
+          192.85943603515625,
+          252.52462768554688,
+          365.7918701171875,
+          421.5934143066406
+        ],
+        "match_iou": 0.9324882353670402,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9998478889465332,
+        "probabilities": {
+          "EOSINOPHIL": 9.70716355368495e-05,
+          "LYMPHOCYTE": 0.9998478889465332,
+          "MONOCYTE": 5.387373676057905e-05,
+          "NEUTROPHIL": 1.190364400827093e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00233",
+        "split": "test",
+        "true": "LYMPHOCYTE",
+        "box": [
+          212.45684814453125,
+          186.14584350585938,
+          341.4190673828125,
+          319.3431701660156
+        ],
+        "match_iou": 0.8512000035432508,
+        "kind": "ground_truth",
+        "predicted": "LYMPHOCYTE",
+        "score": 0.9995254278182983,
+        "probabilities": {
+          "EOSINOPHIL": 3.351421401021071e-05,
+          "LYMPHOCYTE": 0.9995254278182983,
+          "MONOCYTE": 0.0003354563086759299,
+          "NEUTROPHIL": 0.00010569582809694111
+        }
+      },
+      {
+        "source_id": "BloodImage_00234",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          323.398193359375,
+          185.44459533691406,
+          538.0872802734375,
+          390.2086181640625
+        ],
+        "match_iou": 0.9086508102867317,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999897480010986,
+        "probabilities": {
+          "EOSINOPHIL": 9.916187082126271e-06,
+          "LYMPHOCYTE": 2.9919156929736346e-08,
+          "MONOCYTE": 2.65363581775091e-07,
+          "NEUTROPHIL": 0.9999897480010986
+        }
+      },
+      {
+        "source_id": "BloodImage_00253",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          192.06381225585938,
+          291.4442138671875,
+          439.6415100097656,
+          480.0
+        ],
+        "match_iou": 0.9388715071591383,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.998561680316925,
+        "probabilities": {
+          "EOSINOPHIL": 0.998561680316925,
+          "LYMPHOCYTE": 0.0005969095509499311,
+          "MONOCYTE": 0.0008374803001061082,
+          "NEUTROPHIL": 4.062311290908838e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00271",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          178.48040771484375,
+          52.9700927734375,
+          389.26318359375,
+          260.796142578125
+        ],
+        "match_iou": 0.8901717649564325,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.997523844242096,
+        "probabilities": {
+          "EOSINOPHIL": 0.997523844242096,
+          "LYMPHOCYTE": 2.1711744921049103e-05,
+          "MONOCYTE": 2.6062765755341388e-05,
+          "NEUTROPHIL": 0.0024282908998429775
+        }
+      },
+      {
+        "source_id": "BloodImage_00282",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          137.6298828125,
+          0.465850830078125,
+          370.7878723144531,
+          128.6829833984375
+        ],
+        "match_iou": 0.9491601761559864,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9998836517333984,
+        "probabilities": {
+          "EOSINOPHIL": 1.558305484650191e-05,
+          "LYMPHOCYTE": 9.780966138350777e-06,
+          "MONOCYTE": 9.092017717193812e-05,
+          "NEUTROPHIL": 0.9998836517333984
+        }
+      },
+      {
+        "source_id": "BloodImage_00284",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          216.4808349609375,
+          230.39572143554688,
+          501.0101318359375,
+          480.0
+        ],
+        "match_iou": 0.867336261883997,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9278432130813599,
+        "probabilities": {
+          "EOSINOPHIL": 0.9278432130813599,
+          "LYMPHOCYTE": 0.003923668991774321,
+          "MONOCYTE": 0.06319272518157959,
+          "NEUTROPHIL": 0.005040409509092569
+        }
+      },
+      {
+        "source_id": "BloodImage_00287",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          0.0,
+          156.4066925048828,
+          208.39212036132812,
+          367.08013916015625
+        ],
+        "match_iou": 0.8831578044486896,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.8996245861053467,
+        "probabilities": {
+          "EOSINOPHIL": 0.08640202134847641,
+          "LYMPHOCYTE": 0.0041158245876431465,
+          "MONOCYTE": 0.009857562370598316,
+          "NEUTROPHIL": 0.8996245861053467
+        }
+      },
+      {
+        "source_id": "BloodImage_00290",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          133.0933837890625,
+          106.60064697265625,
+          388.43218994140625,
+          310.04693603515625
+        ],
+        "match_iou": 0.8679960157991244,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.921580970287323,
+        "probabilities": {
+          "EOSINOPHIL": 0.921580970287323,
+          "LYMPHOCYTE": 0.0006574055296368897,
+          "MONOCYTE": 0.0009664138779044151,
+          "NEUTROPHIL": 0.07679510116577148
+        }
+      },
+      {
+        "source_id": "BloodImage_00290",
+        "split": "test",
+        "true": "UNMATCHED",
+        "box": [
+          30.08990478515625,
+          410.8138427734375,
+          277.74993896484375,
+          480.0
+        ],
+        "match_iou": 0.0,
+        "kind": "false_positive",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999991655349731,
+        "probabilities": {
+          "EOSINOPHIL": 5.06526376398142e-09,
+          "LYMPHOCYTE": 1.4801198489067247e-08,
+          "MONOCYTE": 8.590861284574203e-07,
+          "NEUTROPHIL": 0.9999991655349731
+        }
+      },
+      {
+        "source_id": "BloodImage_00293",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          124.64313507080078,
+          143.32257080078125,
+          338.53204345703125,
+          360.142333984375
+        ],
+        "match_iou": 0.9461202765676021,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9987301230430603,
+        "probabilities": {
+          "EOSINOPHIL": 0.001191199873574078,
+          "LYMPHOCYTE": 1.5908533896435983e-05,
+          "MONOCYTE": 6.27322297077626e-05,
+          "NEUTROPHIL": 0.9987301230430603
+        }
+      },
+      {
+        "source_id": "BloodImage_00296",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          199.91676330566406,
+          11.447525024414062,
+          399.6746826171875,
+          224.15585327148438
+        ],
+        "match_iou": 0.926184619051661,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999961853027344,
+        "probabilities": {
+          "EOSINOPHIL": 2.3793691070750356e-06,
+          "LYMPHOCYTE": 4.535297364327562e-07,
+          "MONOCYTE": 1.0030246357928263e-06,
+          "NEUTROPHIL": 0.9999961853027344
+        }
+      },
+      {
+        "source_id": "BloodImage_00303",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          54.2520751953125,
+          58.34723663330078,
+          272.0829162597656,
+          264.54925537109375
+        ],
+        "match_iou": 0.9309997327457346,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999847412109375,
+        "probabilities": {
+          "EOSINOPHIL": 1.0900992492679507e-05,
+          "LYMPHOCYTE": 2.7258681711828103e-07,
+          "MONOCYTE": 4.114624971407466e-06,
+          "NEUTROPHIL": 0.9999847412109375
+        }
+      },
+      {
+        "source_id": "BloodImage_00319",
+        "split": "test",
+        "true": "EOSINOPHIL",
+        "box": [
+          75.4984130859375,
+          0.0,
+          322.6426086425781,
+          215.85702514648438
+        ],
+        "match_iou": 0.9349634915099595,
+        "kind": "ground_truth",
+        "predicted": "EOSINOPHIL",
+        "score": 0.9997994303703308,
+        "probabilities": {
+          "EOSINOPHIL": 0.9997994303703308,
+          "LYMPHOCYTE": 1.8350100106090395e-07,
+          "MONOCYTE": 5.952682613497018e-07,
+          "NEUTROPHIL": 0.00019976058683823794
+        }
+      },
+      {
+        "source_id": "BloodImage_00320",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          132.1375732421875,
+          117.42423248291016,
+          333.3664245605469,
+          327.0571594238281
+        ],
+        "match_iou": 0.9318560844468947,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999978542327881,
+        "probabilities": {
+          "EOSINOPHIL": 9.207192874782777e-07,
+          "LYMPHOCYTE": 7.919241085119211e-08,
+          "MONOCYTE": 1.104714556277031e-06,
+          "NEUTROPHIL": 0.9999978542327881
+        }
+      },
+      {
+        "source_id": "BloodImage_00323",
+        "split": "test",
+        "true": "MONOCYTE",
+        "box": [
+          18.054046630859375,
+          111.06177520751953,
+          335.35113525390625,
+          361.6544189453125
+        ],
+        "match_iou": 0.9296672949625391,
+        "kind": "ground_truth",
+        "predicted": "MONOCYTE",
+        "score": 0.9999929666519165,
+        "probabilities": {
+          "EOSINOPHIL": 3.7073609746585134e-06,
+          "LYMPHOCYTE": 1.44757484576985e-06,
+          "MONOCYTE": 0.9999929666519165,
+          "NEUTROPHIL": 1.8640537291503279e-06
+        }
+      },
+      {
+        "source_id": "BloodImage_00333",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          301.12567138671875,
+          263.59552001953125,
+          524.1727294921875,
+          474.09149169921875
+        ],
+        "match_iou": 0.9222708476385845,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999148964881897,
+        "probabilities": {
+          "EOSINOPHIL": 0.0006790108163841069,
+          "LYMPHOCYTE": 2.071549533866346e-05,
+          "MONOCYTE": 0.00015132318367250264,
+          "NEUTROPHIL": 0.999148964881897
+        }
+      },
+      {
+        "source_id": "BloodImage_00341",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          354.17486572265625,
+          75.77914428710938,
+          565.7908325195312,
+          317.66485595703125
+        ],
+        "match_iou": 0.8972211564175555,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999878406524658,
+        "probabilities": {
+          "EOSINOPHIL": 1.32074058001308e-06,
+          "LYMPHOCYTE": 1.5335204750499543e-07,
+          "MONOCYTE": 1.0659202416718472e-05,
+          "NEUTROPHIL": 0.9999878406524658
+        }
+      },
+      {
+        "source_id": "BloodImage_00346",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          150.31784057617188,
+          268.0220947265625,
+          398.7070617675781,
+          480.0
+        ],
+        "match_iou": 0.9205485328421139,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9905886650085449,
+        "probabilities": {
+          "EOSINOPHIL": 0.007476000115275383,
+          "LYMPHOCYTE": 0.0006390096386894584,
+          "MONOCYTE": 0.0012962603941559792,
+          "NEUTROPHIL": 0.9905886650085449
+        }
+      },
+      {
+        "source_id": "BloodImage_00360",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          254.44815063476562,
+          198.99166870117188,
+          469.6222839355469,
+          418.0219421386719
+        ],
+        "match_iou": 0.8716671295690319,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9993680119514465,
+        "probabilities": {
+          "EOSINOPHIL": 0.000577166210860014,
+          "LYMPHOCYTE": 1.0772872883535456e-05,
+          "MONOCYTE": 4.400812031235546e-05,
+          "NEUTROPHIL": 0.9993680119514465
+        }
+      },
+      {
+        "source_id": "BloodImage_00365",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          0.0,
+          81.69550323486328,
+          169.71759033203125,
+          283.31549072265625
+        ],
+        "match_iou": 0.9084933619155845,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9997227787971497,
+        "probabilities": {
+          "EOSINOPHIL": 0.00015004123270045966,
+          "LYMPHOCYTE": 7.986964919837192e-05,
+          "MONOCYTE": 4.7323414037236944e-05,
+          "NEUTROPHIL": 0.9997227787971497
+        }
+      },
+      {
+        "source_id": "BloodImage_00366",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          0.1369171142578125,
+          76.87149047851562,
+          153.69509887695312,
+          290.07952880859375
+        ],
+        "match_iou": 0.9163485452514157,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.999985933303833,
+        "probabilities": {
+          "EOSINOPHIL": 5.082848019810626e-06,
+          "LYMPHOCYTE": 5.055842848378234e-06,
+          "MONOCYTE": 3.9728975025354885e-06,
+          "NEUTROPHIL": 0.999985933303833
+        }
+      },
+      {
+        "source_id": "BloodImage_00375",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          214.6326141357422,
+          0.0,
+          427.89154052734375,
+          166.37844848632812
+        ],
+        "match_iou": 0.937893839188147,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9984318614006042,
+        "probabilities": {
+          "EOSINOPHIL": 0.0007738915155641735,
+          "LYMPHOCYTE": 0.00039267473039217293,
+          "MONOCYTE": 0.0004015742742922157,
+          "NEUTROPHIL": 0.9984318614006042
+        }
+      },
+      {
+        "source_id": "BloodImage_00385",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          214.72299194335938,
+          301.00537109375,
+          437.3563537597656,
+          480.0
+        ],
+        "match_iou": 0.9452362855162072,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9198318719863892,
+        "probabilities": {
+          "EOSINOPHIL": 0.0641770213842392,
+          "LYMPHOCYTE": 0.00015623634681105614,
+          "MONOCYTE": 0.01583493873476982,
+          "NEUTROPHIL": 0.9198318719863892
+        }
+      },
+      {
+        "source_id": "BloodImage_00390",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          139.56927490234375,
+          297.272216796875,
+          367.83154296875,
+          480.0
+        ],
+        "match_iou": 0.9258776414271492,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.7024859189987183,
+        "probabilities": {
+          "EOSINOPHIL": 0.0898151770234108,
+          "LYMPHOCYTE": 0.002244878327473998,
+          "MONOCYTE": 0.20545394718647003,
+          "NEUTROPHIL": 0.7024859189987183
+        }
+      },
+      {
+        "source_id": "BloodImage_00391",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          197.14105224609375,
+          162.9730224609375,
+          400.662841796875,
+          394.827392578125
+        ],
+        "match_iou": 0.8426660959963721,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9830827713012695,
+        "probabilities": {
+          "EOSINOPHIL": 0.01557324081659317,
+          "LYMPHOCYTE": 9.317461808677763e-05,
+          "MONOCYTE": 0.0012507705250754952,
+          "NEUTROPHIL": 0.9830827713012695
+        }
+      },
+      {
+        "source_id": "BloodImage_00407",
+        "split": "test",
+        "true": "NEUTROPHIL",
+        "box": [
+          465.3623046875,
+          288.6401062011719,
+          639.748291015625,
+          480.0
+        ],
+        "match_iou": 0.9208137395397034,
+        "kind": "ground_truth",
+        "predicted": "NEUTROPHIL",
+        "score": 0.9999816417694092,
+        "probabilities": {
+          "EOSINOPHIL": 5.1835008889611345e-06,
+          "LYMPHOCYTE": 1.0924650268862024e-06,
+          "MONOCYTE": 1.2121021427446976e-05,
+          "NEUTROPHIL": 0.9999816417694092
+        }
+      }
+    ],
+    "selective": {
+      "threshold": 0.5,
+      "n": 63,
+      "accepted": 63,
+      "correct": 56,
+      "coverage": 1.0,
+      "accuracy": 0.8888888888888888,
+      "accuracy_wilson95": [
+        0.7879534424991748,
+        0.9451245133761628
+      ],
+      "accepted_false_positive_wbc": 3
+    },
+    "threshold_sensitivity": [
+      {
+        "threshold": 0.0,
+        "n": 63,
+        "accepted": 63,
+        "correct": 56,
+        "coverage": 1.0,
+        "accuracy": 0.8888888888888888,
+        "accuracy_wilson95": [
+          0.7879534424991748,
+          0.9451245133761628
+        ]
+      },
+      {
+        "threshold": 0.5,
+        "n": 63,
+        "accepted": 63,
+        "correct": 56,
+        "coverage": 1.0,
+        "accuracy": 0.8888888888888888,
+        "accuracy_wilson95": [
+          0.7879534424991748,
+          0.9451245133761628
+        ]
+      },
+      {
+        "threshold": 0.7,
+        "n": 63,
+        "accepted": 60,
+        "correct": 53,
+        "coverage": 0.9523809523809523,
+        "accuracy": 0.8833333333333333,
+        "accuracy_wilson95": [
+          0.7782121197582914,
+          0.9423227935994396
+        ]
+      },
+      {
+        "threshold": 0.8,
+        "n": 63,
+        "accepted": 57,
+        "correct": 51,
+        "coverage": 0.9047619047619048,
+        "accuracy": 0.8947368421052632,
+        "accuracy_wilson95": [
+          0.7887718941661297,
+          0.9508553414762553
+        ]
+      },
+      {
+        "threshold": 0.9,
+        "n": 63,
+        "accepted": 54,
+        "correct": 48,
+        "coverage": 0.8571428571428571,
+        "accuracy": 0.8888888888888888,
+        "accuracy_wilson95": [
+          0.7780529897881872,
+          0.9480697750300044
+        ]
+      },
+      {
+        "threshold": 0.95,
+        "n": 63,
+        "accepted": 47,
+        "correct": 43,
+        "coverage": 0.746031746031746,
+        "accuracy": 0.9148936170212766,
+        "accuracy_wilson95": [
+          0.8006846221303541,
+          0.9664058765420744
+        ]
+      },
+      {
+        "threshold": 0.99,
+        "n": 63,
+        "accepted": 41,
+        "correct": 40,
+        "coverage": 0.6507936507936508,
+        "accuracy": 0.975609756097561,
+        "accuracy_wilson95": [
+          0.8740493794422576,
+          0.9956814684310874
+        ]
+      }
+    ]
+  },
+  "checkpoint": "runs/verified/wbc_crop_seed43/weights/last.pt",
+  "sha256": "f39a39eafd6474350a878fdd6962d2ad63aecc087ad177568330a39c10dd3fc7",
+  "evaluation_context_sha256": "ffa526831ac5d7e8a62bb887803dace367b8a20af20034e5569fc5a6219cd1ba"
+}

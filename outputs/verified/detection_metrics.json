@@ -1,0 +1,33 @@
+{
+  "metrics": {
+    "metrics/precision(B)": 0.8649248345154373,
+    "metrics/recall(B)": 0.883367839889579,
+    "metrics/mAP50(B)": 0.909632258820475,
+    "metrics/mAP50-95(B)": 0.6206933911723946,
+    "fitness": 0.6206933911723946
+  },
+  "per_class": [
+    {
+      "name": "RBC",
+      "precision": 0.8037441505436613,
+      "recall": 0.7515527950310559,
+      "ap50": 0.8639499024250966,
+      "ap50_95": 0.6164177047602128
+    },
+    {
+      "name": "WBC",
+      "precision": 0.9302186760686669,
+      "recall": 1.0,
+      "ap50": 0.9623868939590354,
+      "ap50_95": 0.7699113849312571
+    },
+    {
+      "name": "Platelet",
+      "precision": 0.8608116769339836,
+      "recall": 0.8985507246376812,
+      "ap50": 0.9025599800772932,
+      "ap50_95": 0.47575108382571374
+    }
+  ],
+  "precision_recall_policy": "Ultralytics confidence maximizing mean F1; separate from fixed 0.25 app threshold."
+}

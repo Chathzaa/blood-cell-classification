@@ -1,0 +1,2019 @@
+{
+  "features": [
+    "area",
+    "perimeter",
+    "circularity",
+    "eccentricity",
+    "solidity",
+    "high_saturation_fraction",
+    "stain_boundary_irregularity",
+    "hue_mean",
+    "hue_std",
+    "saturation_mean",
+    "saturation_std",
+    "value_mean",
+    "value_std",
+    "glcm_energy",
+    "glcm_contrast",
+    "glcm_homogeneity",
+    "glcm_entropy",
+    "glcm_correlation",
+    "lbp_bin0",
+    "lbp_bin1",
+    "lbp_bin2",
+    "lbp_bin3"
+  ],
+  "tuning": [
+    {
+      "C": 0.01,
+      "validation_macro_f1": 0.7550485746137919
+    },
+    {
+      "C": 0.1,
+      "validation_macro_f1": 0.765130023640662
+    },
+    {
+      "C": 1.0,
+      "validation_macro_f1": 0.7732605067929114
+    },
+    {
+      "C": 10.0,
+      "validation_macro_f1": 0.7598566308243727
+    }
+  ],
+  "selected_C": 1.0,
+  "predictions": {
+    "train": [
+      {
+        "source_id": "BloodImage_00001",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00003",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00004",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00005",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00006",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00009",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00012",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00013",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00020",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00022",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00023",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00024",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00026",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00032",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00036",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00038",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00039",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00040",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00042",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00045",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00046",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00047",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00048",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00049",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00050",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00052",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00054",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00056",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00059",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00069",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00071",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00076",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00078",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00079",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00081",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00082",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00083",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00086",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00087",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00090",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00091",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00092",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00094",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00095",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00097",
+        "true": "EOSINOPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00100",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00101",
+        "true": "EOSINOPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00106",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00107",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00108",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00110",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00112",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00114",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00120",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00123",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00124",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00126",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00127",
+        "true": "MONOCYTE",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00134",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00139",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00141",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00142",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00144",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00150",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00154",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00156",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00158",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00159",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00160",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00163",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00164",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00165",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00166",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00168",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00170",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00174",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00175",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00177",
+        "true": "EOSINOPHIL",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00179",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00182",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00187",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00189",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00190",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00191",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00196",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00197",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00198",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00199",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00200",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00201",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00202",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00203",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00204",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00206",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00210",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00211",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00212",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00214",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00215",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00224",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00231",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00232",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00235",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00237",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00239",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00240",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00243",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00247",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00248",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00250",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00251",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00252",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00254",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00256",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00257",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00258",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00259",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00263",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00264",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00265",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00266",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00267",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00268",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00270",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00273",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00275",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00276",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00278",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00279",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00281",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00283",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00288",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00289",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00291",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00292",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00294",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00295",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00297",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00299",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00300",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00301",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00302",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00305",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00307",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00308",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00309",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00311",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00314",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00317",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00318",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00322",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00324",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00325",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00332",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00335",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00336",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00339",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00343",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00344",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00345",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00347",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00348",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00351",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00353",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00354",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00355",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00356",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00357",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00359",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00361",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00362",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00364",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00369",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00370",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00371",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00372",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00376",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00377",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00378",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00379",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00382",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00384",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00387",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00388",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00393",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00395",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00400",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00403",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00404",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00405",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00408",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      }
+    ],
+    "val": [
+      {
+        "source_id": "BloodImage_00000",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00002",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00014",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00017",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00028",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00029",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00030",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00035",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00053",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00055",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00064",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00066",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00072",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00073",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00089",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00099",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00104",
+        "true": "MONOCYTE",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00109",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00111",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00115",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00125",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00130",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00140",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00143",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00145",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00147",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00148",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00152",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00162",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00183",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00192",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00207",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00209",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00216",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00217",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00218",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00219",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00221",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00222",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00223",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00230",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00236",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00241",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00244",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00245",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00246",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00255",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00260",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00261",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00262",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00269",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00272",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00274",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00277",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00285",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00298",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00304",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00310",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00312",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00315",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00326",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00330",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00331",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00334",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00337",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00338",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00340",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00342",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00349",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00350",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00352",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00367",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00368",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00381",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00383",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00386",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00389",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00392",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00396",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00397",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00398",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00402",
+        "true": "NEUTROPHIL",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00409",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00410",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      }
+    ],
+    "test": [
+      {
+        "source_id": "BloodImage_00007",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00011",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00015",
+        "true": "MONOCYTE",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00016",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00018",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00019",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00021",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00033",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00041",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00057",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00058",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00062",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00063",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00067",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00068",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00074",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00075",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00077",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00088",
+        "true": "EOSINOPHIL",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00093",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00098",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00136",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00137",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00149",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00157",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00161",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00167",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00169",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00172",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00180",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00184",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00205",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00208",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00220",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00225",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00226",
+        "true": "EOSINOPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00227",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00229",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00233",
+        "true": "LYMPHOCYTE",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00234",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00253",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00271",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00282",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00284",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00287",
+        "true": "NEUTROPHIL",
+        "predicted": "LYMPHOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00290",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00293",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00296",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00303",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00319",
+        "true": "EOSINOPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00320",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00323",
+        "true": "MONOCYTE",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00333",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00341",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00346",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00360",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00365",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00366",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00375",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00385",
+        "true": "NEUTROPHIL",
+        "predicted": "MONOCYTE"
+      },
+      {
+        "source_id": "BloodImage_00390",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      },
+      {
+        "source_id": "BloodImage_00391",
+        "true": "NEUTROPHIL",
+        "predicted": "EOSINOPHIL"
+      },
+      {
+        "source_id": "BloodImage_00407",
+        "true": "NEUTROPHIL",
+        "predicted": "NEUTROPHIL"
+      }
+    ]
+  },
+  "train": {
+    "n": 191,
+    "correct": 161,
+    "accuracy": 0.8429319371727748,
+    "accuracy_wilson95": [
+      0.7846339475873886,
+      0.8877075591581279
+    ],
+    "macro_f1": 0.8320944500760896,
+    "mcc": 0.7529379214985858,
+    "labels": [
+      "EOSINOPHIL",
+      "LYMPHOCYTE",
+      "MONOCYTE",
+      "NEUTROPHIL"
+    ],
+    "confusion_matrix": [
+      [
+        39,
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        20,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        11,
+        1
+      ],
+      [
+        16,
+        0,
+        6,
+        91
+      ]
+    ],
+    "per_class": {
+      "EOSINOPHIL": {
+        "precision": 0.7090909090909091,
+        "recall": 0.8478260869565217,
+        "f1": 0.7722772277227723,
+        "n": 46
+      },
+      "LYMPHOCYTE": {
+        "precision": 0.9523809523809523,
+        "recall": 1.0,
+        "f1": 0.975609756097561,
+        "n": 20
+      },
+      "MONOCYTE": {
+        "precision": 0.5789473684210527,
+        "recall": 0.9166666666666666,
+        "f1": 0.7096774193548387,
+        "n": 12
+      },
+      "NEUTROPHIL": {
+        "precision": 0.9479166666666666,
+        "recall": 0.8053097345132744,
+        "f1": 0.8708133971291866,
+        "n": 113
+      }
+    }
+  },
+  "val": {
+    "n": 84,
+    "correct": 65,
+    "accuracy": 0.7738095238095238,
+    "accuracy_wilson95": [
+      0.6735309285283279,
+      0.850139791625549
+    ],
+    "macro_f1": 0.7732605067929114,
+    "mcc": 0.6607530348921923,
+    "labels": [
+      "EOSINOPHIL",
+      "LYMPHOCYTE",
+      "MONOCYTE",
+      "NEUTROPHIL"
+    ],
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0,
+        2
+      ],
+      [
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        4,
+        0
+      ],
+      [
+        12,
+        1,
+        3,
+        37
+      ]
+    ],
+    "per_class": {
+      "EOSINOPHIL": {
+        "precision": 0.5517241379310345,
+        "recall": 0.8888888888888888,
+        "f1": 0.6808510638297872,
+        "n": 18
+      },
+      "LYMPHOCYTE": {
+        "precision": 0.8888888888888888,
+        "recall": 1.0,
+        "f1": 0.9411764705882353,
+        "n": 8
+      },
+      "MONOCYTE": {
+        "precision": 0.5714285714285714,
+        "recall": 0.8,
+        "f1": 0.6666666666666666,
+        "n": 5
+      },
+      "NEUTROPHIL": {
+        "precision": 0.9487179487179487,
+        "recall": 0.6981132075471698,
+        "f1": 0.8043478260869565,
+        "n": 53
+      }
+    }
+  },
+  "test": {
+    "n": 63,
+    "correct": 41,
+    "accuracy": 0.6507936507936508,
+    "accuracy_wilson95": [
+      0.5275146077366178,
+      0.7567401098476968
+    ],
+    "macro_f1": 0.6591765873015873,
+    "mcc": 0.4375761350803289,
+    "labels": [
+      "EOSINOPHIL",
+      "LYMPHOCYTE",
+      "MONOCYTE",
+      "NEUTROPHIL"
+    ],
+    "confusion_matrix": [
+      [
+        13,
+        1,
+        0,
+        6
+      ],
+      [
+        0,
+        4,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        2,
+        0
+      ],
+      [
+        11,
+        1,
+        2,
+        22
+      ]
+    ],
+    "per_class": {
+      "EOSINOPHIL": {
+        "precision": 0.52,
+        "recall": 0.65,
+        "f1": 0.5777777777777777,
+        "n": 20
+      },
+      "LYMPHOCYTE": {
+        "precision": 0.6666666666666666,
+        "recall": 1.0,
+        "f1": 0.8,
+        "n": 4
+      },
+      "MONOCYTE": {
+        "precision": 0.5,
+        "recall": 0.6666666666666666,
+        "f1": 0.5714285714285714,
+        "n": 3
+      },
+      "NEUTROPHIL": {
+        "precision": 0.7857142857142857,
+        "recall": 0.6111111111111112,
+        "f1": 0.6875,
+        "n": 36
+      }
+    }
+  },
+  "majority_baseline": {
+    "n": 63,
+    "correct": 36,
+    "accuracy": 0.5714285714285714,
+    "accuracy_wilson95": [
+      0.44861615143095024,
+      0.6860308200563566
+    ],
+    "macro_f1": 0.18181818181818182,
+    "mcc": 0.0,
+    "labels": [
+      "EOSINOPHIL",
+      "LYMPHOCYTE",
+      "MONOCYTE",
+      "NEUTROPHIL"
+    ],
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        0,
+        20
+      ],
+      [
+        0,
+        0,
+        0,
+        4
+      ],
+      [
+        0,
+        0,
+        0,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        36
+      ]
+    ],
+    "per_class": {
+      "EOSINOPHIL": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "n": 20
+      },
+      "LYMPHOCYTE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "n": 4
+      },
+      "MONOCYTE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "n": 3
+      },
+      "NEUTROPHIL": {
+        "precision": 0.5714285714285714,
+        "recall": 1.0,
+        "f1": 0.7272727272727273,
+        "n": 36
+      }
+    }
+  }
+}

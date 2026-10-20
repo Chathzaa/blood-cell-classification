@@ -1,0 +1,41 @@
+[
+  {
+    "l2": 0.0001,
+    "ranking_weight": 0.0,
+    "macro_f1": 0.9759270602823948,
+    "nll": 0.10989269337189814,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 333,
+      "evaluations": 365,
+      "objective": 0.000979211961517085
+    }
+  },
+  {
+    "l2": 0.001,
+    "ranking_weight": 0.0,
+    "macro_f1": 0.9759270602823948,
+    "nll": 0.09231719848111365,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 415,
+      "evaluations": 464,
+      "objective": 0.00560735159727271
+    }
+  },
+  {
+    "l2": 0.01,
+    "ranking_weight": 0.0,
+    "macro_f1": 0.9759270602823948,
+    "nll": 0.07948651564550072,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 300,
+      "evaluations": 334,
+      "objective": 0.027845880145272537
+    }
+  }
+]

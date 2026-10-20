@@ -1,283 +1,165 @@
+"""Source-aligned research pipeline with one record per detected object."""
+from pathlib import Path
+from functools import lru_cache
+import hashlib
+import json
+import os
+import time
 import cv2
 import numpy as np
-import time
-from ultralytics import YOLO
-from preprocessing import preprocess_image
-from segmentation import segment_image
-from features import extract_all_features
-from disorder_detection import detect_disorders
 
-MODEL_STAGE1 = 'runs/detect/runs/stage1_detection/weights/best.pt'
-MODEL_STAGE2 = 'runs/classify/runs/stage2_cls_groupsplit/weights/best.pt'
-MODEL_STAGE3 = 'runs/classify/runs/stage3_cls_dedup/weights/best.pt'
+try:
+    from .features import measure_box
+except ImportError:
+    from features import measure_box
 
-
-_model1 = None
-_model2 = None
-_model3 = None
-
-def get_models(log=None):
-    global _model1, _model2, _model3
-    if _model1 is None:
-        if log: log("   Loading Stage 1 model (RBC / WBC / Platelet)...")
-        _model1 = YOLO(MODEL_STAGE1)
-        if log: log("   Loading Stage 2 model (WBC subtypes)...")
-        _model2 = YOLO(MODEL_STAGE2)
-        if log: log("   Loading Stage 3 model (Blast cell detection)...")
-        _model3 = YOLO(MODEL_STAGE3)
-    else:
-        if log: log("   Models already loaded — using cached models.")
-    return _model1, _model2, _model3
+ROOT=Path(__file__).resolve().parents[1]
+os.environ.setdefault('YOLO_CONFIG_DIR',str(ROOT/'audit'))
+SUBTYPES=('EOSINOPHIL','LYMPHOCYTE','MONOCYTE','NEUTROPHIL')
+ALL_DISPLAY={'Benign':'Benign dataset category', 'Early':'Early pre-B dataset category',
+             'Pre':'Pre-B dataset category','Pro':'Pro-B dataset category'}
 
 
-def extract_features_from_box(image, x1, y1, x2, y2):
-    crop = image[y1:y2, x1:x2]
-    if crop.size == 0 or crop.shape[0] < 5 or crop.shape[1] < 5:
-        return None
-
-    gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
-    _, binary = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-    contours, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-    eccentricity = 0.5
-
-    if not contours:
-        w = x2 - x1
-        h = y2 - y1
-        area = w * h
-        perimeter = 2 * (w + h)
-        circularity = (4 * np.pi * area) / (perimeter ** 2 + 1e-10)
-        return {
-            'area': area, 'circularity': circularity,
-            'nuclear_irregularity': 1.0, 'nc_ratio': 0.5,
-            'eccentricity': eccentricity,
-        }
-
-    contour = max(contours, key=cv2.contourArea)
-    fv = extract_all_features(contour, crop)
-
-    if len(contour) >= 5:
-        try:
-            ellipse = cv2.fitEllipse(contour)
-            ma, mi  = max(ellipse[1]), min(ellipse[1])
-            if ma > 0:
-                eccentricity = float(np.sqrt(1 - (mi / ma) ** 2))
-        except Exception:
-            pass
-
-    return {
-        'area':                 fv[0],
-        'circularity':          fv[2],
-        'nuclear_irregularity': fv[6],
-        'nc_ratio':             fv[5],
-        'eccentricity':         eccentricity,
-    }
+def load_registry():
+    path=ROOT/'config/model_registry.json'
+    if not path.is_file():
+        raise FileNotFoundError('Verified model registry missing. Run tools/evaluate_verified.py first.')
+    return json.loads(path.read_text())
 
 
-def analyze(image_path, log=None):
-    """
-    Full pipeline. log = callable(str) used to emit progress messages.
-    In Streamlit, pass a function that writes to st.status or st.empty.
-    """
-    def emit(msg):
-        if log:
-            log(msg)
-        print(msg)   # always print to terminal too
-
-    total_start = time.time()
-
-    # ── STEP 1: Preprocessing ─────────────────────────────────────
-    emit("🔵 Step 1 / 5 — Image Preprocessing")
-    t0 = time.time()
-    emit("   Applying Gaussian blur (noise reduction)...")
-    emit("   Converting BGR → LAB color space...")
-    emit("   Applying CLAHE contrast enhancement...")
-    raw = cv2.imread(image_path)                 # what YOLO was TRAINED on
-    processed = preprocess_image(image_path)     # for segmentation + features
-    h_img, w_img = raw.shape[:2]
-
-    emit(f"   ✅ Preprocessing done — image size: {w_img}×{h_img}px  [{time.time()-t0:.2f}s]")
-
-    # ── STEP 2: Segmentation ──────────────────────────────────────
-    emit("🔵 Step 2 / 5 — Cell Segmentation")
-    t0 = time.time()
-    emit("   Running Otsu's thresholding...")
-    emit("   Computing distance transform...")
-    emit("   Running marker-controlled Watershed algorithm...")
-    emit("   Filtering contours (removing noise <100px, clumps >5000px)...")
-    try:
-        contours, markers, clean = segment_image(processed)
-        emit(f"   ✅ Segmentation done — {len(contours)} cell regions found  [{time.time()-t0:.2f}s]")
-    except Exception as e:
-        contours = []
-        emit(f"   ⚠️ Segmentation warning: {e}")
-
-    # ── STEP 3: Feature Extraction ────────────────────────────────
-    emit("🔵 Step 3 / 5 — Morphological Feature Extraction")
-    t0 = time.time()
-    emit("   Extracting geometric features (area, perimeter, circularity, eccentricity)...")
-    emit("   Extracting nuclear features (N/C ratio, nuclear irregularity)...")
-    emit("   Extracting texture features (GLCM, LBP)...")
-    emit("   Extracting HSV color features...")
-
-    seg_features = []
-    for contour in contours:
-        fv = extract_all_features(contour, processed)
-        seg_features.append({
-            'area': fv[0], 'circularity': fv[2],
-            'nuclear_irregularity': fv[6], 'nc_ratio': fv[5],
-            'eccentricity': 0.5, 'cell_type': 'Unknown'
-        })
-    emit(f"   ✅ Feature extraction done — {len(seg_features)} cells measured  [{time.time()-t0:.2f}s]")
-
-    # ── STEP 4: YOLOv8 Detection ──────────────────────────────────
-    emit("🔵 Step 4 / 5 — YOLOv8 Deep Learning Classification")
-    t0 = time.time()
-
-    emit("   Loading YOLOv8 models...")
-    model1, model2, model3 = get_models(log=emit)
-
-    cell_counts = {
-        'RBC': 0, 'WBC': 0, 'WBC_subtyped': 0, 'Platelet': 0,
-        'Eosinophil': 0, 'Lymphocyte': 0,
-        'Monocyte': 0, 'Neutrophil': 0, 'Blast': 0,
-        'Leukemia_Stage_Early': 0, 'Leukemia_Stage_Pre': 0, 'Leukemia_Stage_Pro': 0,
-    }
+@lru_cache(maxsize=8)
+def _load_model(path, expected_sha, task, names):
+    from ultralytics import YOLO
+    import ultralytics.utils.torch_utils as torch_utils
+    torch_utils.NUM_THREADS=2
+    p=Path(path)
+    if not p.is_file():
+        raise FileNotFoundError(f'Model checkpoint missing: {p}')
+    if hashlib.sha256(p.read_bytes()).hexdigest()!=expected_sha:
+        raise ValueError(f'Model does not match evaluated checkpoint: {p}')
+    model=YOLO(str(p))
+    if model.task!=task or tuple(model.names.values())!=tuple(names):
+        raise ValueError(f'Wrong model task or labels: {p}')
+    return model
 
 
-    stage1_names = {0: 'RBC', 1: 'WBC', 2: 'Platelet'}
-    stage2_names = {0: 'Eosinophil', 1: 'Lymphocyte', 2: 'Monocyte', 3: 'Neutrophil'}
-    _stage2_raw_names = model2.names 
-    # Stage 3 is a 4-class leukemia-severity classifier (Benign/Early/Pre/Pro),
-    # not binary Normal/Blast. Benign = no leukemia; Early/Pre/Pro = increasing
-    # severity of ALL (Acute Lymphoblastic Leukemia).
-    stage3_names = {0: 'Benign', 1: 'Early', 2: 'Pre', 3: 'Pro'}
+def get_model(key, registry):
+    r=registry[key]
+    return _load_model(str(ROOT/r['path']),r['sha256'],r['task'],tuple(r['names']))
 
-    feature_list  = []
-    rbc_features  = []
-    wbc_features  = []
-    blast_features= []
-    wbc_crops     = []
 
-    # Stage 1
-    emit("   [Stage 1] Detecting RBC / WBC / Platelet on full slide...")
-     # Feed YOLO the RAW image - it was trained on raw BCCD images, not on
-    # CLAHE-enhanced ones. Feeding preprocessed images was a train/inference
-    # distribution mismatch and was suppressing RBC detections.
-    results1 = model1(raw, verbose=False)
-    for box in results1[0].boxes:
-        cls_idx  = int(box.cls[0])
-        cls_name = stage1_names.get(cls_idx, 'Unknown')
-        if cls_name not in cell_counts:
+def read_image(path):
+    image=cv2.imread(str(path))
+    if image is None:
+        raise ValueError(f'Cannot decode image: {path}')
+    return image
+
+
+def padded_crop(image, box, pad=10):
+    h,w=image.shape[:2]
+    x1,y1,x2,y2=map(int,box)
+    return image[max(0,y1-pad):min(h,y2+pad),max(0,x1-pad):min(w,x2+pad)]
+
+
+def classify_images(model, images):
+    if not images:
+        return []
+    results=model.predict(images,imgsz=224,device='cpu',verbose=False)
+    output=[]
+    for r in results:
+        probabilities=r.probs.data.cpu().numpy().astype(float)
+        k=int(np.argmax(probabilities))
+        output.append(dict(label=model.names[k],score=float(probabilities[k]),
+                           probabilities={model.names[i]:float(p) for i,p in enumerate(probabilities)}))
+    return output
+
+
+def summarize_counts(records):
+    counts={name:0 for name in ('RBC','WBC','Platelet')}
+    subtype_counts={name:0 for name in SUBTYPES}
+    review=0
+    for row in records:
+        counts[row['cell_type']]+=1
+        if row['cell_type']=='WBC':
+            if row.get('subtype_status')=='accepted':
+                subtype_counts[row['subtype']['label']]+=1
+            else:
+                review+=1
+    return dict(**counts,total=sum(counts.values()),wbc_subtypes=subtype_counts,wbc_review=review)
+
+
+def analyze(image_path, log=None, model_provider=None, registry=None):
+    start=time.perf_counter()
+    emit=log or (lambda message:None)
+    registry=registry or load_registry()
+    provider=model_provider or get_model
+    raw=read_image(image_path); h,w=raw.shape[:2]
+    emit('Detecting cells in the original image.')
+    detector=provider('detector',registry)
+    result=detector.predict(raw,imgsz=640,conf=registry['detector']['confidence'],
+                            iou=0.7,device='cpu',verbose=False)[0]
+    records=[]; crops=[]; indices=[]
+    for box in result.boxes:
+        name=detector.names[int(box.cls[0])]
+        if name not in ('RBC','WBC','Platelet'):
+            raise ValueError(f'Unexpected detector label: {name}')
+        x1,y1,x2,y2=map(int,box.xyxy[0].cpu().numpy())
+        xyxy=[max(0,x1),max(0,y1),min(w,x2),min(h,y2)]
+        if xyxy[2]<=xyxy[0] or xyxy[3]<=xyxy[1]:
             continue
-        cell_counts[cls_name] += 1
-
-        x1, y1, x2, y2 = map(int, box.xyxy[0].tolist())
-        x1=max(0,x1); y1=max(0,y1); x2=min(w_img,x2); y2=min(h_img,y2)
-        feats = extract_features_from_box(processed, x1, y1, x2, y2)   # keep: features from enhanced image
-        if feats:
-            feats['cell_type'] = cls_name
-            feature_list.append(feats)
-            if cls_name == 'RBC':
-                rbc_features.append(feats)
-            elif cls_name == 'WBC':
-                wbc_features.append(feats)
-                pad=10
-                crop=raw[max(0,y1-pad):min(h_img,y2+pad),
-                         max(0,x1-pad):min(w_img,x2+pad)]
-
-                if crop.size > 0:
-                    wbc_crops.append(crop)
-
-    emit(f"   [Stage 1] Found — RBC: {cell_counts['RBC']}, "
-         f"WBC: {cell_counts['WBC']}, Platelet: {cell_counts['Platelet']}")
-
-    # Stage 2
-    emit(f"   [Stage 2] Classifying {len(wbc_crops)} WBC crop(s) into subtypes...")
-    wbc_subtype_total = 0
-    for crop in wbc_crops:
-        r2 = model2(crop, verbose=False)
-        raw_name = model2.names.get(int(r2[0].probs.top1), 'Unknown')
-        cls_name = raw_name.title()
-        if cls_name in cell_counts:
-                cell_counts[cls_name] += 1
-                wbc_subtype_total += 1
-    # DO NOT overwrite the detected WBC count with the subtyped count.
-    # If Stage 2 fails on 3 of 10 WBCs, overwriting silently loses 3 cells
-    # from the CBC. Keep both numbers.
-    cell_counts['WBC_subtyped'] = wbc_subtype_total
-    if wbc_subtype_total < cell_counts['WBC']:
-        emit(f"   [Stage 2] WARNING: {cell_counts['WBC'] - wbc_subtype_total} "
-             f"WBC(s) could not be subtyped")
-
-    emit(f"   [Stage 2] WBC subtypes — Neutrophil: {cell_counts['Neutrophil']}, "
-         f"Lymphocyte: {cell_counts['Lymphocyte']}, "
-         f"Monocyte: {cell_counts['Monocyte']}, "
-         f"Eosinophil: {cell_counts['Eosinophil']}")
-
-    # Stage 3
- # Stage 3 -- run on the WBC CROPS, not the full slide.
-    # Stage 3 was trained on single-cell bone-marrow images (one cell filling
-    # the frame). Running it on a whole peripheral-blood slide with ~100 cells
-    # is a severe domain shift and its "blast" calls there are not trustworthy.
-    emit(f"   [Stage 3] Screening {len(wbc_crops)} WBC crop(s) for blast cells...")
-    for crop in wbc_crops:
-        r3 = model3(crop, verbose=False)
-        raw_name = model3.names.get(int(r3[0].probs.top1), 'Unknown').title()
-        if raw_name != 'Benign':      # Early/Pre/Pro = some leukemia severity
-            cell_counts['Blast'] += 1
-            cell_counts.setdefault('Leukemia_Stage_' + raw_name, 0)
-            cell_counts['Leukemia_Stage_' + raw_name] += 1
-            gray = cv2.cvtColor(crop, cv2.COLOR_BGR2GRAY)
-            _, binary = cv2.threshold(gray, 0, 255,
-                                      cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-            cs, _ = cv2.findContours(binary, cv2.RETR_EXTERNAL,
-                                     cv2.CHAIN_APPROX_SIMPLE)
-            if cs:
-                fv = extract_all_features(max(cs, key=cv2.contourArea), crop)
-                feats = {
-                    'area': fv[0], 'circularity': fv[2],
-                    'nc_ratio': fv[5], 'nuclear_irregularity': fv[6],
-                    'eccentricity': fv[3], 'cell_type': 'Blast',
-                }
-                blast_features.append(feats)
-                feature_list.append(feats)
-    emit(f"   [Stage 3] Blast cells detected: {cell_counts['Blast']}")
-    emit(f"   ✅ YOLOv8 classification done — total cells: {sum(cell_counts.values())}  [{time.time()-t0:.2f}s]")
-
-    # fallback if YOLO found nothing
-    if not feature_list and seg_features:
-        feature_list = seg_features
-
-    # ── STEP 5: Disorder Detection ────────────────────────────────
-    emit("🔵 Step 5 / 5 — Hematological Disorder Detection")
-    t0 = time.time()
-    emit("   Applying ALL (Leukemia) detection rules...")
-    emit("   Applying Sickle Cell Disease detection rules...")
-    emit("   Applying Anemia detection rules...")
-    disorders = detect_disorders(
-        cell_counts, feature_list,
-        rbc_features=rbc_features,
-        wbc_features=wbc_features,
-        blast_features=blast_features,
-    )
-    detected = [d for d in disorders if d != 'Normal' and disorders[d].get('detected')]
-    if detected:
-        for d in detected:
-            emit(f"   ⚠️ FLAGGED: {d} — {disorders[d]['evidence'][:80]}...")
-    else:
-        emit("   ✅ No disorders detected — result: Normal")
-    emit(f"   ✅ Disorder detection done  [{time.time()-t0:.2f}s]")
-
-    total_time = time.time() - total_start
-    emit(f"✅ Full pipeline complete — total time: {total_time:.2f}s")
-
-    return results1[0], cell_counts, disorders, feature_list
+        row=dict(object_id=len(records),cell_type=name,box=xyxy,
+                 detector_score=float(box.conf[0]),morphology=measure_box(raw,xyxy))
+        if name=='WBC':
+            crop=padded_crop(raw,xyxy)
+            row['subtype_status']='review'
+            if crop.size:
+                crops.append(crop); indices.append(len(records))
+        records.append(row)
+    if crops:
+        emit(f'Classifying {len(crops)} white blood cell crops.')
+        classifier=provider('wbc',registry)
+        predictions=classify_images(classifier,crops)
+        threshold=registry['wbc']['review_threshold']
+        for index,prediction in zip(indices,predictions):
+            if prediction['label'] not in SUBTYPES:
+                raise ValueError('Unexpected WBC classifier label.')
+            records[index]['subtype']=prediction
+            records[index]['subtype_status']='accepted' if prediction['score']>=threshold else 'review'
+    return dict(schema_version=2,image_name=Path(image_path).name,image_size=[w,h],
+                elapsed_seconds=time.perf_counter()-start,cell_counts=summarize_counts(records),
+                detections=records,diagnosis={'status':'not_assessed'},
+                model_provenance={k:registry[k] for k in ('detector','wbc')},
+                scope='Image-field counts and research predictions; not a complete blood count or diagnosis.')
 
 
-if __name__ == '__main__':
-    import sys
-    path = sys.argv[1] if len(sys.argv) > 1 else 'test_image.jpg'
-    result, counts, disorders, features = analyze(path)
-    print("Cell counts:", counts)
-    print("Disorders:", disorders)
+def classify_single(image_path, task='wbc'):
+    if task not in ('wbc','all_exploratory'):
+        raise ValueError(task)
+    registry=load_registry(); model=get_model(task,registry)
+    prediction=classify_images(model,[read_image(image_path)])[0]
+    threshold=registry[task].get('review_threshold')
+    return dict(task=task,prediction=prediction,
+                display_label=ALL_DISPLAY[prediction['label']] if task=='all_exploratory' else prediction['label'],
+                status='exploratory' if threshold is None else
+                       ('accepted' if prediction['score']>=threshold else 'review'),
+                diagnosis={'status':'not_assessed'},model_provenance=registry[task])
+
+
+def annotate(image, report):
+    result=image.copy()
+    colors={'RBC':(70,130,220),'WBC':(220,130,30),'Platelet':(80,160,70)}
+    for row in report['detections']:
+        x1,y1,x2,y2=row['box']; name=row['cell_type']
+        if name=='WBC':
+            name=row.get('subtype',{}).get('label','WBC') if row.get('subtype_status')=='accepted' else 'WBC: review'
+        cv2.rectangle(result,(x1,y1),(x2,y2),colors[row['cell_type']],2)
+        cv2.putText(result,name,(x1,max(12,y1-5)),cv2.FONT_HERSHEY_SIMPLEX,0.4,colors[row['cell_type']],1,cv2.LINE_AA)
+    return result
+
+
+if __name__=='__main__':
+    import argparse
+    p=argparse.ArgumentParser(); p.add_argument('image'); p.add_argument('--output',default='analysis.json')
+    a=p.parse_args(); report=analyze(a.image,log=print)
+    Path(a.output).write_text(json.dumps(report,indent=2,allow_nan=False))
+    print(f'Wrote {a.output}')

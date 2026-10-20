@@ -1,0 +1,202 @@
+{
+  "total": 339,
+  "by_split": {
+    "train": 191,
+    "val": 85,
+    "test": 63
+  },
+  "by_split_class": {
+    "train/NEUTROPHIL": 113,
+    "train/EOSINOPHIL": 46,
+    "train/LYMPHOCYTE": 20,
+    "train/MONOCYTE": 12,
+    "val/NEUTROPHIL": 53,
+    "val/EOSINOPHIL": 18,
+    "val/LYMPHOCYTE": 9,
+    "val/MONOCYTE": 5,
+    "test/NEUTROPHIL": 36,
+    "test/MONOCYTE": 3,
+    "test/LYMPHOCYTE": 4,
+    "test/EOSINOPHIL": 20
+  },
+  "excluded": [
+    {
+      "source_id": "BloodImage_00008",
+      "split": "train",
+      "category": "BASOPHIL",
+      "wbc_boxes": 1,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00010",
+      "split": "train",
+      "category": "NEUTROPHIL, EOSINOPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00034",
+      "split": "train",
+      "category": "NEUTROPHIL,BASOPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00043",
+      "split": "train",
+      "category": "NEUTROPHIL, MONOCYTE",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00044",
+      "split": "train",
+      "category": "EOSINOPHIL,EOSINOPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00070",
+      "split": "train",
+      "category": "EOSINOPHIL, LYMPHOCYTE",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00113",
+      "split": "train",
+      "category": "NEUTROPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00117",
+      "split": "train",
+      "category": "",
+      "wbc_boxes": 1,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00133",
+      "split": "train",
+      "category": "EOSINOPHIL",
+      "wbc_boxes": 0,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00176",
+      "split": "train",
+      "category": "MONOCYTE, LYMPHOCYTE",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00195",
+      "split": "train",
+      "category": "LYMPHOCYTE, LYMPHOCYTE",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00242",
+      "split": "train",
+      "category": "NEUTROPHIL,EOSINOPHIL",
+      "wbc_boxes": 1,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00313",
+      "split": "train",
+      "category": "NEUTROPHIL, LYMPHOCYTE",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00374",
+      "split": "train",
+      "category": "NEUTROPHIL, NEUTROPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00193",
+      "split": "val",
+      "category": "NEUTROPHIL, EOSINOPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00228",
+      "split": "val",
+      "category": "EOSINOPHIL",
+      "wbc_boxes": 0,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00031",
+      "split": "test",
+      "category": "NEUTROPHIL,NEUTROPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00065",
+      "split": "test",
+      "category": "NEUTROPHIL, NEUTROPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00103",
+      "split": "test",
+      "category": "EOSINOPHIL, EOSINOPHIL",
+      "wbc_boxes": 1,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00132",
+      "split": "test",
+      "category": "BASOPHIL",
+      "wbc_boxes": 1,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00135",
+      "split": "test",
+      "category": "EOSINOPHIL",
+      "wbc_boxes": 0,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00171",
+      "split": "test",
+      "category": "BASOPHIL",
+      "wbc_boxes": 0,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00178",
+      "split": "test",
+      "category": "NEUTROPHIL",
+      "wbc_boxes": 0,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00249",
+      "split": "test",
+      "category": "NEUTROPHIL, NEUTROPHIL",
+      "wbc_boxes": 2,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    },
+    {
+      "source_id": "BloodImage_00327",
+      "split": "test",
+      "category": "NEUTROPHIL",
+      "wbc_boxes": 0,
+      "reason": "ambiguous_or_unsupported_label_or_box"
+    }
+  ],
+  "patient_disjoint": false,
+  "label_policy": "Exactly one supported CSV subtype and exactly one annotated WBC per field.",
+  "source_policy": "Inherit existing BCCD train/val/test partition; no precomputed augmentation."
+}

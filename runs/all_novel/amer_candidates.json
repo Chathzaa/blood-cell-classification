@@ -1,0 +1,80 @@
+[
+  {
+    "l2": 0.0001,
+    "ranking_weight": 0.1,
+    "macro_f1": 0.9832095965955361,
+    "nll": 0.1043681182471093,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 422,
+      "evaluations": 465,
+      "objective": 0.0011364629994966367
+    }
+  },
+  {
+    "l2": 0.0001,
+    "ranking_weight": 1.0,
+    "macro_f1": 0.977200529151862,
+    "nll": 0.10533740309507,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 430,
+      "evaluations": 483,
+      "objective": 0.0012108354948322598
+    }
+  },
+  {
+    "l2": 0.001,
+    "ranking_weight": 0.1,
+    "macro_f1": 0.977200529151862,
+    "nll": 0.09361870801705263,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 946,
+      "evaluations": 1029,
+      "objective": 0.0063396276674655815
+    }
+  },
+  {
+    "l2": 0.001,
+    "ranking_weight": 1.0,
+    "macro_f1": 0.9777947129286115,
+    "nll": 0.07977110298648225,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 548,
+      "evaluations": 616,
+      "objective": 0.007029972195507549
+    }
+  },
+  {
+    "l2": 0.01,
+    "ranking_weight": 0.1,
+    "macro_f1": 0.9777947129286115,
+    "nll": 0.07569134868569971,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 499,
+      "evaluations": 548,
+      "objective": 0.031859943383288764
+    }
+  },
+  {
+    "l2": 0.01,
+    "ranking_weight": 1.0,
+    "macro_f1": 0.9736307762970042,
+    "nll": 0.07193047129911714,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+      "iterations": 451,
+      "evaluations": 495,
+      "objective": 0.0357048625756554
+    }
+  }
+]

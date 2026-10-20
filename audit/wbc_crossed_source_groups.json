@@ -1,0 +1,1382 @@
+{
+  "TRAIN/EOSINOPHIL/0": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/0": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/10": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/10": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/11": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/11": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/12": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/12": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/13": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/14": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/15": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/16": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/17": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/18": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/19": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/1": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/1": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/20": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/21": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/22": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/23": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/24": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/25": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/26": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/27": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/28": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/29": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/2": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/2": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/30": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/31": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/32": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/33": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/34": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/35": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/36": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/37": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/38": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/39": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/3": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/3": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/40": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/41": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/42": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/43": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/44": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/45": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/46": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/47": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/48": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/49": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/4": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/4": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/50": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/51": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/52": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/53": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/54": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/55": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/56": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/57": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/58": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/59": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/60": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/61": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/62": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/63": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/64": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/65": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/66": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/67": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/68": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/69": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/6": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/6": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/70": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/71": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/72": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/73": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/74": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/7": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/7": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/8": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/8": [
+    "train",
+    "val"
+  ],
+  "TEST/EOSINOPHIL/9": [
+    "train",
+    "val"
+  ],
+  "TRAIN/EOSINOPHIL/9": [
+    "train",
+    "val"
+  ],
+  "TEST/LYMPHOCYTE/0": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/0": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/10": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/11": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/12": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/13": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/14": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/15": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/16": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/17": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/18": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/19": [
+    "train",
+    "val"
+  ],
+  "TEST/LYMPHOCYTE/1": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/1": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/20": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/21": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/22": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/23": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/24": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/25": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/26": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/2": [
+    "train",
+    "val"
+  ],
+  "TEST/LYMPHOCYTE/2": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/3": [
+    "train",
+    "val"
+  ],
+  "TEST/LYMPHOCYTE/3": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/4": [
+    "train",
+    "val"
+  ],
+  "TEST/LYMPHOCYTE/4": [
+    "train",
+    "val"
+  ],
+  "TEST/LYMPHOCYTE/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/6": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/7": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/8": [
+    "train",
+    "val"
+  ],
+  "TRAIN/LYMPHOCYTE/9": [
+    "train",
+    "val"
+  ],
+  "TEST/MONOCYTE/0": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/0": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/10": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/11": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/12": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/13": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/14": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/15": [
+    "train",
+    "val"
+  ],
+  "TEST/MONOCYTE/1": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/1": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/2": [
+    "train",
+    "val"
+  ],
+  "TEST/MONOCYTE/2": [
+    "train",
+    "val"
+  ],
+  "TEST/MONOCYTE/3": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/3": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/4": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/6": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/7": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/8": [
+    "train",
+    "val"
+  ],
+  "TRAIN/MONOCYTE/9": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/0": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/0": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/100": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/101": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/102": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/103": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/104": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/105": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/106": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/107": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/108": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/109": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/10": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/10": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/110": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/111": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/112": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/113": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/114": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/115": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/116": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/117": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/118": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/119": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/11": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/11": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/120": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/121": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/122": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/123": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/124": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/125": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/126": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/127": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/128": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/129": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/12": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/12": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/130": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/131": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/132": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/133": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/134": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/135": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/136": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/137": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/138": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/139": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/13": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/13": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/140": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/141": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/142": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/143": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/144": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/145": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/146": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/147": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/148": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/149": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/14": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/14": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/150": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/151": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/152": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/153": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/154": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/155": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/156": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/157": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/158": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/15": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/15": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/16": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/17": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/17": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/18": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/18": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/19": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/19": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/1": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/1": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/20": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/20": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/21": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/21": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/22": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/22": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/23": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/23": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/24": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/24": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/25": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/25": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/26": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/26": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/27": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/27": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/28": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/28": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/29": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/29": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/2": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/2": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/30": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/30": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/31": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/31": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/32": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/32": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/33": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/33": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/34": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/34": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/35": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/36": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/36": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/37": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/37": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/38": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/38": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/39": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/39": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/3": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/3": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/40": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/40": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/41": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/42": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/42": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/43": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/43": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/44": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/44": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/45": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/45": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/46": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/46": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/47": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/47": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/48": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/49": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/4": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/4": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/50": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/51": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/52": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/53": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/54": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/55": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/56": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/57": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/58": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/59": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/5": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/60": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/61": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/62": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/63": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/64": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/65": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/66": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/67": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/68": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/69": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/6": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/6": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/70": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/71": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/72": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/73": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/74": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/75": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/76": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/77": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/78": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/79": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/7": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/7": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/80": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/81": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/82": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/83": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/84": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/85": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/86": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/87": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/88": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/89": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/8": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/8": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/90": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/91": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/92": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/93": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/94": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/95": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/96": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/97": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/98": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/99": [
+    "train",
+    "val"
+  ],
+  "TRAIN/NEUTROPHIL/9": [
+    "train",
+    "val"
+  ],
+  "TEST/NEUTROPHIL/9": [
+    "train",
+    "val"
+  ]
+}

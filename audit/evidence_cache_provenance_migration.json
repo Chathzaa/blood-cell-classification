@@ -1,0 +1,16 @@
+{
+  "old": {
+    "manifest": "c33a09f5ff4a8429e1146452e1f5b48c6671d02639c7817d3db45448670373c8",
+    "backbone": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a",
+    "transformations": "422146d7d763b05d0b5b09755f709aefff54ea08f44abb43e67fe38436fe5dcd",
+    "training_source": "052d0560753b499cc6389c1ae0dd4286730f313b351579b6ee581349cddbdeea",
+    "previous_feature_context": "a508fe28668c643c8d4ccd66143bb652ec7a5712d1a1394abb94279bf9761208"
+  },
+  "new": {
+    "manifest": "c33a09f5ff4a8429e1146452e1f5b48c6671d02639c7817d3db45448670373c8",
+    "backbone": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a",
+    "transformations": "422146d7d763b05d0b5b09755f709aefff54ea08f44abb43e67fe38436fe5dcd",
+    "previous_feature_context": "a508fe28668c643c8d4ccd66143bb652ec7a5712d1a1394abb94279bf9761208"
+  },
+  "reason": "Training optimizer code removed from image feature cache key; image transforms, source data, feature extractor and extracted arrays unchanged."
+}

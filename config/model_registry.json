@@ -1,0 +1,39 @@
+{
+  "detector": {
+    "path": "runs/detect/runs/stage1_detection/weights/best.pt",
+    "task": "detect",
+    "names": [
+      "RBC",
+      "WBC",
+      "Platelet"
+    ],
+    "sha256": "e3fca87cb77bb571810a77880e40d2e41f51195147b89340097e8283cdcae63d",
+    "confidence": 0.25
+  },
+  "wbc": {
+    "path": "runs/verified/wbc_crop_seed42/weights/last.pt",
+    "task": "classify",
+    "names": [
+      "EOSINOPHIL",
+      "LYMPHOCYTE",
+      "MONOCYTE",
+      "NEUTROPHIL"
+    ],
+    "sha256": "846e9343680cfaa2ff6b540d66a6f3f04a56e8f16e67faaf5fc26395d246d802",
+    "review_threshold": 0.5,
+    "review_policy": "Minimum validation threshold on 0.50:0.01:0.99 with at least 20 accepted matches and 90% empirical correctness. No guarantee on new data."
+  },
+  "all_exploratory": {
+    "path": "runs/classify/runs/stage3_cls_dedup/weights/best.pt",
+    "task": "classify",
+    "names": [
+      "Benign",
+      "Early",
+      "Pre",
+      "Pro"
+    ],
+    "sha256": "2efb34c952cd90e76f178ca55add183069dde4146008640cbbfc89190ba140ba",
+    "review_threshold": null,
+    "limitation": "Selected validation results only; patient mapping unavailable; not applied to general WBC crops."
+  }
+}

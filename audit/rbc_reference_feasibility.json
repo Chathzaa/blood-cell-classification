@@ -1,0 +1,22 @@
+{
+  "images": [
+    "WBC-Benign-002",
+    "WBC-Malignant-Early-001",
+    "WBC-Malignant-Pre-001",
+    "WBC-Malignant-Pro-001"
+  ],
+  "confidence": 0.4,
+  "rbc_counts_at_320": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "rbc_counts_at_640": [
+    1,
+    0,
+    0,
+    0
+  ],
+  "scope": "Four-image training feasibility probe only; no ground-truth accuracy estimate. Method not developed from this insufficient reference coverage."
+}

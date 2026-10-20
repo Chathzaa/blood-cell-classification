@@ -1,0 +1,30 @@
+{
+  "backbone": {
+    "path": "yolov8n-cls.pt",
+    "sha256": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a"
+  },
+  "heads": {
+    "original": {
+      "path": "runs/all_verified/original_head.joblib",
+      "sha256": "be1779a5dd5a1586561314ca65e6e1d9e581e085dbeed3beabc3d63c20a1c9cf",
+      "temperature": 0.9103393699998712
+    },
+    "stain": {
+      "path": "runs/all_verified/stain_head.joblib",
+      "sha256": "86e87b8792c85c73bc36fa12e650dd2851b7d95896dc03386ae4e590a6f77164",
+      "temperature": 0.8119646480312076
+    }
+  },
+  "thresholds": {
+    "binary": 0.5,
+    "subtype": 0.5
+  },
+  "labels": [
+    "Benign",
+    "Early",
+    "Pre",
+    "Pro"
+  ],
+  "transformation_sha256": "aef0246844187b1e50529155cf4d1a6c2e1d73db804dee6bdce556858ce3e2db",
+  "scope": "Image-level ALL screening; patient independence and clinical performance unestablished."
+}

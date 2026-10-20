@@ -1,16 +1,10 @@
-from ultralytics import YOLO
+"""Train the source-aligned WBC classifier. Existing experiments are preserved."""
+from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+from tools.train_verified_wbc import main
 
-model = YOLO('runs/detect/runs/stage1_detection/weights/best.pt')
-
-model.train(
-    data='bloodcell.yaml',  # points to Blood Cell Images dataset
-    epochs=100,
-    imgsz=640,
-    batch=16,
-    lr0=0.0005,
-    freeze=10,
-    project='runs',
-    name='stage2_classification',
-    exist_ok=True
-)
-print("Stage 2 complete!")
+if __name__ == '__main__':
+    if '--view' not in sys.argv:
+        sys.argv.extend(['--view','crop'])
+    main()

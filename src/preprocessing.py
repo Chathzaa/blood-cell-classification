@@ -3,6 +3,8 @@ import numpy as np
 
 def load_image(image_path):
     img = cv2.imread(image_path)
+    if img is None:
+        raise ValueError(f'Cannot read image: {image_path}')
     return img
 
 def apply_gaussian(image, sigma=1.5):

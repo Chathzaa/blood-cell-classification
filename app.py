@@ -1,558 +1,143 @@
-import streamlit as st
-import sys, os, cv2, tempfile, json
+"""Blood cell detection and ALL screening research workbench."""
+from pathlib import Path
+import json
+import os
+import tempfile
+import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-from datetime import datetime
 import pandas as pd
-from io import BytesIO
+import streamlit as st
 
-sys.path.append('src')
-from pipeline import analyze
+ROOT=Path(__file__).resolve().parent
+os.environ.setdefault('YOLO_CONFIG_DIR',str(ROOT/'audit'))
+from src.pipeline import analyze,annotate,classify_single
+from src.leukemia_screening import screen_all,analyze_combined
+from src.all_views import prepare_view
+from src.evidence_regularization import intervention_views
+from src.evidence_screening import screen_all as screen_evidence,analyze_combined as analyze_evidence_combined
 
-# ── page config ────────────────────────────────────────────────────────
-st.set_page_config(
-    page_title="Blood Cell Analysis System",
-    page_icon="🔬",
-    layout="wide"
-)
+st.set_page_config(page_title='Blood Cells and Leukemia Screening',layout='wide')
+st.title('Blood Cells and Leukemia Screening')
+st.caption('Cell detection, acute lymphoblastic leukemia screening and review of uncertain results.')
+st.info('Research prototype. Leukemia screening is limited to ALL image patterns and does not establish a clinical diagnosis. Image counts are not a complete blood count.')
 
-# ── header ─────────────────────────────────────────────────────────────
-st.markdown("# 🔬 Automated Blood Cell Classification System")
-st.divider()
-
-# ── sidebar ────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("### WBC Normal Ranges")
-    st.dataframe(pd.DataFrame({
-        'Cell Type':    ['Neutrophil', 'Lymphocyte', 'Monocyte', 'Eosinophil'],
-        'Normal Range': ['50–70%',     '20–40%',     '2–8%',     '1–4%'],
-    }), hide_index=True, use_container_width=True)
-    st.divider()
-    st.markdown("### Disorder Rules")
-    st.markdown("""
-**ALL (Leukemia)**
-Blast > 20% of WBC + nuclear irregularity > 1.4
-
-**Sickle Cell Disease**
-RBC circularity < 0.75 in > 20% of RBCs
-
-**Anemia**
-High RBC size variation (CV > 0.35) or > 30% pale RBCs
-    """)
-
-def generate_pdf(report, annotated_img, timestamp, filename):
-    """Generate PDF clinical report using reportlab."""
-    try:
-        from reportlab.lib.pagesizes import A4
-        from reportlab.lib import colors
-        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-        from reportlab.lib.units import cm
-        from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer,
-                                         Table, TableStyle, Image as RLImage,
-                                         HRFlowable)
-        from reportlab.lib.enums import TA_CENTER, TA_LEFT
-
-        buffer = BytesIO()
-        doc = SimpleDocTemplate(buffer, pagesize=A4,
-                                 rightMargin=2*cm, leftMargin=2*cm,
-                                 topMargin=2*cm, bottomMargin=2*cm)
-
-        styles = getSampleStyleSheet()
-        title_style = ParagraphStyle('Title', parent=styles['Title'],
-                                      fontSize=16, spaceAfter=6,
-                                      textColor=colors.HexColor('#1a237e'))
-        heading_style = ParagraphStyle('Heading', parent=styles['Heading2'],
-                                        fontSize=12, spaceAfter=4,
-                                        textColor=colors.HexColor('#1565c0'))
-        normal_style = styles['Normal']
-        center_style = ParagraphStyle('Center', parent=styles['Normal'],
-                                       alignment=TA_CENTER)
-
-        story = []
-
-        # Title
-        story.append(Paragraph("Automated Blood Cell Analysis Report", title_style))
-        story.append(Spacer(1, 0.3*cm))
-        story.append(HRFlowable(width="100%", thickness=2,
-                                  color=colors.HexColor('#1a237e')))
-        story.append(Spacer(1, 0.3*cm))
-
-        # Metadata
-        story.append(Paragraph("Report Information", heading_style))
-        meta_data = [
-            ['Generated At', timestamp],
-            ['Image File',   filename],
-        ]
-        meta_table = Table(meta_data, colWidths=[5*cm, 12*cm])
-        meta_table.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (0, -1), colors.HexColor('#e3f2fd')),
-            ('FONTNAME',   (0, 0), (0, -1), 'Helvetica-Bold'),
-            ('FONTSIZE',   (0, 0), (-1, -1), 9),
-            ('GRID',       (0, 0), (-1, -1), 0.5, colors.grey),
-            ('PADDING',    (0, 0), (-1, -1), 4),
-        ]))
-        story.append(meta_table)
-        story.append(Spacer(1, 0.4*cm))
-
-        # Annotated image
-        story.append(Paragraph("Annotated Blood Smear", heading_style))
-        img_rgb = cv2.cvtColor(annotated_img, cv2.COLOR_BGR2RGB)
-        img_buf = BytesIO()
-        from PIL import Image as PILImage
-        PILImage.fromarray(img_rgb).save(img_buf, format='JPEG', quality=85)
-        img_buf.seek(0)
-        rl_img = RLImage(img_buf, width=14*cm, height=10*cm)
-        story.append(rl_img)
-        story.append(Spacer(1, 0.4*cm))
-
-        # CBC Results
-        story.append(Paragraph("Complete Blood Count (CBC)", heading_style))
-        cc = report['cell_counts']
-        cbc_data = [
-            ['Cell Type', 'Count'],
-            ['Red Blood Cells (RBC)',   str(cc['RBC'])],
-            ['White Blood Cells (WBC)', str(cc['WBC_total'])],
-            ['Platelets',               str(cc['Platelet'])],
-        ]
-        cbc_table = Table(cbc_data, colWidths=[10*cm, 7*cm])
-        cbc_table.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
-            ('TEXTCOLOR',  (0, 0), (-1, 0), colors.white),
-            ('FONTNAME',   (0, 0), (-1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE',   (0, 0), (-1, -1), 10),
-            ('GRID',       (0, 0), (-1, -1), 0.5, colors.grey),
-            ('ROWBACKGROUNDS', (0, 1), (-1, -1),
-             [colors.white, colors.HexColor('#f5f5f5')]),
-            ('PADDING',    (0, 0), (-1, -1), 6),
-        ]))
-        story.append(cbc_table)
-        story.append(Spacer(1, 0.4*cm))
-
-        # WBC Differential
-        story.append(Paragraph("WBC Differential Count", heading_style))
-        diff_pct = report['wbc_differential_percentages']
-        normal_ranges = {
-            'Neutrophil': (50, 70), 'Lymphocyte': (20, 40),
-            'Monocyte': (2, 8),     'Eosinophil': (1, 4),
-        }
-        diff_data = [['Cell Type', 'Count', 'Percentage', 'Normal Range', 'Status']]
-        for cell in ['Neutrophil', 'Lymphocyte', 'Monocyte', 'Eosinophil']:
-            cnt = cc['differential'].get(cell, 0)
-            pct = diff_pct.get(cell, 0.0)
-            low, high = normal_ranges[cell]
-            if pct < low:   status = 'Low'
-            elif pct > high: status = 'High'
-            else:            status = 'Normal'
-            diff_data.append([cell, str(cnt), f"{pct}%",
-                               f"{low}–{high}%", status])
-
-        diff_table = Table(diff_data, colWidths=[4*cm, 3*cm, 3*cm, 4*cm, 3*cm])
-        diff_table.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
-            ('TEXTCOLOR',  (0, 0), (-1, 0), colors.white),
-            ('FONTNAME',   (0, 0), (-1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE',   (0, 0), (-1, -1), 9),
-            ('GRID',       (0, 0), (-1, -1), 0.5, colors.grey),
-            ('ROWBACKGROUNDS', (0, 1), (-1, -1),
-             [colors.white, colors.HexColor('#f5f5f5')]),
-            ('PADDING',    (0, 0), (-1, -1), 5),
-        ]))
-        story.append(diff_table)
-        story.append(Spacer(1, 0.4*cm))
-
-        # Morphological Summary
-        story.append(Paragraph("Morphological Summary", heading_style))
-        morph = report['morphological_summary']
-        morph_data = [
-            ['Parameter', 'Value'],
-            ['Total Cells Analyzed', str(morph['total_cells_analyzed'])],
-            ['Mean Cell Area (px)',  str(morph['mean_area'])],
-            ['Mean Circularity',     str(morph['mean_circularity'])],
-            ['Mean NC Ratio',        str(morph['mean_nc_ratio'])],
-        ]
-        morph_table = Table(morph_data, colWidths=[9*cm, 8*cm])
-        morph_table.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1565c0')),
-            ('TEXTCOLOR',  (0, 0), (-1, 0), colors.white),
-            ('FONTNAME',   (0, 0), (-1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE',   (0, 0), (-1, -1), 9),
-            ('GRID',       (0, 0), (-1, -1), 0.5, colors.grey),
-            ('ROWBACKGROUNDS', (0, 1), (-1, -1),
-             [colors.white, colors.HexColor('#f5f5f5')]),
-            ('PADDING',    (0, 0), (-1, -1), 5),
-        ]))
-        story.append(morph_table)
-        story.append(Spacer(1, 0.4*cm))
-
-        # Disorder Screening
-        story.append(Paragraph("Disorder Screening Results", heading_style))
-        ds = report['disorder_screening']
-        flags = report['abnormal_flags']
-
-        if not flags:
-            story.append(Paragraph(
-                "✓ No hematological abnormalities detected", normal_style))
-        else:
-            for disorder in flags:
-                info = ds.get(disorder, {})
-                conf = info.get('confidence', 0)
-                story.append(Paragraph(
-                    f"⚠ FLAGGED: {disorder}", heading_style))
-                disorder_data = [
-                    ['Evidence',   info.get('evidence', 'N/A')],
-                    ['Confidence', f"{float(conf)*100:.1f}%"],
-                ]
-                d_table = Table(disorder_data, colWidths=[4*cm, 13*cm])
-                d_table.setStyle(TableStyle([
-                    ('BACKGROUND', (0, 0), (0, -1), colors.HexColor('#ffebee')),
-                    ('FONTNAME',   (0, 0), (0, -1), 'Helvetica-Bold'),
-                    ('FONTSIZE',   (0, 0), (-1, -1), 9),
-                    ('GRID',       (0, 0), (-1, -1), 0.5, colors.grey),
-                    ('PADDING',    (0, 0), (-1, -1), 5),
-                ]))
-                story.append(d_table)
-                story.append(Spacer(1, 0.2*cm))
-
-        # Footer
-        story.append(Spacer(1, 0.5*cm))
-        story.append(HRFlowable(width="100%", thickness=1, color=colors.grey))
-        story.append(Spacer(1, 0.2*cm))
-        story.append(Paragraph(
-            "This report is generated by an automated system for research purposes only. "
-            "Clinical decisions should be made by qualified medical professionals.",
-            ParagraphStyle('Disclaimer', parent=styles['Normal'],
-                           fontSize=8, textColor=colors.grey)
-        ))
-
-        doc.build(story)
-        buffer.seek(0)
-        return buffer
-
-    except ImportError:
-        return None
+    mode=st.radio('Analysis',['Blood cells + ALL screening','Blood cell analysis','Single WBC crop','Leukemia screening (ALL)'])
+    experimental=st.checkbox('Use experimental evidence training',value=False,
+        help='Research comparison only. The AMER candidate did not improve clean-image accuracy and performed worse under global colour changes.') if mode in ('Blood cells + ALL screening','Leukemia screening (ALL)') else False
+    if mode=='Blood cells + ALL screening':
+        st.caption('Shows cell detections and a separate whole-image ALL assessment. The two components were evaluated on different datasets; combined accuracy has not been established.')
+    elif mode=='Leukemia screening (ALL)':
+        st.caption('Screens for ALL image patterns and sends uncertain results or subtypes for review.')
+    if experimental:
+        st.caption('Experimental AMER: trained to compare stained regions with equally large context regions. Its test results do not support replacing the default model.')
+    st.markdown('**Study results**')
+    for name,file in [('ALL screening study','outputs/all_verified/study.json'),('Evidence-training experiment','outputs/all_novel/study.json'),('Blood cell study','outputs/verified/summary.json')]:
+        p=ROOT/file
+        if p.exists():st.download_button(name,p.read_bytes(),p.name,'application/json')
 
 
-# ── upload ─────────────────────────────────────────────────────────────
-uploaded = st.file_uploader(
-    "Upload a blood smear microscope image",
-    type=['jpg', 'jpeg', 'png', 'tiff'],
-    help="Supports JPEG, PNG, TIFF formats from microscope"
-)
+def show_cells(image,report,show_subtypes):
+    counts=report['cell_counts']
+    for col,key,label in zip(st.columns(4),['RBC','WBC','Platelet','total'],
+                             ['Red blood cells','White blood cells','Platelets','Total detected']):
+        col.metric(label,counts[key])
+    if show_subtypes:
+        preview=annotate(image,report)
+    else:
+        preview=image.copy()
+        for r in report['detections']:
+            x1,y1,x2,y2=r['box']
+            color={'RBC':(70,130,220),'WBC':(220,130,30),'Platelet':(80,160,70)}[r['cell_type']]
+            cv2.rectangle(preview,(x1,y1),(x2,y2),color,2)
+            cv2.putText(preview,r['cell_type'],(x1,max(12,y1-5)),cv2.FONT_HERSHEY_SIMPLEX,.4,color,1,cv2.LINE_AA)
+    st.image(cv2.cvtColor(preview,cv2.COLOR_BGR2RGB),caption='Detected objects in this image.',width='stretch')
+    if show_subtypes:
+        st.dataframe(pd.DataFrame([{'Subtype':c.title(),'Accepted count':n} for c,n in counts['wbc_subtypes'].items()]),hide_index=True)
+        st.write(f"White blood cells awaiting subtype review: {counts['wbc_review']}")
+    else:
+        st.caption('Normal WBC subtype labels are withheld in combined leukemia mode.')
+    with st.expander('Descriptive cell measurements'):
+        rows=[]
+        for r in report['detections']:
+            m=r['morphology']
+            if m['available']:
+                f=m['features']
+                rows.append({'Object':r['object_id'],'Type':r['cell_type'],'Area (square pixels)':f['area'],
+                             'Circularity':f['circularity'],'High saturation fraction':f['high_saturation_fraction']})
+        st.caption('Measurements describe thresholded image regions; they are not validated cell or nucleus boundaries.')
+        if rows:st.dataframe(pd.DataFrame(rows),hide_index=True)
+    ok,encoded=cv2.imencode('.png',preview)
+    if ok:st.download_button('Download cell annotation',encoded.tobytes(),'detected_cells.png','image/png')
 
+
+def show_all(image,result):
+    st.subheader('Leukemia screening')
+    if result['status']=='review':
+        st.warning(result['label'])
+    elif result['status']=='all_pattern':
+        st.warning(result['label'])
+    else:
+        st.success(result['label'])
+    st.write(f"Model support for ALL: {result['all_model_support']:.3f}")
+    if result['subtype_accepted']:
+        st.write('Supported dataset subtype: '+result['subtype_display'])
+    elif result['subtype_status']=='review':
+        st.write('The ALL screening flag is retained; the subtype requires review.')
+    st.caption('Benign means a benign-like dataset pattern. Early pre-B, Pre-B and Pro-B are subtype categories, not severity levels. Other leukemia types are not assessed.')
+    if result.get('method')=='area_matched_evidence_training':
+        with st.expander('Inspect the experimental training idea'):
+            views,masks=intervention_views(image)
+            for col,key,label in zip(st.columns(3),['original','context','region'],['Original','Context erased','Stained region erased']):
+                col.image(cv2.cvtColor(views[key],cv2.COLOR_BGR2RGB),caption=label,width='stretch')
+            st.dataframe(pd.DataFrame(result['views']).rename_axis('Dataset category'),width='stretch')
+            st.caption('Screening uses the original image only. These automatic region proposals illustrate the training rule; they are not labelled malignant cells.')
+    else:
+        with st.expander('Compare the two image views'):
+            a,b=st.columns(2)
+            a.image(cv2.cvtColor(prepare_view(image),cv2.COLOR_BGR2RGB),caption='Original view',width='stretch')
+            b.image(cv2.cvtColor(prepare_view(image,'stain'),cv2.COLOR_BGR2RGB),caption='Stain-focused view',width='stretch')
+            st.dataframe(pd.DataFrame(result['views']).rename_axis('Dataset category'),width='stretch')
+            st.caption('The stain-focused view is an automatic colour transformation, not a labelled cancer mask.')
+
+
+uploaded=st.file_uploader('Upload a microscopy image',type=['jpg','jpeg','png','tif','tiff'])
 if uploaded:
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.jpg') as tmp:
-        tmp.write(uploaded.read())
-        tmp_path = tmp.name
-
-    # ── LIVE PIPELINE LOG ──────────────────────────────────────────
-    log_lines = []
-
-    with st.status("🔬 Running analysis pipeline...", expanded=True) as status_box:
-        log_area = st.empty()
-
-        def log(msg):
-            log_lines.append(msg)
-            log_area.code('\n'.join(log_lines), language=None)
-
-        result, counts, disorders, feature_list = analyze(tmp_path, log=log)
-        status_box.update(label="✅ Analysis complete", state="complete", expanded=False)
-
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    tab1, tab2, tab3, tab4 = st.tabs([
-        "📊 Cell Analysis",
-        "🖼️ Visual Results",
-        "⚠️ Disorder Screening",
-        "📄 Clinical Report"
-    ])
-
-    # ══════════════════════════════════════════════════════════════════
-    # TAB 1 — CELL ANALYSIS
-    # ══════════════════════════════════════════════════════════════════
-    with tab1:
-        st.subheader("Complete Blood Count (CBC)")
-
-        total_rbc      = counts.get('RBC', 0)
-        total_wbc      = sum(counts.get(t, 0) for t in
-                             ['Neutrophil','Lymphocyte','Monocyte','Eosinophil','WBC'])
-        total_platelet = counts.get('Platelet', 0)
-        total_cells    = sum(counts.values())
-
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("🔴 Red Blood Cells",   total_rbc,      help="RBC count")
-        c2.metric("⚪ White Blood Cells",  total_wbc,      help="Total WBC count")
-        c3.metric("🟡 Platelets",          total_platelet, help="Platelet count")
-        c4.metric("🔢 Total Cells",         total_cells,    help="All detected cells")
-
-        st.divider()
-
-        st.subheader("WBC Differential Count")
-        wbc_types  = ['Neutrophil', 'Lymphocyte', 'Monocyte', 'Eosinophil']
-        wbc_counts = {t: counts.get(t, 0) for t in wbc_types}
-        total_wbc_diff = sum(wbc_counts.values()) + 1e-10
-
-        normal_ranges = {
-            'Neutrophil': (50, 70), 'Lymphocyte': (20, 40),
-            'Monocyte':   (2,  8),  'Eosinophil': (1,  4),
-        }
-        diff_data = []
-        for cell, cnt in wbc_counts.items():
-            pct = round((cnt / total_wbc_diff) * 100, 1)
-            low, high = normal_ranges[cell]
-            status = "🔵 Low" if pct < low else ("🔴 High" if pct > high else "🟢 Normal")
-            diff_data.append({
-                'Cell Type':    cell,
-                'Count':        cnt,
-                'Percentage':   f"{pct}%",
-                'Normal Range': f"{low}–{high}%",
-                'Status':       status
-            })
-
-        df_diff = pd.DataFrame(diff_data)
-        st.dataframe(df_diff, use_container_width=True, hide_index=True)
-
-        if total_wbc > 0:
-            fig, ax = plt.subplots(figsize=(5, 4))
-            sizes  = [wbc_counts[t] for t in wbc_types if wbc_counts[t] > 0]
-            labels = [t for t in wbc_types if wbc_counts[t] > 0]
-            colors_pie = ['#4C72B0','#55A868','#C44E52','#8172B2'][:len(labels)]
-            ax.pie(sizes, labels=labels, colors=colors_pie,
-                   autopct='%1.1f%%', startangle=90)
-            ax.set_title('WBC Differential')
-            st.pyplot(fig)
-            plt.close()
-
-    # ══════════════════════════════════════════════════════════════════
-    # TAB 2 — VISUAL RESULTS
-    # ══════════════════════════════════════════════════════════════════
-    with tab2:
-        st.subheader("Detection Results")
-
-        col_a, col_b = st.columns(2)
-        with col_a:
-            st.markdown("**Original Image**")
-            original = cv2.imread(tmp_path)
-            st.image(cv2.cvtColor(original, cv2.COLOR_BGR2RGB),
-                     use_container_width=True)
-        with col_b:
-            st.markdown("**Annotated — Detected Cells with Bounding Boxes**")
-            annotated = result.plot()
-            st.image(cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB),
-                     use_container_width=True)
-
-        ann_path = tmp_path.replace('.jpg', '_annotated.jpg')
-        cv2.imwrite(ann_path, annotated)
-
-        st.divider()
-        st.subheader("Morphological Feature Distribution")
-
-        if feature_list:
-            areas         = [f['area']        for f in feature_list]
-            circularities = [f['circularity'] for f in feature_list]
-
-            fig2, axes = plt.subplots(1, 2, figsize=(12, 4))
-            axes[0].hist(areas, bins=20, color='#4C72B0', edgecolor='white')
-            axes[0].set_title('Cell Area Distribution')
-            axes[0].set_xlabel('Area (pixels)')
-            axes[0].set_ylabel('Count')
-            axes[0].axvline(np.mean(areas), color='red', linestyle='--',
-                            label=f'Mean: {np.mean(areas):.0f}')
-            axes[0].legend()
-
-            axes[1].hist(circularities, bins=20, color='#55A868', edgecolor='white')
-            axes[1].set_title('Cell Circularity Distribution')
-            axes[1].set_xlabel('Circularity (0–1)')
-            axes[1].set_ylabel('Count')
-            axes[1].axvline(np.mean(circularities), color='red', linestyle='--',
-                            label=f'Mean: {np.mean(circularities):.2f}')
-            axes[1].legend()
-
-            plt.tight_layout()
-            st.pyplot(fig2)
-            plt.close()
-
-            st.subheader("Morphological Statistics Summary")
-            stats = {
-                'Feature':  ['Area', 'Circularity', 'Nuclear Irregularity', 'NC Ratio'],
-                'Mean':     [round(np.mean([f['area']                 for f in feature_list]), 2),
-                             round(np.mean([f['circularity']          for f in feature_list]), 3),
-                             round(np.mean([f['nuclear_irregularity'] for f in feature_list]), 3),
-                             round(np.mean([f['nc_ratio']             for f in feature_list]), 3)],
-                'Std Dev':  [round(np.std([f['area']                  for f in feature_list]), 2),
-                             round(np.std([f['circularity']           for f in feature_list]), 3),
-                             round(np.std([f['nuclear_irregularity']  for f in feature_list]), 3),
-                             round(np.std([f['nc_ratio']              for f in feature_list]), 3)],
-                'Min':      [round(min(f['area']                      for f in feature_list), 2),
-                             round(min(f['circularity']               for f in feature_list), 3),
-                             round(min(f['nuclear_irregularity']      for f in feature_list), 3),
-                             round(min(f['nc_ratio']                  for f in feature_list), 3)],
-                'Max':      [round(max(f['area']                      for f in feature_list), 2),
-                             round(max(f['circularity']               for f in feature_list), 3),
-                             round(max(f['nuclear_irregularity']      for f in feature_list), 3),
-                             round(max(f['nc_ratio']                  for f in feature_list), 3)],
-            }
-            st.dataframe(pd.DataFrame(stats), use_container_width=True, hide_index=True)
-
-    # ══════════════════════════════════════════════════════════════════
-    # TAB 3 — DISORDER SCREENING
-    # ══════════════════════════════════════════════════════════════════
-    with tab3:
-        st.subheader("Hematological Disorder Screening")
-        st.caption("Rule-based analysis using morphological features and cell population statistics")
-
-        for disorder, info in disorders.items():
-            if disorder == 'Normal':
-                st.success("✅ No hematological disorders detected")
-                st.info(f"Evidence: {info['evidence']}")
-            else:
-                with st.expander(f"⚠️ FLAG: {disorder}", expanded=True):
-                    col_x, col_y = st.columns(2)
-                    with col_x:
-                        st.error(f"**Disorder:** {disorder}")
-                        st.write(f"**Evidence:** {info['evidence']}")
-                        if 'confidence' in info:
-                            conf = float(info['confidence'])
-                            st.write(f"**Confidence:** {conf*100:.1f}%")
-                            st.progress(conf)
-                    with col_y:
-                        criteria = {
-                            'Acute Lymphoblastic Leukemia':
-                                "Lymphoblasts > 20% of WBC\nNuclear irregularity > 1.4\nHigh NC ratio > 0.7",
-                            'Sickle Cell Disease':
-                                "RBC circularity < 0.60\nEccentricity > 0.80\n> 40% of RBCs affected",
-                            'Anemia':
-                                "High RBC size variation (CV > 0.35)\nOR hypochromic RBCs (pale cells > 30%)",
-                        }
-                        crit = criteria.get(disorder, "See clinical guidelines")
-                        st.markdown("**Detection Criteria Used:**")
-                        st.code(crit)
-
-        st.divider()
-        st.subheader("Screening Summary")
-        screen_data = []
-        for disorder, info in disorders.items():
-            screen_data.append({
-                'Disorder':   disorder,
-                'Detected':   '✅ Yes' if info.get('detected') else '❌ No',
-                'Evidence':   info['evidence'],
-                'Confidence': f"{float(info.get('confidence', 0))*100:.1f}%"
-                              if 'confidence' in info else 'N/A'
-            })
-        st.dataframe(pd.DataFrame(screen_data), use_container_width=True, hide_index=True)
-
-    # ══════════════════════════════════════════════════════════════════
-    # TAB 4 — CLINICAL REPORT
-    # ══════════════════════════════════════════════════════════════════
-    with tab4:
-        st.subheader("Clinical Report")
-        st.caption(f"Generated: {timestamp}")
-
-        report = {
-            "report_metadata": {
-                "generated_at": timestamp,
-                "system":       "Automated Blood Cell Classification System",
-            },
-            "cell_counts": {
-                "RBC":          total_rbc,
-                "WBC_total":    total_wbc,
-                "Platelet":     total_platelet,
-                "differential": wbc_counts
-            },
-            "wbc_differential_percentages": {
-                t: round((wbc_counts[t] / total_wbc_diff) * 100, 1)
-                for t in wbc_types
-            },
-            "morphological_summary": {
-                "total_cells_analyzed": len(feature_list),
-                "mean_area":       round(np.mean([f['area']        for f in feature_list]), 2) if feature_list else 0,
-                "mean_circularity":round(np.mean([f['circularity'] for f in feature_list]), 3) if feature_list else 0,
-                "mean_nc_ratio":   round(np.mean([f['nc_ratio']    for f in feature_list]), 3) if feature_list else 0,
-            },
-            "disorder_screening": disorders,
-            "abnormal_flags": [d for d, i in disorders.items()
-                               if d != 'Normal' and i.get('detected')]
-        }
-
-        st.markdown("### Patient Report")
-        st.markdown(f"**Date/Time:** {timestamp}")
-        st.markdown(f"**Image File:** {uploaded.name}")
-        st.divider()
-
-        st.markdown("#### CBC Results")
-        rpt_cols = st.columns(3)
-        rpt_cols[0].metric("RBC Count",      total_rbc)
-        rpt_cols[1].metric("WBC Count",      total_wbc)
-        rpt_cols[2].metric("Platelet Count", total_platelet)
-
-        st.markdown("#### WBC Differential")
-        st.dataframe(df_diff, use_container_width=True, hide_index=True)
-
-        st.markdown("#### Morphological Summary")
-        morph_df = pd.DataFrame([{
-            'Total Cells Analyzed': len(feature_list),
-            'Mean Cell Area (px)':  report['morphological_summary']['mean_area'],
-            'Mean Circularity':     report['morphological_summary']['mean_circularity'],
-            'Mean NC Ratio':        report['morphological_summary']['mean_nc_ratio'],
-        }])
-        st.dataframe(morph_df, use_container_width=True, hide_index=True)
-
-        st.markdown("#### Disorder Flags")
-        if report['abnormal_flags']:
-            for flag in report['abnormal_flags']:
-                st.error(f"⚠️ {flag}")
+    data=uploaded.getvalue()
+    image=cv2.imdecode(np.frombuffer(data,dtype=np.uint8),cv2.IMREAD_COLOR)
+    if image is None:
+        st.error('This image could not be decoded.');st.stop()
+    st.image(cv2.cvtColor(image,cv2.COLOR_BGR2RGB),caption=uploaded.name,width='stretch')
+    if st.button('Analyze image',type='primary'):
+        path=None
+        try:
+            with tempfile.NamedTemporaryFile(suffix='.png',delete=False) as f:path=Path(f.name)
+            if not cv2.imwrite(str(path),image):raise OSError('Could not prepare this image.')
+            with st.spinner('Analyzing image...'):
+                if mode=='Blood cells + ALL screening':report=(analyze_evidence_combined if experimental else analyze_combined)(path)
+                elif mode=='Blood cell analysis':report=analyze(path)
+                elif mode=='Leukemia screening (ALL)':report=(screen_evidence if experimental else screen_all)(path)
+                else:report=classify_single(path,'wbc')
+            report['image_name']=uploaded.name
+            st.session_state['analysis']={'key':(uploaded.name,mode,experimental,data),'report':report}
+        except Exception as e:
+            st.error(f'Analysis could not complete: {e}')
+        finally:
+            if path is not None:path.unlink(missing_ok=True)
+    saved=st.session_state.get('analysis')
+    if saved and saved['key']==(uploaded.name,mode,experimental,data):
+        report=saved['report']
+        if mode=='Blood cells + ALL screening':
+            cells,leukemia=st.tabs(['Detected blood cells','ALL screening and review'])
+            with cells:show_cells(image,report['cell_analysis'],False)
+            with leukemia:show_all(image,report['leukemia_screening'])
+        elif mode=='Blood cell analysis':show_cells(image,report,True)
+        elif mode=='Leukemia screening (ALL)':show_all(image,report)
         else:
-            st.success("✅ No abnormalities flagged")
-
-        st.divider()
-
-        # ── DOWNLOAD BUTTONS ───────────────────────────────────────
-        st.subheader("Download Report")
-        dl1, dl2, dl3, dl4 = st.columns(4)
-
-        json_str = json.dumps(report, indent=2)
-        dl1.download_button(
-            label="📥 JSON",
-            data=json_str,
-            file_name=f"blood_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-            mime="application/json"
-        )
-
-        csv_rows = []
-        for cell, cnt in counts.items():
-            csv_rows.append({'Category': 'Cell Count', 'Item': cell,
-                             'Value': cnt, 'Unit': 'cells'})
-        for t in wbc_types:
-            pct = round((wbc_counts[t] / total_wbc_diff) * 100, 1)
-            csv_rows.append({'Category': 'WBC Differential', 'Item': t,
-                             'Value': pct, 'Unit': '%'})
-        for d, info in disorders.items():
-            csv_rows.append({'Category': 'Disorder Screening', 'Item': d,
-                             'Value': info['evidence'], 'Unit': ''})
-        csv_str = pd.DataFrame(csv_rows).to_csv(index=False)
-        dl2.download_button(
-            label="📥 CSV",
-            data=csv_str,
-            file_name=f"blood_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-            mime="text/csv"
-        )
-
-        pdf_buf = generate_pdf(report, annotated, timestamp, uploaded.name)
-        if pdf_buf:
-            dl3.download_button(
-                label="📥 PDF Report",
-                data=pdf_buf,
-                file_name=f"blood_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
-                mime="application/pdf"
-            )
-        else:
-            dl3.warning("Install reportlab for PDF: pip install reportlab pillow")
-
-        with open(ann_path, 'rb') as f:
-            dl4.download_button(
-                label="📥 Annotated Image",
-                data=f,
-                file_name=f"annotated_{uploaded.name}",
-                mime="image/jpeg"
-            )
-
-    os.unlink(tmp_path)
+            st.subheader(report['display_label'].replace('_',' ').title())
+            st.write(f"Model score: {report['prediction']['score']:.3f}")
+            st.write('Status: '+report['status'])
+        st.download_button('Download analysis JSON',json.dumps(report,indent=2,allow_nan=False),'blood_cells_and_all.json','application/json')
+        with st.expander('Study scope and model details'):
+            if 'scope' in report:st.write(report['scope'])
+            if 'model_provenance' in report:st.json(report['model_provenance'])

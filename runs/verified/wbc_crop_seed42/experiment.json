@@ -1,0 +1,11 @@
+{
+  "view": "crop",
+  "seed": 42,
+  "epochs": 60,
+  "elapsed_seconds": 577.9206200996414,
+  "pretrained_sha256": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a",
+  "training_source": "ImageNet initialization; no supplied blood-cell checkpoint reused.",
+  "model_selection": "Fixed terminal epoch; protocol set before new test evaluation.",
+  "original_training_log_selection_note": "Best validation accuracy (Ultralytics fitness); test not used.",
+  "selected_checkpoint": "last.pt"
+}

@@ -1,0 +1,664 @@
+{
+  "original_images": 3256,
+  "unique_pixel_images": 3216,
+  "duplicates": [
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-012.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-011.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-018.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-017.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-020.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-019.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-022.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-021.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-027.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-026.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-030.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-029.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-038.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-037.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-051.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-050.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-062.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-061.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-075.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-074.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-078.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-077.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-080.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-079.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-084.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-083.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-090.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-089.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-092.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-091.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-096.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-095.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-098.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-097.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-103.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-102.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-105.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-104.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-107.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-106.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-113.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-112.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-115.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-114.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-118.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-117.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-123.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-122.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-129.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-128.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-131.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-130.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-133.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-132.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-135.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-134.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-137.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-136.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-143.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-142.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-146.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-145.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-152.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-151.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-155.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-154.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-158.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-157.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-169.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-168.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-171.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-170.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-173.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-172.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-178.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-177.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-182.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-181.jpg"
+    },
+    {
+      "removed": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-189.jpg",
+      "retained": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-188.jpg"
+    }
+  ],
+  "similarity_candidates": 77,
+  "accepted_pairs": [
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-004.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-005.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-114.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-117.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-141.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-145.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-201.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-204.jpg",
+      "distance": 8,
+      "method": "affine_registration",
+      "inliers": 139,
+      "inlier_fraction": 1.0,
+      "coverage": 0.7094615193019553
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-238.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-241.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-291.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-294.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-316.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-318.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-381.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-384.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-407.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-410.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-408.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-411.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-475.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-476.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Benign/WBC-Benign-500.jpg",
+      "b": "data/Leukemia/Original/Benign/WBC-Benign-501.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-070.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-071.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-075.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-086.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-154.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-155.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-228.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-229.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-232.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-601.jpg",
+      "distance": 10,
+      "method": "affine_registration",
+      "inliers": 355,
+      "inlier_fraction": 0.9833795013850416,
+      "coverage": 0.8060720622296789
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-326.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-327.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-470.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-472.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-474.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-476.jpg",
+      "distance": 8,
+      "method": "affine_registration",
+      "inliers": 291,
+      "inlier_fraction": 0.9065420560747663,
+      "coverage": 0.7484449393918045
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-487.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-617.jpg",
+      "distance": 10,
+      "method": "affine_registration",
+      "inliers": 315,
+      "inlier_fraction": 0.9752321981424149,
+      "coverage": 0.7647843951362622
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-490.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-492.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-494.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-496.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-499.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-501.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-541.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-543.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-559.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-561.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-578.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-580.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-624.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-626.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-667.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-669.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-711.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-713.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-733.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-735.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-843.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-845.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Early/WBC-Malignant-Early-923.jpg",
+      "b": "data/Leukemia/Original/Early/WBC-Malignant-Early-924.jpg",
+      "distance": 8,
+      "method": "affine_registration",
+      "inliers": 96,
+      "inlier_fraction": 0.9230769230769231,
+      "coverage": 0.663769962541212
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-014.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-017.jpg",
+      "distance": 10,
+      "method": "affine_registration",
+      "inliers": 219,
+      "inlier_fraction": 0.9647577092511013,
+      "coverage": 0.7006563671765581
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-024.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-027.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-105.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-107.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-131.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-133.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-154.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-156.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-318.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-319.jpg",
+      "distance": 10,
+      "method": "affine_registration",
+      "inliers": 271,
+      "inlier_fraction": 0.9748201438848921,
+      "coverage": 0.8006917771683009
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-326.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-327.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-346.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-347.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-358.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-359.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-384.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-385.jpg",
+      "distance": 6,
+      "method": "affine_registration",
+      "inliers": 315,
+      "inlier_fraction": 0.987460815047022,
+      "coverage": 0.851184533329968
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-397.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-398.jpg",
+      "distance": 6,
+      "method": "affine_registration",
+      "inliers": 240,
+      "inlier_fraction": 0.9523809523809523,
+      "coverage": 0.7924948442745421
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-446.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-447.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-470.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-471.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-504.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-505.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-617.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-618.jpg",
+      "distance": 10,
+      "method": "affine_registration",
+      "inliers": 332,
+      "inlier_fraction": 0.9880952380952381,
+      "coverage": 0.7324235387859606
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-630.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-631.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-712.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-713.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-729.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-730.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-755.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-756.jpg",
+      "distance": 6,
+      "method": "affine_registration",
+      "inliers": 292,
+      "inlier_fraction": 0.9831649831649831,
+      "coverage": 0.8260449731467573
+    },
+    {
+      "a": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-954.jpg",
+      "b": "data/Leukemia/Original/Pre/WBC-Malignant-Pre-955.jpg",
+      "distance": 6,
+      "method": "affine_registration",
+      "inliers": 244,
+      "inlier_fraction": 0.9959183673469387,
+      "coverage": 0.7999153228545779
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-003.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-004.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-003.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-005.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-004.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-005.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-007.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-008.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-061.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-063.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-163.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-164.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-202.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-203.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-219.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-220.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-276.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-277.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-294.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-295.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-387.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-506.jpg",
+      "distance": 4,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-422.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-423.jpg",
+      "distance": 8,
+      "method": "affine_registration",
+      "inliers": 205,
+      "inlier_fraction": 0.9761904761904762,
+      "coverage": 0.7911154463743584
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-443.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-445.jpg",
+      "distance": 8,
+      "method": "affine_registration",
+      "inliers": 249,
+      "inlier_fraction": 0.9688715953307393,
+      "coverage": 0.7980029804569789
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-462.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-463.jpg",
+      "distance": 0,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-569.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-646.jpg",
+      "distance": 6,
+      "method": "affine_registration",
+      "inliers": 234,
+      "inlier_fraction": 0.9669421487603306,
+      "coverage": 0.7904724058166788
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-726.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-727.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    },
+    {
+      "a": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-744.jpg",
+      "b": "data/Leukemia/Original/Pro/WBC-Malignant-Pro-745.jpg",
+      "distance": 2,
+      "method": "conservative_hash_group"
+    }
+  ],
+  "groups": 3147,
+  "multi_image_groups": 68,
+  "quarantined_images": [],
+  "counts": {
+    "val": 645,
+    "train": 1928,
+    "test": 643
+  },
+  "class_counts": {
+    "val/Benign": 103,
+    "train/Benign": 305,
+    "test/Benign": 96,
+    "train/Early": 587,
+    "test/Early": 198,
+    "val/Early": 200,
+    "train/Pre": 574,
+    "val/Pre": 194,
+    "test/Pre": 195,
+    "train/Pro": 462,
+    "val/Pro": 148,
+    "test/Pro": 154
+  },
+  "group_counts": {
+    "train": 1888,
+    "val": 630,
+    "test": 629
+  },
+  "patient_independence_established": false,
+  "seed": 2026,
+  "limitations": "Visual groups are not patient identifiers. Similarity screening is not exhaustive."
+}

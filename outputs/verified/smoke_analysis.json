@@ -1,0 +1,926 @@
+{
+  "schema_version": 2,
+  "image_name": "BloodImage_00007.jpeg",
+  "image_size": [
+    640,
+    480
+  ],
+  "elapsed_seconds": 8.203693799674511,
+  "cell_counts": {
+    "RBC": 19,
+    "WBC": 1,
+    "Platelet": 1,
+    "total": 21,
+    "wbc_subtypes": {
+      "EOSINOPHIL": 0,
+      "LYMPHOCYTE": 0,
+      "MONOCYTE": 0,
+      "NEUTROPHIL": 1
+    },
+    "wbc_review": 0
+  },
+  "detections": [
+    {
+      "object_id": 0,
+      "cell_type": "RBC",
+      "box": [
+        536,
+        372,
+        640,
+        476
+      ],
+      "detector_score": 0.9307296872138977,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 7393.5,
+          "perimeter": 420.0071402788162,
+          "circularity": 0.5266797175328077,
+          "eccentricity": 0.7485292621424513,
+          "solidity": 0.921193620732619,
+          "high_saturation_fraction": 0.3767141350210971,
+          "stain_boundary_irregularity": 5.048065766402609,
+          "hue_mean": 111.47349683544304,
+          "hue_std": 74.54914475187678,
+          "saturation_mean": 29.967299578059073,
+          "saturation_std": 7.229728409594493,
+          "value_mean": 190.57726793248946,
+          "value_std": 5.7827985979467345,
+          "glcm_energy": 0.4786143432061904,
+          "glcm_contrast": 0.16838441975639137,
+          "glcm_homogeneity": 0.9161290322580644,
+          "glcm_entropy": 2.690087583368232,
+          "glcm_correlation": 0.9046398467438393,
+          "lbp_bin0": 0.045184468702501035,
+          "lbp_bin1": 0.2997098245129197,
+          "lbp_bin2": 0.4535028326654691,
+          "lbp_bin3": 0.20160287411911013
+        }
+      }
+    },
+    {
+      "object_id": 1,
+      "cell_type": "RBC",
+      "box": [
+        18,
+        293,
+        138,
+        400
+      ],
+      "detector_score": 0.9024234414100647,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 7839.5,
+          "perimeter": 358.97770297527313,
+          "circularity": 0.7644749864828505,
+          "eccentricity": 0.6155465590597273,
+          "solidity": 0.9750015546296872,
+          "high_saturation_fraction": 0.6374890583968988,
+          "stain_boundary_irregularity": 8.75504698148805,
+          "hue_mean": 101.35825934725523,
+          "hue_std": 78.83777709025328,
+          "saturation_mean": 38.91121670626485,
+          "saturation_std": 6.529518241099709,
+          "value_mean": 182.25084406652493,
+          "value_std": 6.824940899537129,
+          "glcm_energy": 0.5106472183248109,
+          "glcm_contrast": 0.18693009118541032,
+          "glcm_homogeneity": 0.9198194171285535,
+          "glcm_entropy": 2.5641947886356875,
+          "glcm_correlation": 0.8914798692644141,
+          "lbp_bin0": 0.047774441978853936,
+          "lbp_bin1": 0.22059783318104687,
+          "lbp_bin2": 0.45033285471870516,
+          "lbp_bin3": 0.2812948701213941
+        }
+      }
+    },
+    {
+      "object_id": 2,
+      "cell_type": "WBC",
+      "box": [
+        195,
+        90,
+        403,
+        286
+      ],
+      "detector_score": 0.879768431186676,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 5,
+        "features": {
+          "area": 19510.0,
+          "perimeter": 999.0092266798019,
+          "circularity": 0.24565642921399225,
+          "eccentricity": 0.48295558650465176,
+          "solidity": 0.8147668664258421,
+          "high_saturation_fraction": 0.5462290152843898,
+          "stain_boundary_irregularity": 2.1004061734031834,
+          "hue_mean": 111.33675770483588,
+          "hue_std": 51.26977155919043,
+          "saturation_mean": 75.15008769731897,
+          "saturation_std": 29.488678067509355,
+          "value_mean": 196.0097719869707,
+          "value_std": 16.58885869331605,
+          "glcm_energy": 0.34387946162307476,
+          "glcm_contrast": 0.20168836452400327,
+          "glcm_homogeneity": 0.9009255492270141,
+          "glcm_entropy": 3.629627170501908,
+          "glcm_correlation": 0.9621674841334338,
+          "lbp_bin0": 0.03890784982935153,
+          "lbp_bin1": 0.3453924914675768,
+          "lbp_bin2": 0.4289314780782358,
+          "lbp_bin3": 0.1867681806248359
+        }
+      },
+      "subtype_status": "accepted",
+      "subtype": {
+        "label": "NEUTROPHIL",
+        "score": 0.9238569140434265,
+        "probabilities": {
+          "EOSINOPHIL": 0.004626333713531494,
+          "LYMPHOCYTE": 0.00017999821284320205,
+          "MONOCYTE": 0.07133673131465912,
+          "NEUTROPHIL": 0.9238569140434265
+        }
+      }
+    },
+    {
+      "object_id": 3,
+      "cell_type": "RBC",
+      "box": [
+        495,
+        301,
+        602,
+        401
+      ],
+      "detector_score": 0.8103539943695068,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 5684.5,
+          "perimeter": 491.8893892765045,
+          "circularity": 0.2952345815904412,
+          "eccentricity": 0.38859836819295956,
+          "solidity": 0.8354030421044897,
+          "high_saturation_fraction": 0.49686493814607696,
+          "stain_boundary_irregularity": 9.59465803034132,
+          "hue_mean": 130.22318251143875,
+          "hue_std": 62.612551859319304,
+          "saturation_mean": 28.51652262328419,
+          "saturation_std": 7.284166482833895,
+          "value_mean": 191.3250296559905,
+          "value_std": 3.948159948008288,
+          "glcm_energy": 0.5423859181407175,
+          "glcm_contrast": 0.11358110455019103,
+          "glcm_homogeneity": 0.9432094477249046,
+          "glcm_entropy": 2.149454541748427,
+          "glcm_correlation": 0.8952885503478245,
+          "lbp_bin0": 0.0441692847902421,
+          "lbp_bin1": 0.23563112178894843,
+          "lbp_bin2": 0.46423951210497133,
+          "lbp_bin3": 0.2559600813158381
+        }
+      }
+    },
+    {
+      "object_id": 4,
+      "cell_type": "RBC",
+      "box": [
+        133,
+        337,
+        221,
+        436
+      ],
+      "detector_score": 0.7960667014122009,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 4,
+        "features": {
+          "area": 2260.0,
+          "perimeter": 293.480228304863,
+          "circularity": 0.32973162785851307,
+          "eccentricity": 0.7406933003557545,
+          "solidity": 0.6798014739058506,
+          "high_saturation_fraction": 0.6145484949832776,
+          "stain_boundary_irregularity": 4.741170273028975,
+          "hue_mean": 128.46321070234114,
+          "hue_std": 63.17946634483242,
+          "saturation_mean": 35.28637123745819,
+          "saturation_std": 9.174379853426535,
+          "value_mean": 189.0953177257525,
+          "value_std": 4.353345480466086,
+          "glcm_energy": 0.49744872641048166,
+          "glcm_contrast": 0.1554585152838428,
+          "glcm_homogeneity": 0.9222707423580787,
+          "glcm_entropy": 2.4700541399814364,
+          "glcm_correlation": 0.8966982571347185,
+          "lbp_bin0": 0.051081454210768526,
+          "lbp_bin1": 0.23653934652554073,
+          "lbp_bin2": 0.44684767602393005,
+          "lbp_bin3": 0.2655315232397607
+        }
+      }
+    },
+    {
+      "object_id": 5,
+      "cell_type": "RBC",
+      "box": [
+        248,
+        429,
+        351,
+        479
+      ],
+      "detector_score": 0.7350031137466431,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 2793.5,
+          "perimeter": 287.43859827518463,
+          "circularity": 0.42488203361410165,
+          "eccentricity": 0.9482788545813114,
+          "solidity": 0.8895080401209998,
+          "high_saturation_fraction": 0.5727956254272044,
+          "stain_boundary_irregularity": 2.267350035854484,
+          "hue_mean": 98.64866712235133,
+          "hue_std": 80.76819914058663,
+          "saturation_mean": 27.43198906356801,
+          "saturation_std": 6.533000664632671,
+          "value_mean": 197.69207108680794,
+          "value_std": 5.694175534122732,
+          "glcm_energy": 0.44355220253661126,
+          "glcm_contrast": 0.1505413901501921,
+          "glcm_homogeneity": 0.9247293049249041,
+          "glcm_entropy": 2.6773966159657125,
+          "glcm_correlation": 0.9256347614684801,
+          "lbp_bin0": 0.06309611151870873,
+          "lbp_bin1": 0.24541452677916362,
+          "lbp_bin2": 0.43800440205429203,
+          "lbp_bin3": 0.2534849596478357
+        }
+      }
+    },
+    {
+      "object_id": 6,
+      "cell_type": "RBC",
+      "box": [
+        166,
+        267,
+        269,
+        387
+      ],
+      "detector_score": 0.6637486219406128,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 4,
+        "features": {
+          "area": 7768.5,
+          "perimeter": 391.8061294555664,
+          "circularity": 0.6359230726115852,
+          "eccentricity": 0.6816236896650665,
+          "solidity": 0.9425503518563455,
+          "high_saturation_fraction": 0.6084109796021153,
+          "stain_boundary_irregularity": 6.556245493335062,
+          "hue_mean": 100.18219592042307,
+          "hue_std": 81.30120288683638,
+          "saturation_mean": 37.0958196927726,
+          "saturation_std": 8.433424533342428,
+          "value_mean": 191.98375723998993,
+          "value_std": 6.64025885099022,
+          "glcm_energy": 0.46518653648225483,
+          "glcm_contrast": 0.2035307662786235,
+          "glcm_homogeneity": 0.9075807628923388,
+          "glcm_entropy": 2.754124430043177,
+          "glcm_correlation": 0.9097478122782344,
+          "lbp_bin0": 0.05392871339605141,
+          "lbp_bin1": 0.23916788127732874,
+          "lbp_bin2": 0.46031535709553467,
+          "lbp_bin3": 0.2465880482310852
+        }
+      }
+    },
+    {
+      "object_id": 7,
+      "cell_type": "RBC",
+      "box": [
+        401,
+        162,
+        494,
+        277
+      ],
+      "detector_score": 0.6193645596504211,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 6386.5,
+          "perimeter": 392.69343173503876,
+          "circularity": 0.5204338139471065,
+          "eccentricity": 0.8175644474668742,
+          "solidity": 0.8591511401089662,
+          "high_saturation_fraction": 0.6336633663366337,
+          "stain_boundary_irregularity": 5.037703292279261,
+          "hue_mean": 93.54638233054075,
+          "hue_std": 80.29641499764817,
+          "saturation_mean": 39.48636709824829,
+          "saturation_std": 8.571743994288692,
+          "value_mean": 179.0927646610815,
+          "value_std": 4.570952132768527,
+          "glcm_energy": 0.5753027104166383,
+          "glcm_contrast": 0.14075108628181254,
+          "glcm_homogeneity": 0.930741775294848,
+          "glcm_entropy": 2.1561696281039935,
+          "glcm_correlation": 0.8895592121964239,
+          "lbp_bin0": 0.029963146931581478,
+          "lbp_bin1": 0.2454734818138119,
+          "lbp_bin2": 0.4313411312289697,
+          "lbp_bin3": 0.2932222400256369
+        }
+      }
+    },
+    {
+      "object_id": 8,
+      "cell_type": "RBC",
+      "box": [
+        0,
+        24,
+        32,
+        121
+      ],
+      "detector_score": 0.6048215627670288,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 1671.5,
+          "perimeter": 280.12488985061646,
+          "circularity": 0.2676781039653707,
+          "eccentricity": 0.712376336402266,
+          "solidity": 0.8365865865865866,
+          "high_saturation_fraction": 0.22364039955604884,
+          "stain_boundary_irregularity": 2.5978928854996446,
+          "hue_mean": 119.60099889012209,
+          "hue_std": 70.60854915099627,
+          "saturation_mean": 22.137069922308545,
+          "saturation_std": 7.949310265739615,
+          "value_mean": 180.1237513873474,
+          "value_std": 4.180805688448394,
+          "glcm_energy": 0.7186566025074834,
+          "glcm_contrast": 0.13392330383480827,
+          "glcm_homogeneity": 0.9330383480825959,
+          "glcm_entropy": 1.7875757048684717,
+          "glcm_correlation": 0.8577333733402182,
+          "lbp_bin0": 0.038834951456310676,
+          "lbp_bin1": 0.25788834951456313,
+          "lbp_bin2": 0.5012135922330098,
+          "lbp_bin3": 0.2020631067961165
+        }
+      }
+    },
+    {
+      "object_id": 9,
+      "cell_type": "RBC",
+      "box": [
+        27,
+        137,
+        135,
+        230
+      ],
+      "detector_score": 0.60263592004776,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 6712.0,
+          "perimeter": 552.2497806549072,
+          "circularity": 0.2765608540887438,
+          "eccentricity": 0.6415654017169057,
+          "solidity": 0.7795133848208583,
+          "high_saturation_fraction": 0.6205510907003444,
+          "stain_boundary_irregularity": 4.114023931341591,
+          "hue_mean": 85.11538461538461,
+          "hue_std": 80.86776710423614,
+          "saturation_mean": 39.871125143513204,
+          "saturation_std": 11.16226646560152,
+          "value_mean": 174.91346153846155,
+          "value_std": 4.591630203522821,
+          "glcm_energy": 0.4575499772610312,
+          "glcm_contrast": 0.12185120093731693,
+          "glcm_homogeneity": 0.9390743995313416,
+          "glcm_entropy": 2.5512241945219976,
+          "glcm_correlation": 0.9432433820881706,
+          "lbp_bin0": 0.04328675577156744,
+          "lbp_bin1": 0.22539489671931956,
+          "lbp_bin2": 0.4342345078979344,
+          "lbp_bin3": 0.2970838396111786
+        }
+      }
+    },
+    {
+      "object_id": 10,
+      "cell_type": "RBC",
+      "box": [
+        307,
+        435,
+        393,
+        480
+      ],
+      "detector_score": 0.5917390584945679,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 2181.5,
+          "perimeter": 250.46803629398346,
+          "circularity": 0.4369788924930975,
+          "eccentricity": 0.7988695176237576,
+          "solidity": 0.8541503523884103,
+          "high_saturation_fraction": 0.5831157528285466,
+          "stain_boundary_irregularity": 2.6191947392072845,
+          "hue_mean": 110.31157528285466,
+          "hue_std": 77.57708458212218,
+          "saturation_mean": 28.173629242819842,
+          "saturation_std": 6.876370721242383,
+          "value_mean": 195.2432550043516,
+          "value_std": 4.643656146567879,
+          "glcm_energy": 0.47018306988110853,
+          "glcm_contrast": 0.16184971098265893,
+          "glcm_homogeneity": 0.9190751445086704,
+          "glcm_entropy": 2.5766165842042406,
+          "glcm_correlation": 0.9007296643000963,
+          "lbp_bin0": 0.04790981681540629,
+          "lbp_bin1": 0.29779239079379993,
+          "lbp_bin2": 0.44668858619069984,
+          "lbp_bin3": 0.20760920620009393
+        }
+      }
+    },
+    {
+      "object_id": 11,
+      "cell_type": "RBC",
+      "box": [
+        64,
+        384,
+        181,
+        479
+      ],
+      "detector_score": 0.5874461531639099,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 8142.5,
+          "perimeter": 401.0365778207779,
+          "circularity": 0.6362087824658602,
+          "eccentricity": 0.44108049972122154,
+          "solidity": 0.9111508980025738,
+          "high_saturation_fraction": 0.6304347826086957,
+          "stain_boundary_irregularity": 4.592487760535094,
+          "hue_mean": 83.08203218832573,
+          "hue_std": 81.43548689941754,
+          "saturation_mean": 34.44439106413644,
+          "saturation_std": 8.511820447141075,
+          "value_mean": 186.585515253423,
+          "value_std": 4.660135665131959,
+          "glcm_energy": 0.5029777756217225,
+          "glcm_contrast": 0.161580547112462,
+          "glcm_homogeneity": 0.9241702127659575,
+          "glcm_entropy": 2.4862806073087405,
+          "glcm_correlation": 0.8894828971585304,
+          "lbp_bin0": 0.05303784860557769,
+          "lbp_bin1": 0.22497509960159362,
+          "lbp_bin2": 0.42218625498007967,
+          "lbp_bin3": 0.299800796812749
+        }
+      }
+    },
+    {
+      "object_id": 12,
+      "cell_type": "Platelet",
+      "box": [
+        191,
+        1,
+        249,
+        53
+      ],
+      "detector_score": 0.5697270035743713,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 1505.5,
+          "perimeter": 184.6101714372635,
+          "circularity": 0.5551104111767716,
+          "eccentricity": 0.4487052532700078,
+          "solidity": 0.8940023752969121,
+          "high_saturation_fraction": 0.5608065532451165,
+          "stain_boundary_irregularity": 1.989638793471674,
+          "hue_mean": 106.11657214870826,
+          "hue_std": 11.412675885108241,
+          "saturation_mean": 35.598613736609956,
+          "saturation_std": 11.614293741948865,
+          "value_mean": 189.09136735979837,
+          "value_std": 6.26327206987821,
+          "glcm_energy": 0.5377986020859414,
+          "glcm_contrast": 0.17167101827676243,
+          "glcm_homogeneity": 0.9141644908616188,
+          "glcm_entropy": 2.3522970377570576,
+          "glcm_correlation": 0.8464992728148968,
+          "lbp_bin0": 0.03793843951324266,
+          "lbp_bin1": 0.3428775948460988,
+          "lbp_bin2": 0.4831782390837509,
+          "lbp_bin3": 0.13600572655690765
+        }
+      }
+    },
+    {
+      "object_id": 13,
+      "cell_type": "RBC",
+      "box": [
+        511,
+        40,
+        633,
+        150
+      ],
+      "detector_score": 0.5665696859359741,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 9362.0,
+          "perimeter": 435.22034323215485,
+          "circularity": 0.6210979939926874,
+          "eccentricity": 0.6201253308885127,
+          "solidity": 0.9469957515678737,
+          "high_saturation_fraction": 0.6871403159987444,
+          "stain_boundary_irregularity": 4.994750134552769,
+          "hue_mean": 94.09228837501308,
+          "hue_std": 77.56771427845301,
+          "saturation_mean": 26.762791671026473,
+          "saturation_std": 7.715385855351428,
+          "value_mean": 180.8675316521921,
+          "value_std": 10.104788910593975,
+          "glcm_energy": 0.4321872284272326,
+          "glcm_contrast": 0.15212314225053078,
+          "glcm_homogeneity": 0.9244479830148619,
+          "glcm_entropy": 3.188988655010494,
+          "glcm_correlation": 0.9658213527384752,
+          "lbp_bin0": 0.045454545454545456,
+          "lbp_bin1": 0.3237410071942446,
+          "lbp_bin2": 0.4553084804883366,
+          "lbp_bin3": 0.17549596686287333
+        }
+      }
+    },
+    {
+      "object_id": 14,
+      "cell_type": "RBC",
+      "box": [
+        291,
+        0,
+        397,
+        75
+      ],
+      "detector_score": 0.5427122116088867,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 6585.0,
+          "perimeter": 325.9411246776581,
+          "circularity": 0.7789100793319071,
+          "eccentricity": 0.6410621937181074,
+          "solidity": 0.9877746943673592,
+          "high_saturation_fraction": 0.6628113879003559,
+          "stain_boundary_irregularity": 3.4255327882799094,
+          "hue_mean": 69.34845788849347,
+          "hue_std": 80.13966264256497,
+          "saturation_mean": 46.33185053380783,
+          "saturation_std": 7.576119440765443,
+          "value_mean": 176.92511862396205,
+          "value_std": 5.1196419044981765,
+          "glcm_energy": 0.5509842221260833,
+          "glcm_contrast": 0.14110061478482533,
+          "glcm_homogeneity": 0.930529314739841,
+          "glcm_entropy": 2.314822417636046,
+          "glcm_correlation": 0.8862767825841675,
+          "lbp_bin0": 0.042374154770848986,
+          "lbp_bin1": 0.21773102930127725,
+          "lbp_bin2": 0.43621337340345606,
+          "lbp_bin3": 0.30368144252441776
+        }
+      }
+    },
+    {
+      "object_id": 15,
+      "cell_type": "RBC",
+      "box": [
+        496,
+        172,
+        610,
+        294
+      ],
+      "detector_score": 0.5319476127624512,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 9962.5,
+          "perimeter": 433.32084822654724,
+          "circularity": 0.6667438664780503,
+          "eccentricity": 0.5194239914879049,
+          "solidity": 0.9593163216177178,
+          "high_saturation_fraction": 0.6369364048040953,
+          "stain_boundary_irregularity": 5.436542383747761,
+          "hue_mean": 84.17395156526875,
+          "hue_std": 82.65218747300084,
+          "saturation_mean": 46.50354400472534,
+          "saturation_std": 8.215205507916023,
+          "value_mean": 177.75093522346918,
+          "value_std": 6.765630878552095,
+          "glcm_energy": 0.48163976583152374,
+          "glcm_contrast": 0.18130113749750548,
+          "glcm_homogeneity": 0.9153362602274996,
+          "glcm_entropy": 2.763495659819506,
+          "glcm_correlation": 0.9108526597165305,
+          "lbp_bin0": 0.03832823649337411,
+          "lbp_bin1": 0.25290519877675843,
+          "lbp_bin2": 0.4127420998980632,
+          "lbp_bin3": 0.2960244648318043
+        }
+      }
+    },
+    {
+      "object_id": 16,
+      "cell_type": "RBC",
+      "box": [
+        322,
+        302,
+        466,
+        444
+      ],
+      "detector_score": 0.44885408878326416,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 2,
+        "features": {
+          "area": 12334.0,
+          "perimeter": 485.10259187221527,
+          "circularity": 0.6586377488443419,
+          "eccentricity": 0.7398674270280813,
+          "solidity": 0.9218580664449344,
+          "high_saturation_fraction": 0.7016103316326531,
+          "stain_boundary_irregularity": 4.068129608070671,
+          "hue_mean": 71.61232461734694,
+          "hue_std": 81.47255025884692,
+          "saturation_mean": 44.745137117346935,
+          "saturation_std": 9.703489123044646,
+          "value_mean": 188.4444355867347,
+          "value_std": 4.695030274625708,
+          "glcm_energy": 0.6018130241572077,
+          "glcm_contrast": 0.12658329971762808,
+          "glcm_homogeneity": 0.9397095603065753,
+          "glcm_entropy": 2.198271776058178,
+          "glcm_correlation": 0.9104828419008592,
+          "lbp_bin0": 0.03966804979253112,
+          "lbp_bin1": 0.199253112033195,
+          "lbp_bin2": 0.410954356846473,
+          "lbp_bin3": 0.35012448132780083
+        }
+      }
+    },
+    {
+      "object_id": 17,
+      "cell_type": "RBC",
+      "box": [
+        358,
+        462,
+        466,
+        480
+      ],
+      "detector_score": 0.3543708324432373,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 610.5,
+          "perimeter": 197.01219260692596,
+          "circularity": 0.19765569107816577,
+          "eccentricity": 0.885642032262235,
+          "solidity": 0.7377643504531722,
+          "high_saturation_fraction": 0.3977272727272727,
+          "stain_boundary_irregularity": 5.497245871334837,
+          "hue_mean": 144.16761363636363,
+          "hue_std": 47.84637795007719,
+          "saturation_mean": 27.823863636363637,
+          "saturation_std": 9.846994168944304,
+          "value_mean": 197.5568181818182,
+          "value_std": 4.119267241064335,
+          "glcm_energy": 0.46609489428057804,
+          "glcm_contrast": 0.15680473372781065,
+          "glcm_homogeneity": 0.9233727810650887,
+          "glcm_entropy": 2.63297109231001,
+          "glcm_correlation": 0.908859651800523,
+          "lbp_bin0": 0.0472972972972973,
+          "lbp_bin1": 0.4172297297297297,
+          "lbp_bin2": 0.46452702702702703,
+          "lbp_bin3": 0.07094594594594594
+        }
+      }
+    },
+    {
+      "object_id": 18,
+      "cell_type": "RBC",
+      "box": [
+        230,
+        323,
+        319,
+        407
+      ],
+      "detector_score": 0.30103278160095215,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 5893.5,
+          "perimeter": 339.4385985136032,
+          "circularity": 0.6427775510018628,
+          "eccentricity": 0.8517816621496457,
+          "solidity": 0.9467469879518072,
+          "high_saturation_fraction": 0.5155320555188367,
+          "stain_boundary_irregularity": 9.338472149402197,
+          "hue_mean": 79.96794448116326,
+          "hue_std": 81.07736607521366,
+          "saturation_mean": 35.566259087904825,
+          "saturation_std": 7.062585272028779,
+          "value_mean": 197.08674818241903,
+          "value_std": 7.426011530950112,
+          "glcm_energy": 0.47420502594340047,
+          "glcm_contrast": 0.18978837756130335,
+          "glcm_homogeneity": 0.91677172044498,
+          "glcm_entropy": 2.7588200341013622,
+          "glcm_correlation": 0.9203088897846083,
+          "lbp_bin0": 0.050102599179206564,
+          "lbp_bin1": 0.2741108071135431,
+          "lbp_bin2": 0.44493844049247605,
+          "lbp_bin3": 0.23084815321477428
+        }
+      }
+    },
+    {
+      "object_id": 19,
+      "cell_type": "RBC",
+      "box": [
+        553,
+        0,
+        639,
+        29
+      ],
+      "detector_score": 0.283888041973114,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 3,
+        "features": {
+          "area": 910.0,
+          "perimeter": 140.28427052497864,
+          "circularity": 0.581076483960753,
+          "eccentricity": 0.7558845384129236,
+          "solidity": 0.9243270695784662,
+          "high_saturation_fraction": 0.7001023541453428,
+          "stain_boundary_irregularity": 3.413142776680996,
+          "hue_mean": 70.10747185261003,
+          "hue_std": 80.182134757971,
+          "saturation_mean": 48.21084953940635,
+          "saturation_std": 7.201910712216394,
+          "value_mean": 174.6949846468782,
+          "value_std": 3.941629565068074,
+          "glcm_energy": 0.5278526144694979,
+          "glcm_contrast": 0.1696522655426765,
+          "glcm_homogeneity": 0.9189673340358271,
+          "glcm_entropy": 2.3768515534360257,
+          "glcm_correlation": 0.8708525402589983,
+          "lbp_bin0": 0.05420353982300885,
+          "lbp_bin1": 0.22013274336283187,
+          "lbp_bin2": 0.46792035398230086,
+          "lbp_bin3": 0.2577433628318584
+        }
+      }
+    },
+    {
+      "object_id": 20,
+      "cell_type": "RBC",
+      "box": [
+        0,
+        231,
+        21,
+        328
+      ],
+      "detector_score": 0.28062352538108826,
+      "morphology": {
+        "available": true,
+        "method": "largest Otsu foreground region within detector box",
+        "touches_crop_border": true,
+        "foreground_regions": 1,
+        "features": {
+          "area": 887.0,
+          "perimeter": 180.28427076339722,
+          "circularity": 0.3429397356622852,
+          "eccentricity": 0.9370982571170079,
+          "solidity": 0.8726020659124447,
+          "high_saturation_fraction": 0.7032854209445585,
+          "stain_boundary_irregularity": 2.811053384412801,
+          "hue_mean": 130.9681724845996,
+          "hue_std": 69.48876095249918,
+          "saturation_mean": 30.469199178644764,
+          "saturation_std": 9.91682949140298,
+          "value_mean": 177.57392197125256,
+          "value_std": 3.93272188896238,
+          "glcm_energy": 0.4624163972651706,
+          "glcm_contrast": 0.210467706013363,
+          "glcm_homogeneity": 0.8947661469933185,
+          "glcm_entropy": 2.714613960383717,
+          "glcm_correlation": 0.8708621024835469,
+          "lbp_bin0": 0.060335195530726256,
+          "lbp_bin1": 0.329608938547486,
+          "lbp_bin2": 0.46145251396648046,
+          "lbp_bin3": 0.14860335195530727
+        }
+      }
+    }
+  ],
+  "diagnosis": {
+    "status": "not_assessed"
+  },
+  "model_provenance": {
+    "detector": {
+      "path": "runs/detect/runs/stage1_detection/weights/best.pt",
+      "task": "detect",
+      "names": [
+        "RBC",
+        "WBC",
+        "Platelet"
+      ],
+      "sha256": "e3fca87cb77bb571810a77880e40d2e41f51195147b89340097e8283cdcae63d",
+      "confidence": 0.25
+    },
+    "wbc": {
+      "path": "runs/verified/wbc_crop_seed42/weights/last.pt",
+      "task": "classify",
+      "names": [
+        "EOSINOPHIL",
+        "LYMPHOCYTE",
+        "MONOCYTE",
+        "NEUTROPHIL"
+      ],
+      "sha256": "846e9343680cfaa2ff6b540d66a6f3f04a56e8f16e67faaf5fc26395d246d802",
+      "review_threshold": 0.5,
+      "review_policy": "Minimum validation threshold on 0.50:0.01:0.99 with at least 20 accepted matches and 90% empirical correctness. No guarantee on new data."
+    }
+  },
+  "scope": "Image-field counts and research predictions; not a complete blood count or diagnosis."
+}

@@ -1,0 +1,12 @@
+{
+  "startup_modes": [
+    "Blood cells + ALL screening",
+    "Blood cells + ALL screening experimental",
+    "Blood cell analysis",
+    "Single WBC crop",
+    "Leukemia screening (ALL)",
+    "Leukemia screening (ALL) experimental"
+  ],
+  "combined_analysis": "passed",
+  "default_method_preserved": true
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "l2": 0.0001,
+    "ranking_weight": 0.0,
+    "macro_f1": 0.9876053770790613,
+    "nll": 0.04662902656384807,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 75,
+      "evaluations": 80,
+      "objective": 0.0007124458217948192
+    }
+  },
+  {
+    "l2": 0.001,
+    "ranking_weight": 0.0,
+    "macro_f1": 0.9876053770790613,
+    "nll": 0.042467379343518755,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 91,
+      "evaluations": 98,
+      "objective": 0.004254434760016518
+    }
+  },
+  {
+    "l2": 0.01,
+    "ranking_weight": 0.0,
+    "macro_f1": 0.9888839285714286,
+    "nll": 0.045823376089650404,
+    "optimization": {
+      "success": true,
+      "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+      "iterations": 76,
+      "evaluations": 82,
+      "objective": 0.022405310105813533
+    }
+  }
+]

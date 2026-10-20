@@ -1,0 +1,65 @@
+{
+  "BCCD_YOLO": {
+    "counts": {
+      "test": 72,
+      "train": 205,
+      "val": 87
+    },
+    "file": {
+      "duplicate_groups": 0,
+      "cross_split_groups": 0,
+      "cross_split_files": 0
+    },
+    "pixels": {
+      "duplicate_groups": 0,
+      "cross_split_groups": 0,
+      "cross_split_files": 0
+    }
+  },
+  "BloodCell_CLS_v2": {
+    "counts": {
+      "train": 9960,
+      "val": 2476
+    },
+    "file": {
+      "duplicate_groups": 0,
+      "cross_split_groups": 0,
+      "cross_split_files": 0
+    },
+    "pixels": {
+      "duplicate_groups": 0,
+      "cross_split_groups": 0,
+      "cross_split_files": 0
+    }
+  },
+  "wbc_provenance": {
+    "original_files": 12444,
+    "mapped_files": 12436,
+    "ambiguous_files": 0,
+    "source_groups": 348,
+    "cross_split_source_groups": 345,
+    "validation_files_in_crossed_groups": 2476
+  },
+  "Leukemia_CLS_v2": {
+    "counts": {
+      "train": 2575,
+      "val": 641
+    },
+    "file": {
+      "duplicate_groups": 0,
+      "cross_split_groups": 0,
+      "cross_split_files": 0
+    },
+    "pixels": {
+      "duplicate_groups": 0,
+      "cross_split_groups": 0,
+      "cross_split_files": 0
+    }
+  },
+  "leukemia_original": {
+    "files": 3256,
+    "unique_file_hashes": 3216,
+    "redundant_files": 40,
+    "patient_ids_available": false
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "criteria": {
+    "phash_max": 16,
+    "ratio_test": 0.75,
+    "ransac_pixels": 3,
+    "min_inliers": 12,
+    "min_inlier_fraction": 0.6,
+    "min_field_coverage": 0.1
+  },
+  "candidates": [
+    {
+      "a": {
+        "source_id": "BloodImage_00038",
+        "split": "train",
+        "path": "data/BCCD_YOLO/train/images/BloodImage_00038.jpeg"
+      },
+      "b": {
+        "source_id": "BloodImage_00037",
+        "split": "val",
+        "path": "data/BCCD_YOLO/val/images/BloodImage_00037.jpeg"
+      },
+      "phash_distance": 4,
+      "inliers": 25,
+      "inlier_fraction": 0.78125,
+      "covered_fraction_a": 0.5137693424590961,
+      "covered_fraction_b": 0.5113228788519596,
+      "affine": [
+        [
+          0.9999901560816882,
+          0.0014689693329429333,
+          -5.042270552338323
+        ],
+        [
+          -0.0014689693329429333,
+          0.9999901560816882,
+          0.36988978669014144
+        ]
+      ]
+    },
+    {
+      "a": {
+        "source_id": "BloodImage_00382",
+        "split": "train",
+        "path": "data/BCCD_YOLO/train/images/BloodImage_00382.jpeg"
+      },
+      "b": {
+        "source_id": "BloodImage_00395",
+        "split": "train",
+        "path": "data/BCCD_YOLO/train/images/BloodImage_00395.jpeg"
+      },
+      "phash_distance": 16,
+      "inliers": 45,
+      "inlier_fraction": 0.9183673469387755,
+      "covered_fraction_a": 0.3714866507754967,
+      "covered_fraction_b": 0.37048789105100555,
+      "affine": [
+        [
+          0.9997755814358806,
+          -0.00024082108503018515,
+          -45.531616445734166
+        ],
+        [
+          0.00024082108503018515,
+          0.9997755814358806,
+          44.28105175098479
+        ]
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "source_id": "BloodImage_00037",
+      "split": "val",
+      "reason": "related scene occurs in an earlier fitting or selection split",
+      "related_sources": [
+        "BloodImage_00038"
+      ]
+    }
+  ],
+  "limitation": "Content screening cannot establish patient-level independence; accepted candidates also need visual review."
+}

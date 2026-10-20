@@ -1,0 +1,55 @@
+{
+  "validation": {
+    "original": {
+      "candidates": [
+        {
+          "C": 0.01,
+          "validation_macro_f1": 0.9850016844435905
+        },
+        {
+          "C": 0.1,
+          "validation_macro_f1": 0.9888839285714286
+        },
+        {
+          "C": 1.0,
+          "validation_macro_f1": 0.9876053770790613
+        },
+        {
+          "C": 10.0,
+          "validation_macro_f1": 0.9870508823137532
+        }
+      ],
+      "selected_C": 0.1,
+      "temperature": 0.9103393699998712
+    },
+    "stain": {
+      "candidates": [
+        {
+          "C": 0.01,
+          "validation_macro_f1": 0.934368898587453
+        },
+        {
+          "C": 0.1,
+          "validation_macro_f1": 0.9322496706468623
+        },
+        {
+          "C": 1.0,
+          "validation_macro_f1": 0.9290543982845824
+        },
+        {
+          "C": 10.0,
+          "validation_macro_f1": 0.9236747051177461
+        }
+      ],
+      "selected_C": 0.01,
+      "temperature": 0.8119646480312076
+    }
+  },
+  "thresholds": {
+    "binary": 0.5,
+    "subtype": 0.5
+  },
+  "feature_context_sha256": "d9f8d7699787a92abc7b219ee7e0d980331ea89698e25c48297519b8f906a2ef",
+  "protocol": "audit/LEUKEMIA_PROTOCOL.md",
+  "selection": "Training and validation only; saved before test prediction."
+}

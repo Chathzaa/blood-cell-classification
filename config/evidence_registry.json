@@ -1,0 +1,27 @@
+{
+  "method": "Area matched evidence regularization (AMER)",
+  "head": {
+    "path": "runs/all_novel/amer.joblib",
+    "sha256": "9218ca525c7660cefd866dacc4bf84f6096cff68631e107ff19fcccfc5bf17a6"
+  },
+  "backbone": {
+    "path": "yolov8n-cls.pt",
+    "sha256": "11fa19f2aea79bc960d680a13f82f22105982b325eb9e17a4a5e1a9f8245980a"
+  },
+  "labels": [
+    "Benign",
+    "Early",
+    "Pre",
+    "Pro"
+  ],
+  "thresholds": {
+    "binary": 0.54,
+    "subtype": 0.5
+  },
+  "source_hashes": {
+    "src/evidence_regularization.py": "422146d7d763b05d0b5b09755f709aefff54ea08f44abb43e67fe38436fe5dcd",
+    "src/all_views.py": "aef0246844187b1e50529155cf4d1a6c2e1d73db804dee6bdce556858ce3e2db"
+  },
+  "selection_sha256": "0e3e4849468df4ea805bee7286e72e930d8f916f90caa02afc0a133f1e094a14",
+  "scope": "Exploratory ALL field screening. The test partition was previously evaluated; patient independence and clinical diagnosis are not established."
+}

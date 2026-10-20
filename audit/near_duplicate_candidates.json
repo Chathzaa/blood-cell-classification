@@ -1,0 +1,112 @@
+{
+  "BCCD_YOLO": {
+    "images": 364,
+    "held_out_images": 159,
+    "candidates": [
+      {
+        "query": "data/BCCD_YOLO/val/images/BloodImage_00037.jpeg",
+        "reference": "data/BCCD_YOLO/train/images/BloodImage_00038.jpeg",
+        "distance": 4,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      }
+    ],
+    "method": "64-bit DCT hash; eight rotations/reflections; distance <=4"
+  },
+  "Leukemia_CLS_v2": {
+    "images": 3216,
+    "held_out_images": 641,
+    "candidates": [
+      {
+        "query": "data/Leukemia_CLS_v2/val/Benign/WBC-Benign-005.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Benign/WBC-Benign-004.jpg",
+        "distance": 2,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Benign/WBC-Benign-294.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Benign/WBC-Benign-291.jpg",
+        "distance": 0,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Early/WBC-Malignant-Early-472.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Early/WBC-Malignant-Early-470.jpg",
+        "distance": 2,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Early/WBC-Malignant-Early-543.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Early/WBC-Malignant-Early-541.jpg",
+        "distance": 0,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Early/WBC-Malignant-Early-624.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Early/WBC-Malignant-Early-626.jpg",
+        "distance": 0,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Early/WBC-Malignant-Early-735.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Early/WBC-Malignant-Early-733.jpg",
+        "distance": 0,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Early/WBC-Malignant-Early-843.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Early/WBC-Malignant-Early-845.jpg",
+        "distance": 2,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pre/WBC-Malignant-Pre-024.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pre/WBC-Malignant-Pre-027.jpg",
+        "distance": 0,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pre/WBC-Malignant-Pre-156.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pre/WBC-Malignant-Pre-154.jpg",
+        "distance": 4,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pre/WBC-Malignant-Pre-346.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pre/WBC-Malignant-Pre-347.jpg",
+        "distance": 4,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pre/WBC-Malignant-Pre-504.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pre/WBC-Malignant-Pre-505.jpg",
+        "distance": 2,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pre/WBC-Malignant-Pre-729.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pre/WBC-Malignant-Pre-730.jpg",
+        "distance": 4,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pro/WBC-Malignant-Pro-203.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pro/WBC-Malignant-Pro-202.jpg",
+        "distance": 0,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pro/WBC-Malignant-Pro-387.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pro/WBC-Malignant-Pro-506.jpg",
+        "distance": 4,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      },
+      {
+        "query": "data/Leukemia_CLS_v2/val/Pro/WBC-Malignant-Pro-726.jpg",
+        "reference": "data/Leukemia_CLS_v2/train/Pro/WBC-Malignant-Pro-727.jpg",
+        "distance": 2,
+        "interpretation": "Visual similarity candidate, not confirmed duplicate or patient match."
+      }
+    ],
+    "method": "64-bit DCT hash; eight rotations/reflections; distance <=4"
+  }
+}

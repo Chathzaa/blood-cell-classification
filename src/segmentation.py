@@ -1,3 +1,7 @@
+"""Historical watershed exploration; the evaluated pipeline uses features.measure_box.
+
+This helper has no expert-mask benchmark and supplies no segmentation accuracy claim.
+"""
 # import cv2
 # import numpy as np
 

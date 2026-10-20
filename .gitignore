@@ -217,3 +217,23 @@ ultralytics/runs/
 
 # CI/CD
 .github/workflows/test_results/
+# Local build tools, temporary previews, archives and historical audit snapshots
+/.tools/
+/Ultralytics/
+/audit/
+/deliverables/
+/paper/final_conference/previews/
+/paper/final_conference/*.aux
+/paper/final_conference/*.out
+/paper/final_conference/*.xdv
+/paper/final_conference/*.synctex.gz
+/paper/final_conference/figures/*.png
+/PACKAGE_CONTENTS.md
+/tools/package_release.py
+/tools/package_all_release.py
+/tools/package_evidence_release.py
+# Only the files enumerated in tools/release_manifest.py are added from ignored
+# model, manifest, audit and result directories. Raw images and caches stay local.
+
+/tools/complete_study.py
+/tools/fetch_reference_metadata.py

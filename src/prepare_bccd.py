@@ -23,10 +23,12 @@ def convert_supervisely_ann(ann_path, img_w, img_h):
         if len(pts) < 2:
             continue
 
-        x1 = min(p[0] for p in pts)
-        y1 = min(p[1] for p in pts)
-        x2 = max(p[0] for p in pts)
-        y2 = max(p[1] for p in pts)
+        x1 = max(0, min(img_w, min(p[0] for p in pts)))
+        y1 = max(0, min(img_h, min(p[1] for p in pts)))
+        x2 = max(0, min(img_w, max(p[0] for p in pts)))
+        y2 = max(0, min(img_h, max(p[1] for p in pts)))
+        if x2 <= x1 or y2 <= y1:
+            raise ValueError(f'Degenerate bounding box in {ann_path}')
 
         cx = ((x1 + x2) / 2) / img_w
         cy = ((y1 + y2) / 2) / img_h
@@ -94,7 +96,7 @@ def prepare_bccd():
             if os.path.exists(ann_path):
                 lines = convert_supervisely_ann(ann_path, w, h)
             else:
-                lines = []  # empty label if no annotation found
+                raise FileNotFoundError(f'Missing annotation for {img_path}')
 
             label_name = os.path.splitext(fname)[0] + '.txt'
             with open(os.path.join(out_lbl, label_name), 'w') as f:
